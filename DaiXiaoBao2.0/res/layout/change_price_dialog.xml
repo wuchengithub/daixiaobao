@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/new_shenhui"
+    android:minWidth="280dip" 
+    android:paddingBottom="24.0dp">
+
+    <TextView
+        android:id="@+id/oriPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24.0dp"
+        android:text="原价：￥276元"
+        android:textColor="@color/new_yanhui"
+        android:textSize="16.0dp" />
+
+    <EditText
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/oriPrice"
+        android:ems="10"
+        android:hint="请输入新的价格（元）"
+        android:inputType="numberSigned" 
+        android:layout_marginTop="18.0dp"
+        android:textSize="24.0dp"
+        android:textColorHint="@color/new_qianbai3"
+        android:textColor="@color/new_yanhui"
+        android:gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/positiveButton"
+        android:layout_width="178.0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32.0dp"
+        android:text="收藏到我的店铺"
+        android:textColor="@color/new_yanhui"
+        android:background="@drawable/btn_bg_red"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <EditText
+        android:id="@+id/EditId_for_userName"
+        style="@style/TitleText_register_login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入手机号" />
+
+    <EditText
+        android:id="@+id/EditId_for_pwd"
+        style="@style/TitleText_register_login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入密码(6-16位)"
+        android:inputType="textPassword" />
+
+    <RelativeLayout
+        android:id="@+id/register_tel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
+
+        <EditText
+            android:id="@+id/input_token"
+            style="@style/TitleText_register_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/get_token_button"
+            android:hint="请输入验证码(4位)"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/get_token_button"
+            style="@style/button_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/button_submit_selector"
+            android:text="获取验证码" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/btnId_for_find_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:gravity="right"
+            android:text="@string/forget_pass"
+            android:textColor="#CD6839"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnId_for_submit_login"
+            style="@style/button_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/button_submit_selector"
+            android:text="登录" />
+    </LinearLayout>
+
+</LinearLayout>

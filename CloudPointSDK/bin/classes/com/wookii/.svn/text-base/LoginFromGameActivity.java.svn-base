@@ -1,0 +1,172 @@
+package com.cloudpoint.cpgamespaysdk.activitis;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.cloudpoint.cpgamespaysdk.alipay.BaseHelper;
+import com.cloudpoint.cpgamespaysdk.model.UserInfo;
+import com.cloudpoint.cpgamespaysdk.protocollManager.ProtocolManager;
+import com.cloudpoint.cpgamespaysdk.utils.DeviceTool;
+import com.cloudpoint.cpgamespaysdk.utils.LoginMessageDataUtils;
+
+public class LoginFromGameActivity extends Activity {
+	public final static int Login_RESULT_CODE = 3;
+
+	private Context activity;
+	private Intent intent;
+
+	private EditText mUserNameET, mPasswordET;
+	private Button mLoginButton, mToRegButton;
+
+	private String toastInfo;
+	private ProgressDialog mDialog;
+	private ProtocolManager dataManager;
+
+	private String userName;
+	private String pwd;
+
+	private TextView findPassword;
+	private ImageButton close;
+
+	private String LOGIN_FROM_GAME = "1";
+
+	private Handler mHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			dismissDialog();
+			switch (msg.what) {
+			case ProtocolManager.LOGIN_SUCCESS:
+				UserInfo userInfo = (UserInfo) msg.obj;
+				LoginMessageDataUtils.insertUID(activity, userInfo.getUid());
+				LoginMessageDataUtils.inserttelNum(activity, userInfo.getTelNum());
+				LoginMessageDataUtils
+						.insertToken(activity, userInfo.getToken());
+				LoginMessageDataUtils.insertNickName(activity,
+						userInfo.getNickName());
+				toastInfo = "登陆成功";
+				intent.putExtra("JSON", toastInfo);
+				setResult(CloudPointSDKManager.SUCCESS, intent);
+				showToast("登录成功");
+				finish();
+				break;
+			case ProtocolManager.TIMEOUT_ERROR:
+			case ProtocolManager.NETWORK_ERROR:
+				setResult(CloudPointSDKManager.FAIL);
+				showToast("网络错误");
+				break;
+			case ProtocolManager.NOTIFICATION_RESPONSE_ERRORINFO:
+				setResult(CloudPointSDKManager.FAIL);
+				showToast(msg.obj.toString());
+				break;
+			default:
+				super.handleMessage(msg);
+				break;
+			}
+
+		}
+	};
+
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		activity = this;
+		intent = getIntent();
+
+		int layoutId = ResourcesIdFactoryUtils.getLayoutId(
+				activity.getApplicationContext(), "cpsdk_login_from_game");
+		setContentView(layoutId);
+
+		mUserNameET = (EditText) findViewById(ResourcesIdFactoryUtils.getId(
+				activity.getApplicationContext(), "et_username_from_game"));
+		mPasswordET = (EditText) findViewById(ResourcesIdFactoryUtils.getId(
+				activity.getApplicationContext(), "et_password_from_game"));
+
+		findPassword = (TextView) findViewById(ResourcesIdFactoryUtils.getId(
+				activity.getApplicationContext(), "et_find_password_from_game"));
+		findPassword.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				CloudPointSDKManager.openFindPasswordViewFromGame(activity,
+						CloudPointSDKManager.FIND_PASSWORD_REQUEST_CODE);
+			}
+		});
+
+		mLoginButton = (Button) findViewById(ResourcesIdFactoryUtils.getId(
+				activity.getApplicationContext(), "btn_login_from_game"));
+		mLoginButton.setOnClickListener(mLoginButtonClickListener);
+		mToRegButton = (Button) findViewById(ResourcesIdFactoryUtils.getId(
+				activity.getApplicationContext(), "btn_to_reg_from_game"));
+		mToRegButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				CloudPointSDKManager.openRegView(activity,
+						CloudPointSDKManager.FIND_PASSWORD_REQUEST_CODE);
+			}
+		});
+		close = (ImageButton) findViewById(ResourcesIdFactoryUtils.getId(
+				activity, "ib_close"));
+		close.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				finish();
+			}
+		});
+		mUserNameET.setText(LoginMessageDataUtils.getTelNum(activity));
+	};
+
+	private View.OnClickListener mLoginButtonClickListener = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			userName = mUserNameET.getText().toString().trim();
+			pwd = mPasswordET.getText().toString().trim();
+			if (TextUtils.isEmpty(userName)) {
+				showToast("手机号码不能为空");
+			} else if (11 < userName.length()) {
+				showToast("手机号位数大于11位，请确认手机号");
+			} else if (11 > userName.length()) {
+				showToast("手机号位数不足11位，请确认手机号");
+			} else if (TextUtils.isEmpty(pwd)) {
+				showToast("密码不能为空");
+			} else if (16 < pwd.length() || 6 > pwd.length()) {
+				showToast("密码长度不正确，请输入6-16位密码");
+			} else {
+				mDialog = BaseHelper.showProgress(activity, null, "正在登录",
+						false, true);
+				dataManager = new ProtocolManager(activity, mHandler);
+				String deviceId = DeviceTool.getUniqueId(activity);
+				// first_login 可选 0：非首次登录 1：首次登录 默认值为 0
+				dataManager.login(userName, pwd, deviceId, "0", "",
+						LOGIN_FROM_GAME);
+			}
+		}
+	};
+
+	/*
+	 * private void showDialog(String text) { if (mDialog == null) { mDialog =
+	 * ProgressDialog .show(mParentActivity, "", text, true, true); } else {
+	 * mDialog.show(); } }
+	 */
+
+	private void dismissDialog() {
+		if (mDialog != null && mDialog.isShowing()) {
+			mDialog.dismiss();
+		}
+	}
+
+	private void showToast(String text) {
+		Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
+	}
+
+}

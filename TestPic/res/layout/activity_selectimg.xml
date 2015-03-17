@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/custom_actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dp"
+        android:background="@color/new_yese" >
+
+        <ImageView
+            android:id="@+id/custon_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="12.0dp"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/custon_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="创建产品"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/custom_actionbar" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="12.0dp" >
+
+            <EditText
+                android:id="@+id/product_desc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|top"
+                android:hint="请在这里填写产品描述……"
+                android:inputType="textMultiLine"
+                android:lines="3" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/product_desc"
+                android:layout_marginTop="8.0dp"
+                android:hint="请在这里记录货源地址"
+                android:inputType="textMultiLine" />
+
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/address"
+                android:layout_marginTop="8.0dp"
+                android:hint="输入进货价"
+                android:inputType="numberSigned" />
+
+            <EditText
+                android:id="@+id/price2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price"
+                android:layout_marginTop="8.0dp"
+                android:hint="输入代理价"
+                android:inputType="numberSigned" />
+
+            <CheckBox
+                android:id="@+id/isaljj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price2"
+                android:layout_marginTop="8.0dp"
+                android:text="同步到阿里九九"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spinner_dangkou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/isaljj"
+                android:layout_toRightOf="@+id/isaljj"
+                android:visibility="gone" />
+
+            <GridView
+                android:id="@+id/noScrollgridview"
+                android:layout_width="290dp"
+                android:layout_height="350dp"
+                android:layout_below="@+id/isaljj"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8.0dp"
+                android:horizontalSpacing="3dp"
+                android:numColumns="4"
+                android:scrollbars="none"
+                android:verticalSpacing="5dp" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/publish_content"
+        android:layout_width="fill_parent"
+        android:layout_height="600.0dp"
+        android:layout_above="@+id/next"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="12.0dp"
+        android:background="@drawable/btn_bg_red"
+        android:text="下一步"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

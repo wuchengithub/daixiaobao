@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/new_shenhui"
+    android:orientation="vertical"
+    android:paddingLeft="16.0dp"
+    android:paddingRight="16.0dp"
+    android:paddingTop="30.0dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加好友"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/new_yanhui" />
+
+    <EditText
+        android:id="@+id/add_supplier_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/new_tab_non"
+        android:ems="10"
+        android:layout_marginTop="12.0dp"
+        android:hint="输入好友名称"
+        android:padding="8.0dp"
+        android:textColor="@color/new_yanhui"
+        android:textColorHint="@color/new_qianbai3" />
+
+    <EditText
+        android:id="@+id/add_supplier_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12.0dp"
+        android:background="@color/new_tab_non"
+        android:gravity="bottom|left"
+        android:hint="在此输入验证消息..."
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:padding="8.0dp"
+        android:textColor="@color/new_yanhui"
+        android:textColorHint="@color/new_qianbai3" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32.0dp"
+        android:text="发起邀请成功后，可以通过以下操作：\r\n好友->选中好友后，您可以再产品查询界面查询的产品都是此好友的产品哦！\r\n请勿重复发送验证消息，请耐心等候对方通过！"
+        android:textColor="@color/new_yanhui" />
+
+    <Button
+        android:id="@+id/add_supplier_send"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60.0dp"
+        android:layout_marginTop="32.0dp"
+        android:background="@drawable/btn_bg_red"
+        android:text="发送验证消息"
+        android:textColor="@color/new_yanhui" />
+
+</LinearLayout>

@@ -1,0 +1,188 @@
+package com.cloudpoint.cpgamespaysdk.activitis;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.cloudpoint.cpgamespaysdk.protocollManager.ProtocolManager;
+import com.cloudpoint.cpgamespaysdk.utils.DeviceTool;
+import com.cloudpoint.cpgamespaysdk.utils.LoginMessageDataUtils;
+import com.cloudpoint.cpgamespaysdk.utils.Str_MD5;
+
+public class GetMoneyLogActivity extends Activity {
+	public final static int GetMoneyLog_RESULT_CODE = 7;
+
+	Button btnId_for_rechargesubmit, btnId_for_spendsubmit;
+	String toastInfo;
+	private ProgressDialog pd;
+	ProtocolManager dataManager;
+	String mtype = "";
+
+	String otherCode = "";
+
+	private Handler mHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case ProtocolManager.NOTIFICATION:
+				if (pd != null) {
+					if (pd.isShowing()) {
+						pd.dismiss();
+					}
+				}
+				toastInfo = msg.obj.toString();
+
+				Intent intent = new Intent();
+				intent.putExtra("JSON", toastInfo);
+				setResult(GetMoneyLog_RESULT_CODE, intent);
+				Toast.makeText(GetMoneyLogActivity.this, toastInfo,
+						Toast.LENGTH_LONG).show();
+				finish();
+				break;
+			case ProtocolManager.NETWORK_ERROR:
+				if (pd != null) {
+					if (pd.isShowing()) {
+						pd.dismiss();
+					}
+				}
+				break;
+
+			case ProtocolManager.TIMEOUT_ERROR:
+
+				break;
+			case ProtocolManager.NOTIFICATION_RESPONSE_ERRORINFO:
+				if (pd != null) {
+					if (pd.isShowing()) {
+						pd.dismiss();
+					}
+				}
+				toastInfo = msg.obj.toString();
+				Toast.makeText(GetMoneyLogActivity.this, toastInfo,
+						Toast.LENGTH_LONG).show();
+				break;
+			case ProtocolManager.NOTIFICATION_NOTREGISTERLOGIN:
+				if (pd != null) {
+					if (pd.isShowing()) {
+						pd.dismiss();
+					}
+				}
+				String uid = msg.obj.toString();
+				LoginMessageDataUtils.insertUID(GetMoneyLogActivity.this, uid);
+				Toast.makeText(GetMoneyLogActivity.this, uid, Toast.LENGTH_LONG)
+						.show();
+
+				String token = LoginMessageDataUtils
+						.getToken(GetMoneyLogActivity.this);
+
+				token = Str_MD5.tokenToMD5(uid, token, otherCode);
+
+				dataManager.getMoneyLog(token, uid, mtype);
+				if (pd == null) {
+					pd = ProgressDialog.show(GetMoneyLogActivity.this, "",
+							"���Ե�...", true, true);
+				} else {
+					pd.show();
+				}
+
+				break;
+			default:
+
+				super.handleMessage(msg);
+				break;
+			}
+
+		}
+	};
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.getmoneylog);
+
+		findView();
+		btnId_for_spendsubmit
+				.setOnClickListener(new BtnId_for_spendsubmitListener());
+		btnId_for_rechargesubmit
+				.setOnClickListener(new BtnId_for_rechargesubmitListener());
+	}
+
+	private void findView() {
+		btnId_for_spendsubmit = (Button) this
+				.findViewById(R.id.btnId_for_spendsubmit);
+		btnId_for_rechargesubmit = (Button) this
+				.findViewById(R.id.btnId_for_rechargesubmit);
+		dataManager = new ProtocolManager(GetMoneyLogActivity.this, mHandler);
+
+	}
+
+	class BtnId_for_rechargesubmitListener implements OnClickListener {
+		@Override
+		public void onClick(View v) {
+			String uid = LoginMessageDataUtils.getUID(GetMoneyLogActivity.this);
+			String token = "111";
+			mtype = "recharge";
+			if (uid == null || uid.equals("")) {
+				dataManager.notRegisterLogin(
+						DeviceTool.getDeviceId(GetMoneyLogActivity.this),
+						DeviceTool.getSubscriberId(GetMoneyLogActivity.this));
+
+				if (pd == null) {
+					pd = ProgressDialog.show(GetMoneyLogActivity.this, "",
+							"���Ե�...", true, true);
+				} else {
+					pd.show();
+				}
+			} else {
+				dataManager.getMoneyLog(token, uid, mtype);
+				if (pd == null) {
+					pd = ProgressDialog.show(GetMoneyLogActivity.this, "",
+							"���Ե�...", true, true);
+				} else {
+					pd.show();
+				}
+			}
+
+		}
+	}
+
+	class BtnId_for_spendsubmitListener implements OnClickListener {
+		@Override
+		public void onClick(View v) {
+			String uid = LoginMessageDataUtils.getUID(GetMoneyLogActivity.this);
+			String token = LoginMessageDataUtils
+					.getToken(GetMoneyLogActivity.this);
+			token = Str_MD5.tokenToMD5(uid, token, otherCode);
+
+			mtype = "spend";
+			if (uid == null || uid.equals("")) {
+				dataManager.notRegisterLogin(
+						DeviceTool.getDeviceId(GetMoneyLogActivity.this),
+						DeviceTool.getSubscriberId(GetMoneyLogActivity.this));
+
+				if (pd == null) {
+					pd = ProgressDialog.show(GetMoneyLogActivity.this, "",
+							"���Ե�...", true, true);
+				} else {
+					pd.show();
+				}
+			} else {
+				dataManager.getMoneyLog(token, uid, mtype);
+				if (pd == null) {
+					pd = ProgressDialog.show(GetMoneyLogActivity.this, "",
+							"���Ե�...", true, true);
+				} else {
+					pd.show();
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,151 @@
+package com.cloudpoint.cpgamespaysdk.activitis;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.cloudpoint.cpgamespaysdk.protocollManager.ProtocolManager;
+import com.cloudpoint.cpgamespaysdk.utils.DeviceTool;
+import com.cloudpoint.cpgamespaysdk.utils.LoginMessageDataUtils;
+import com.cloudpoint.cpgamespaysdk.utils.Str_MD5;
+
+public class GetLastPayLogActivity extends Activity {
+	public final static int GetLastPayLog_RESULT_CODE = 5;
+
+	Button btnId_for_submit;
+	String toastInfo;
+	private ProgressDialog pd;
+	ProtocolManager dataManager;
+
+	String otherCode = "";
+	private Handler mHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case ProtocolManager.NOTIFICATION:
+				if (pd != null) {
+					if (pd.isShowing()) {
+						pd.dismiss();
+					}
+				}
+				toastInfo = msg.obj.toString();
+
+				Intent intent = new Intent();
+				intent.putExtra("JSON", toastInfo);
+				setResult(GetLastPayLog_RESULT_CODE, intent);
+				Toast.makeText(GetLastPayLogActivity.this, toastInfo,
+						Toast.LENGTH_LONG).show();
+				finish();
+				break;
+			case ProtocolManager.NETWORK_ERROR:
+				if (pd != null) {
+					if (pd.isShowing()) {
+						pd.dismiss();
+					}
+				}
+				break;
+
+			case ProtocolManager.TIMEOUT_ERROR:
+
+				break;
+			case ProtocolManager.NOTIFICATION_RESPONSE_ERRORINFO:
+				if (pd != null) {
+					if (pd.isShowing()) {
+						pd.dismiss();
+					}
+				}
+				toastInfo = msg.obj.toString();
+				Toast.makeText(GetLastPayLogActivity.this, toastInfo,
+						Toast.LENGTH_LONG).show();
+				break;
+			case ProtocolManager.NOTIFICATION_NOTREGISTERLOGIN:
+				if (pd != null) {
+					if (pd.isShowing()) {
+						pd.dismiss();
+					}
+				}
+				String uid = msg.obj.toString();
+				LoginMessageDataUtils
+						.insertUID(GetLastPayLogActivity.this, uid);
+				Toast.makeText(GetLastPayLogActivity.this, uid,
+						Toast.LENGTH_LONG).show();
+
+				String token = "111";
+
+				dataManager.getLastPayLogProtocol(token, uid);
+
+				if (pd == null) {
+					pd = ProgressDialog.show(GetLastPayLogActivity.this, "",
+							"...", true, true);
+				} else {
+					pd.show();
+				}
+
+				break;
+			default:
+
+				super.handleMessage(msg);
+				break;
+			}
+
+		}
+	};
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.getlastpaylog);
+
+		findView();
+		btnId_for_submit.setOnClickListener(new BtnId_for_submitListener());
+	}
+
+	private void findView() {
+		btnId_for_submit = (Button) this.findViewById(R.id.btnId_for_submit);
+
+		dataManager = new ProtocolManager(GetLastPayLogActivity.this, mHandler);
+	}
+
+	class BtnId_for_submitListener implements OnClickListener {
+		@Override
+		public void onClick(View v) {
+			String uid = LoginMessageDataUtils
+					.getUID(GetLastPayLogActivity.this);
+			String token = LoginMessageDataUtils
+					.getToken(GetLastPayLogActivity.this);
+
+			token = Str_MD5.tokenToMD5(uid, token, otherCode);
+
+			if (uid == null || uid.equals("")) {
+				dataManager.notRegisterLogin(
+						DeviceTool.getDeviceId(GetLastPayLogActivity.this),
+						DeviceTool.getSubscriberId(GetLastPayLogActivity.this));
+
+				if (pd == null) {
+					pd = ProgressDialog.show(GetLastPayLogActivity.this, "",
+							"获取失败...", true, true);
+				} else {
+					pd.show();
+				}
+			} else {
+				dataManager.getLastPayLogProtocol(token, uid);
+
+				if (pd == null) {
+					pd = ProgressDialog.show(GetLastPayLogActivity.this, "",
+							"获取中...", true, true);
+				} else {
+					pd.show();
+				}
+			}
+
+		}
+	}
+}

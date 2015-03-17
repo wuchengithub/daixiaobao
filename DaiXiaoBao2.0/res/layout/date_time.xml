@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EBEBEB"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <DatePicker
+        android:id="@+id/date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/data_time_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/date"
+        android:layout_marginLeft="16dp"
+        android:text="确定"
+        android:textSize="20.0sp" />
+
+    <Button
+        android:id="@+id/data_time_reset"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+         android:layout_below="@+id/date"
+         android:layout_marginRight="16dp"
+        android:text="重置"
+        android:textSize="20.0sp" />
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/new_yanhui" >
+
+    <RelativeLayout
+        android:id="@+id/navigation_location_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" 
+        android:paddingTop="16.0dp"
+        android:paddingBottom="16.0dp"
+        android:paddingLeft="16.0dp"
+        android:paddingRight="16.0dp"
+        android:background="@color/new_qianbai">
+
+        <TextView
+            android:id="@+id/navigation_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="当前位置：" 
+            android:textColor="@color/new_shenhui"/>
+
+        <Button
+            android:id="@+id/navigation_back"
+            android:layout_width="wrap_content"
+            android:layout_height="32.0dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_bg_red"
+            android:text="返回上一级"
+            android:textColor="#ffffff"
+            android:textSize="12.0dp" 
+            android:paddingLeft="5.0dp"
+            android:paddingRight="5.0dp"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/navigation_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="16.0dp"
+        android:paddingRight="16.0dp" 
+        android:layout_below="@+id/navigation_location_layout"/>
+
+</RelativeLayout>

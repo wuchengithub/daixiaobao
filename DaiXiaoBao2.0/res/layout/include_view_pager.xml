@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/base_view_pager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <com.daixiaobao.widget.FlowIndicator
+        xmlns:app="http://schemas.android.com/apk/res/com.daixiaobao"
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/base_view_pager"
+        android:paddingBottom="3.0dp"
+        android:paddingTop="3.0dp"
+        android:layout_marginBottom="72.0dp"
+        app:count="1"
+        app:point_normal_color="@color/new_shenhui"
+        app:point_radius="3dip"
+        app:point_seleted_color="@color/new_shenhong"
+        app:point_size="4dip"
+        app:space="6dip" />
+
+</RelativeLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/base_view_pager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:background="@color/black" />
+
+    <RelativeLayout
+        android:id="@+id/custom_actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dp"
+        android:layout_alignParentTop="true" >
+
+        <ImageView
+            android:id="@+id/custon_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="12.0dp"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/custon_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+        <ImageView
+            android:id="@+id/custon_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="12.0dp"
+            android:src="@drawable/ic_action_share" 
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <com.daixiaobao.widget.FlowIndicator
+        xmlns:app="http://schemas.android.com/apk/res/com.daixiaobao"
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/product_detail_discription"
+        android:layout_marginBottom="32.0dp"
+        android:paddingBottom="3.0dp"
+        android:paddingTop="3.0dp"
+        app:count="1"
+        app:point_normal_color="@color/new_yanhui"
+        app:point_radius="3dip"
+        app:point_seleted_color="@color/new_shenhong"
+        app:point_size="4dip"
+        app:space="6dip" />
+
+    <TextView
+        android:id="@+id/product_detail_allmessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/base_view_pager"
+        android:layout_below="@+id/custom_actionbar"
+        android:padding="12.0dp"
+        android:textColor="#7f8c8d"
+        android:textSize="15.0dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/product_detail_priice"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#88000000"
+        android:gravity="center"
+        android:padding="12.0dp"
+        android:textColor="@android:color/white"
+        android:textSize="18.0dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/product_detail_discription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/product_detail_priice"
+        android:gravity="top"
+        android:padding="12.0dp"
+        android:textColor="@color/new_yanhui" />
+
+</RelativeLayout>

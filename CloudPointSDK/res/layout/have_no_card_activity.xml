@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffa200"
+    android:gravity="center"
+    android:orientation="vertical"
+     >
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:text="现在办理即可多得20枚游戏币！\n请到店内收银台咨询！"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/have_card_or_not_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dip"
+        android:layout_marginBottom="30dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:background="@drawable/button_submit_selector"
+        android:padding="10dip"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:text="大玩家卡已办好" />
+
+    <TextView
+        android:id="@+id/have_card_or_not_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="暂不开通，我要试玩"
+        android:textColor="#ffffff"
+        android:textSize="22sp" />
+
+</LinearLayout>

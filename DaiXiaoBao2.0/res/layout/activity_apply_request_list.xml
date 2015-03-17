@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/custom_actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dp"
+        android:layout_alignParentTop="true" 
+        android:background="@color/new_yese">
+
+        <ImageView
+            android:id="@+id/custon_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="12.0dp"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/custon_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="申请列表"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/apply_request_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:listSelector="#00000000"
+        android:paddingLeft="16.0dp"
+        android:paddingRight="16.0dp" 
+        android:layout_below="@+id/custom_actionbar"/>
+
+</RelativeLayout>

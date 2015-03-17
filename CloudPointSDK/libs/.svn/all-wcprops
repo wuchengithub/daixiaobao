@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/test_android/!svn/ver/492/androidApp/CloudPointSDK/libs
+END
+UPPayAssistEx.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/libs/UPPayAssistEx.jar
+END
+universal-image-loader-1.8.6-with-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/test_android/!svn/ver/492/androidApp/CloudPointSDK/libs/universal-image-loader-1.8.6-with-sources.jar
+END
+alipay_msp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/libs/alipay_msp.jar
+END
+umpay_sdk.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/libs/umpay_sdk.jar
+END
+UPPayPluginEx.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/libs/UPPayPluginEx.jar
+END
+android-support-v4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/test_android/!svn/ver/429/androidApp/CloudPointSDK/libs/android-support-v4.jar
+END

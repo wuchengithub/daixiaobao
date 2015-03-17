@@ -1,0 +1,41 @@
+8
+
+dir
+768
+https://192.168.10.11:18080/svn/test_android/androidApp/CloudPointSDK/res/drawable-xxhdpi
+https://192.168.10.11:18080/svn/test_android
+
+
+
+2013-11-29T05:15:44.795862Z
+300
+dengbin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+17e416fa-4145-4a8e-8b1f-d4366d394d04
+
+ic_launcher.png
+file
+
+
+
+
+2013-12-18T07:17:14.773000Z
+bc173515eb4a02a1047cafd53ce0f6d0
+2013-11-29T05:15:44.795862Z
+300
+dengbin
+has-props
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/new_yanhui" >
+
+    <SearchView
+        android:id="@+id/product_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/new_qianbai"
+        android:focusable="false"
+        android:iconifiedByDefault="false"
+        android:padding="12.0dp"
+        android:queryHint="输入产品编号"
+        android:visibility="visible" >
+    </SearchView>
+
+    <ListView
+        android:id="@+id/proxy_categroy_one"
+        android:layout_width="100.0dp"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/product_search"
+        android:cacheColorHint="#00000000" />
+
+
+    <RelativeLayout
+        android:id="@+id/search_popup_window_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/product_search"
+        android:layout_toRightOf="@+id/proxy_categroy_one"
+        android:background="@color/new_yanhui" >
+
+        <LinearLayout
+            android:id="@+id/search_popup_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:padding="16.0dp" 
+            >
+
+            <com.daixiaobao.widget.IconButton
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/search_popup_window_content_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="48.0dp"
+                android:layout_weight="1"
+                android:background="@color/WHITE"
+                android:gravity="center"
+                android:icon="@android:drawable/ic_menu_delete"
+                android:orientation="horizontal"
+                android:text="清空重选"
+                android:textColor="@color/new_shenhui" />
+
+            <com.daixiaobao.widget.IconButton
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/search_popup_window_content_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="48.0dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_red"
+                android:layout_marginLeft="16.0dp"
+                android:gravity="center"
+                android:icon="@drawable/navigation_accept"
+                android:orientation="horizontal"
+                android:text="确定"
+                android:textColor="@color/text" />
+        </LinearLayout>
+
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/search_popup_layout" >
+
+            <LinearLayout
+                android:id="@+id/search_popup_window_content_root"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="48.0dp"
+                android:paddingLeft="48.0dp" >
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</RelativeLayout>

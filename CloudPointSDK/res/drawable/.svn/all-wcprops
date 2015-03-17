@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/test_android/!svn/ver/581/androidApp/CloudPointSDK/res/drawable
+END
+edittext_focused.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/edittext_focused.xml
+END
+middle_btn_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/test_android/!svn/ver/581/androidApp/CloudPointSDK/res/drawable/middle_btn_selector.xml
+END
+button_submit_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/button_submit_selector.xml
+END
+imgbtn_recharge_close_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/imgbtn_recharge_close_selector.xml
+END
+imgbtn_recharge_caifutong_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/imgbtn_recharge_caifutong_selector.xml
+END
+edittext_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/edittext_selector.xml
+END
+edittext_normal.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/edittext_normal.xml
+END
+button_down.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/button_down.xml
+END
+imgbtn_recharge_chinaunionpay_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/imgbtn_recharge_chinaunionpay_selector.xml
+END
+button_gettoken_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/button_gettoken_selector.xml
+END
+button_submit_normal.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/button_submit_normal.xml
+END
+button_gettoken_enabled.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/button_gettoken_enabled.xml
+END
+imgbtn_recharge_yibao_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/imgbtn_recharge_yibao_selector.xml
+END
+imgbtn_recharge_zhifubao_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/drawable/imgbtn_recharge_zhifubao_selector.xml
+END

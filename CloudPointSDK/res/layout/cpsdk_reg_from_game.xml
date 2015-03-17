@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recharge_immediately"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="5dip"
+    android:background="@drawable/recharge_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/ib_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="1dip"
+            android:background="@drawable/imgbtn_recharge_close_selector" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            style="@style/recharge_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dip"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:text="注册"
+                android:textColor="@color/WHITE"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:src="@drawable/youyou" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        style="@style/recharge_ll"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/textview_login_reg_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="1dip"
+            android:text="友游账号:" />
+
+        <EditText
+            android:id="@+id/et_reg_usernumber_from_game"
+            style="@style/Text_login_reg_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="1dip"
+            android:ems="10"
+            android:hint="请输入手机号码"
+            android:inputType="numberDecimal" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/recharge_ll"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/textview_login_reg_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="验证码:    " />
+
+        <EditText
+            android:id="@+id/et_reg_token_from_game"
+            style="@style/Text_login_reg_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="1dip"
+            android:hint="验证码(4位)"
+            android:inputType="numberDecimal" >
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_get_token_reg_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dip"
+            android:background="@drawable/button_gettoken_selector"
+            android:padding="5dip"
+            android:text="获取验证码" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/recharge_ll"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/textview_login_reg_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="1dip"
+            android:text="输入密码:" />
+
+        <EditText
+            android:id="@+id/et_reg_pass_from_game"
+            style="@style/Text_login_reg_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="1dip"
+            android:ems="10"
+            android:hint="请设置密码(6-16位)"
+            android:inputType="textPassword" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/recharge_ll"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/textview_login_reg_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="1dip"
+            android:text="确认密码:" />
+
+        <EditText
+            android:id="@+id/et_reg_repass_from_game"
+            style="@style/Text_login_reg_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="1dip"
+            android:ems="10"
+            android:hint="请确认密码(6-16位)"
+            android:inputType="textPassword" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/recharge_ll"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_reg_from_game"
+            style="@style/button_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_submit_selector"
+            android:paddingLeft="12dip"
+            android:paddingRight="12dip"
+            android:text="注册" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip" >
+
+        <CheckBox
+            android:id="@+id/user_agreement_check_box_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true" />
+
+        <TextView
+            android:id="@+id/user_agree_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/user_agreement_check_box_from_game"
+            android:text="我已阅读并同意" />
+
+        <TextView
+            android:id="@+id/user_agreement_from_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dip"
+            android:layout_toRightOf="@+id/user_agree_from_game"
+            android:text="注册协议"
+            android:textColor="#708090" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <SearchView
+        android:id="@+id/friend_search_supply"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/new_qianbai"
+        android:focusable="false"
+        android:iconifiedByDefault="false"
+        android:padding="12.0dp"
+        android:layout_toLeftOf="@+id/friend_add_friend"
+        android:queryHint="输入好友姓名"
+        android:visibility="visible" >
+    </SearchView>
+
+    <ImageView
+        android:id="@+id/friend_add_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_addfriend" 
+        android:paddingTop="16.5dp"
+        android:paddingBottom="16.5dp"
+        android:paddingRight="30dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/new_qianbai"/>
+
+    <com.fortysevendeg.swipelistview.SwipeListView
+        xmlns:swipe="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/friend_supply_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/friend_search_supply"
+        android:listSelector="#00000000"
+        android:paddingLeft="16.0dp"
+        android:paddingRight="16.0dp"
+        swipe:swipeActionLeft="reveal"
+        swipe:swipeActionRight="reveal"
+        swipe:swipeAnimationTime="500"
+        swipe:swipeBackView="@+id/back"
+        swipe:swipeCloseAllItemsWhenMoveList="false"
+        swipe:swipeFrontView="@+id/front"
+        swipe:swipeMode="left"
+        swipe:swipeOffsetLeft="240.0dp"
+        swipe:swipeOpenOnLongPress="true" />
+ <TextView
+        android:id="@+id/friend_find_new_friend"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/new_yanhui"
+        android:text="发现了新的好友申请，点击查看"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/new_yese" 
+        android:padding="4.0dp"/>
+</RelativeLayout>

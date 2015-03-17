@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:alpha="http://schemas.android.com/apk/res-auto"
+    package="com.cloudpoint.cpgamespaysdk.activitis"
+    android:versionCode="2"
+    android:versionName="1.1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher" >
+
+        <!-- 渠道商号 -->
+        <meta-data
+            android:name="CHANNEL"
+            android:value="C_001" />
+
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.YeePayActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.LoginAndRegActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.RegisterFromGameActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.ForgetPasswordActiviy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.ForgetPasswordFromGameActiviy"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.ModifyPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.LoginFromGameActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.UserRegisterTelActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.AddMoneyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.GetLastPayLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.GetMoneyLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.SpendMoneyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.UserPayActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.pay"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.UserRegisterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.GetMoneyActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.NotRegisterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.SetPasswordActiviy"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloudpoint.cpgamespaysdk.activitis.YeePayActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="standard"
+            android:screenOrientation="behind" />
+        <!-- 宝付sdk -->
+        <activity
+            android:name="com.umpay.creditcard.android.UmpayActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity android:name="com.cloudpoint.cpgamespaysdk.activitis.HaveCardOrNotActivity" />
+        <activity android:name="com.cloudpoint.cpgamespaysdk.activitis.HaveNoCardActivity" />
+    </application>
+
+</manifest>

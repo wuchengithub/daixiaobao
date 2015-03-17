@@ -1,0 +1,8 @@
+package com.cloudpoint.cpgamespaysdk.common;
+
+public class Contants {
+
+	public static final String GID = "0001";
+	public static final String OTHERCODE = "0002";
+
+}

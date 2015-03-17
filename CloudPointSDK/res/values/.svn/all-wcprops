@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/test_android/!svn/ver/768/androidApp/CloudPointSDK/res/values
+END
+dimens.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/test_android/!svn/ver/560/androidApp/CloudPointSDK/res/values/dimens.xml
+END
+colors.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/test_android/!svn/ver/615/androidApp/CloudPointSDK/res/values/colors.xml
+END
+strings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/test_android/!svn/ver/768/androidApp/CloudPointSDK/res/values/strings.xml
+END
+styles.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/values/styles.xml
+END
+arrays.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/values/arrays.xml
+END

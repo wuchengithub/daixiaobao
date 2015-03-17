@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/test_android/!svn/ver/768/androidApp/CloudPointSDK/res/layout
+END
+spendmoney.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/spendmoney.xml
+END
+getlastpaylog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/getlastpaylog.xml
+END
+getmoney.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/getmoney.xml
+END
+cpsdk_reg_from_game.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/cpsdk_reg_from_game.xml
+END
+cpsdk_login_and_reg_from_game_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/cpsdk_login_and_reg_from_game_activity.xml
+END
+cpsdk_recharge_immediately.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/test_android/!svn/ver/615/androidApp/CloudPointSDK/res/layout/cpsdk_recharge_immediately.xml
+END
+cpsdk_forget_password_from_game.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/cpsdk_forget_password_from_game.xml
+END
+cpsdk_set_password_layout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/test_android/!svn/ver/635/androidApp/CloudPointSDK/res/layout/cpsdk_set_password_layout.xml
+END
+cpsdk_login.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/test_android/!svn/ver/768/androidApp/CloudPointSDK/res/layout/cpsdk_login.xml
+END
+writelog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/writelog.xml
+END
+global_toggle_bar.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/global_toggle_bar.xml
+END
+getmoneylog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/getmoneylog.xml
+END
+userregistertel.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/userregistertel.xml
+END
+have_card_or_not_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/test_android/!svn/ver/581/androidApp/CloudPointSDK/res/layout/have_card_or_not_activity.xml
+END
+writeappinfo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/writeappinfo.xml
+END
+cpsdk_modify_password_layout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/test_android/!svn/ver/585/androidApp/CloudPointSDK/res/layout/cpsdk_modify_password_layout.xml
+END
+cpsdk_register.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/test_android/!svn/ver/768/androidApp/CloudPointSDK/res/layout/cpsdk_register.xml
+END
+cpsdk_proving_phone_layout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/test_android/!svn/ver/647/androidApp/CloudPointSDK/res/layout/cpsdk_proving_phone_layout.xml
+END
+cpsdk_login_from_game.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/cpsdk_login_from_game.xml
+END
+notregisterlogin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/notregisterlogin.xml
+END
+have_no_card_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/test_android/!svn/ver/556/androidApp/CloudPointSDK/res/layout/have_no_card_activity.xml
+END
+cpsdk_forget_password_layout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/test_android/!svn/ver/585/androidApp/CloudPointSDK/res/layout/cpsdk_forget_password_layout.xml
+END
+yeepay.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/test_android/!svn/ver/768/androidApp/CloudPointSDK/res/layout/yeepay.xml
+END
+userlogintoken.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/res/layout/userlogintoken.xml
+END
+cpsdk_login_and_reg_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/test_android/!svn/ver/761/androidApp/CloudPointSDK/res/layout/cpsdk_login_and_reg_activity.xml
+END

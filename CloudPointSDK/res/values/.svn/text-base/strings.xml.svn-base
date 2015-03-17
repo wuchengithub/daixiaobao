@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CPgamePaySDKLibrary</string>
+    <string name="forget_pass"><u>忘记密码？</u></string>
+    <string name="title_activity_have_card_or_not">HaveCardOrNotActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>

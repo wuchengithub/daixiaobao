@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EEEEEE" >
+    <EditText
+        android:id="@+id/EditId_for_userName"
+        style="@style/TitleText_register_login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入手机号"
+        android:inputType="number" />
+
+    <RelativeLayout
+        android:id="@+id/register_tel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EditId_for_userName" >
+
+        <EditText
+            android:id="@+id/proving_code"
+            style="@style/TitleText_register_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/get_proving_number_button"
+            android:hint="请输入验证码"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/get_proving_number_button"
+            style="@style/button_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/middle_btn_selector"
+            android:text="获取验证码" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/proving_submit"
+        style="@style/button_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_tel_layout"
+        android:layout_marginTop="10dip"
+         android:background="@drawable/middle_btn_selector"
+        android:text="下一步" />
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/proving_submit"
+        android:layout_marginTop="8dip" >
+
+        <CheckBox
+            android:id="@+id/user_agreement_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true" />
+
+        <TextView
+            android:id="@+id/user_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/user_agreement_check_box"
+            android:text="我已阅读并同意" />
+
+        <TextView
+            android:id="@+id/user_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dip"
+            android:layout_toRightOf="@+id/user_agree"
+            android:text="注册协议"
+            android:textColor="#708090" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,66 @@
+package com.cloudpoint.cpgamespaysdk.protocollManager;
+
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.NameValuePair;
+
+import com.cloudpoint.cpgamespaysdk.Http.HttpClientPOST;
+
+public class BaseProtocol {
+
+
+//	public static final String HTTP_REQUEST_URL = "http://api.cpo2o.com/v1/API/";
+//	public static final String HTTP_REQUEST_URL = "http://192.168.10.10/v1/API/";
+	public static final String HTTP_REQUEST_URL = "http://114.113.230.118:2000/v1/API/";
+
+	List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+	public static Object startInvoke(String methodName,
+			List<NameValuePair> params) {
+
+		String requestUrl = HTTP_REQUEST_URL + methodName;
+
+		// String strUrl = strtoUrl(requestUrl,params);
+
+		HttpClientPOST httpClientPOST = HttpClientPOST.getInstance();
+
+		Object object = httpClientPOST.excuteHttpConnectionPost(requestUrl,
+				params);
+
+		return object;
+	}
+
+	// ƴдURL
+	public static String strtoUrl(String path, Map<String, String> params) {
+
+		if (params == null) {
+			return path;
+		}
+
+		StringBuilder sb = new StringBuilder(path);
+		sb.append('?');
+		for (Map.Entry<String, String> entry : params.entrySet()) {
+			sb.append(entry.getKey()).append('=')
+					.append(URLEncoder.encode(entry.getValue())).append('&');
+		}
+		sb.deleteCharAt(sb.length() - 1);
+
+		return sb.toString();
+	}
+
+	private DataProtocolInterface procotolInterface;
+
+	public static final String TAG = BaseProtocol.class.getSimpleName();
+
+	public DataProtocolInterface getProcotolInterface() {
+		return procotolInterface;
+	}
+
+	public void setProcotolInterface(DataProtocolInterface procotolInterface) {
+		this.procotolInterface = procotolInterface;
+	}
+
+}

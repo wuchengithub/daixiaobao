@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <EditText
+        android:inputType="number"
+        android:hint="请输入扣除金币数额"
+        android:id="@+id/EditId_for_spendMoney"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+      <EditText
+   
+        android:hint="内容描述"
+        android:id="@+id/EditId_for_spendContent"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+	<Button 
+	    android:text="扣除金币"
+	    android:id="@+id/btnId_for_submit"
+	    android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

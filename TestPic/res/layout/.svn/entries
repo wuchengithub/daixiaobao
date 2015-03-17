@@ -1,0 +1,76 @@
+8
+
+dir
+751
+svn://192.168.1.99/android/TestPic/res/layout
+svn://192.168.1.99/android
+
+
+
+2013-11-20T08:51:59.193714Z
+751
+miao
+
+
+svn:special svn:externals svn:needs-lock
+
+activity_main.xml
+file
+
+
+
+
+2013-11-09T02:49:03.740119Z
+a85e133730e2acaeaf92f6aa899549c7
+2013-11-20T08:51:59.193714Z
+751
+miao
+
+activity_image_grid.xml
+file
+
+
+
+
+2013-11-09T08:18:34.501941Z
+cb0ca3631c3b961a8329294bbc065eed
+2013-11-20T08:51:59.193714Z
+751
+miao
+
+item_image_grid.xml
+file
+
+
+
+
+2013-11-09T07:50:55.709064Z
+1bcffd5485754bf7b49b431b38d31362
+2013-11-20T08:51:59.193714Z
+751
+miao
+
+activity_image_bucket.xml
+file
+
+
+
+
+2013-08-21T09:38:28.345000Z
+db612123a9177d64399503e38fafcf52
+2013-11-20T08:51:59.193714Z
+751
+miao
+
+item_image_bucket.xml
+file
+
+
+
+
+2013-08-21T10:23:54.675000Z
+9b2e36f86625db6c51ee3dd7b684369c
+2013-11-20T08:51:59.193714Z
+751
+miao
+

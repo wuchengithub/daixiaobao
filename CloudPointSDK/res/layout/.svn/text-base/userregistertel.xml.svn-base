@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <EditText
+        android:inputType="number"
+        android:hint="手机号码"
+        android:id="@+id/EditId_for_userName"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+  
+	<Button 
+	    android:text="获取手机号码验证码"
+	    android:id="@+id/btnId_for_submit_getCode"
+	    android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+	
+	 <EditText
+        android:hint="输入手机号验证码"
+        android:id="@+id/EditId_for_YZM"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:inputType="textPassword"
+        android:hint="输入您设定的密码"
+        android:id="@+id/EditId_for_pwd"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+      <EditText
+        android:inputType="textPassword"
+        android:hint="确认您设定的密码"
+        android:id="@+id/EditId_for_pwd2"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+	<Button 
+	    android:text="绑定手机号码注册"
+	    android:id="@+id/btnId_for_submit_register"
+	    android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

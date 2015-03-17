@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="toggle_bg">#16a085</color>
+    <color name="toggle_bg_pressed">#1abc9c</color>
+    <color name="action_bar_bg">#2ecc71</color>
+    <color name="center_bg">#16a085</color>
+    <color name="toggle_button_off">#7f8c8d</color>
+    <color name="toggle_button_on">#16a085</color>
+    <color name="conform_dialog_bg">#16a085</color>
+    <color name="button_pressed">#1abc9c</color>
+    <color name="button">#16a085</color>
+    <color name="text">#ecf0f1</color>
+    <color name="green_sea">#16a085</color>
+    <color name="text_silver">#bdc3c7</color>
+    <color name="text_asbestos">#7f8c8d</color>
+    <color name="text_concrete">#95a5a6</color>
+    <color name="green_nep">#27ae60</color>
+    <color name="red">#e74c3c</color>
+    <color name="login_way_btn_bg_pressed">#64badd</color>
+    <color name="login_way_btn_bg_non">#47aad1</color>
+    <color name="new_qianbai">#F5F3F4</color>
+    <color name="new_qianbai2">#ddFDFDFD</color>
+    <color name="new_qianbai3">#bbFCF7F2</color>
+    <color name="new_shenhui">#4F5359</color>
+    <color name="new_shenhong">#710401</color>
+    <color name="new_yese">#049cc3</color>
+    <color name="new_tab">#4F5359</color>
+    <color name="new_tab_non">#363940</color>
+    <color name="new_yanhui">#fcf7f2</color>
+
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        style="@style/TitleText_register_login"
+        android:id="@+id/fliter_code"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:hint="商家货号"
+        />
+
+    <EditText
+        style="@style/TitleText_register_login"
+        android:id="@+id/fliter_begin_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:editable="false"
+         android:hint="开始发布时间"/>
+
+    <EditText
+        style="@style/TitleText_register_login"
+        android:id="@+id/fliter_end_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:editable="false"
+         android:hint="结束发布时间"/>
+
+</LinearLayout>

@@ -1,0 +1,85 @@
+8
+
+dir
+491
+https://192.168.10.11:18080/svn/test_android/androidApp/CloudPointSDK
+https://192.168.10.11:18080/svn/test_android
+
+
+
+2013-12-18T06:29:40.236642Z
+486
+dengbin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+17e416fa-4145-4a8e-8b1f-d4366d394d04
+
+.classpath
+file
+
+
+
+
+2013-12-18T07:17:12.970000Z
+325a7c6ac16e1ed73a2f16f19b367319
+2013-11-29T05:17:33.618651Z
+301
+dengbin
+
+.project
+file
+
+
+
+
+2013-12-18T07:17:12.985000Z
+c84962e8abe1457c4bcde5fcccc4acdf
+2013-11-29T05:17:33.618651Z
+301
+dengbin
+
+AndroidManifest.xml
+file
+768
+
+
+
+2013-12-30T06:33:49.434000Z
+0a601d30bf341e8e12edd23edee44e6b
+2013-12-30T06:45:21.705092Z
+636
+renxianliang
+
+libs
+dir
+
+project.properties
+file
+
+
+
+
+2013-12-18T07:17:12.981000Z
+da44b0eab8de58b29f34bd80e3ba0f62
+2013-11-29T05:15:44.795862Z
+300
+dengbin
+
+res
+dir
+
+src
+dir
+

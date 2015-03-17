@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:alpha="http://schemas.android.com/apk/res-auto"
+    package="com.wookii"
+    android:versionCode="2"
+    android:versionName="1.1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher" >
+
+        <!-- 渠道商号 -->
+        <meta-data
+            android:name="CHANNEL"
+            android:value="C_001" />
+
+        <activity
+            android:name="com.wookii.YeePayActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginAndRegActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.RegisterFromGameActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.wookii.ForgetPasswordActiviy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.ForgetPasswordFromGameActiviy"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.wookii.ModifyPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.LoginFromGameActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.wookii.UserRegisterTelActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.AddMoneyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.GetLastPayLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.GetMoneyLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.SpendMoneyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.wookii.UserPayActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.wookii.pay"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name="com.wookii.UserRegisterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.GetMoneyActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.NotRegisterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.SetPasswordActiviy"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.wookii.YeePayActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="standard"
+            android:screenOrientation="behind" />
+        <!-- 宝付sdk -->
+        <activity
+            android:name="com.umpay.creditcard.android.UmpayActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity android:name="com.wookii.HaveCardOrNotActivity" />
+        <activity android:name="com.wookii.HaveNoCardActivity" />
+    </application>
+
+</manifest>

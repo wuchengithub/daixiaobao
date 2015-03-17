@@ -1,0 +1,92 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明   去掉背景色边框也就去掉了 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+        <!-- <item name="android:windowContentOverlay">@null</item> -->
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+    <style name="frriendTheme" parent="android:Theme.Holo.Light.Dialog">
+        <item name="android:windowNoTitle">true</item><!--除去title-->
+    </style> 
+    
+    <!-- download confrom -->
+    <style name="conformDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/conform_dialog_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="my_toggle" parent="@android:style/Widget.Button.Toggle">
+        <item name="android:textOff">发布时间：升序</item>
+        <item name="android:textOn">发布时间：降序</item>
+        <item name="android:textColor">#ecf0f1</item>
+        <item name="android:background">@drawable/toggle_bg</item>
+    </style>
+
+    <style name="my_button" parent="@android:style/Widget.Button">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/new_yanhui</item>
+        <item name="android:background">@color/new_shenhui</item>
+        <item name="android:drawablePadding">10dip</item>
+    </style>
+
+    <!-- 父类为Theme.Sherlock.Light，即白底黑字（如果是Theme.Sherlock，则为黑底白字）, 为了兼容考虑，所有样式的相关item需要写2遍-->  
+    <style name="Theme.DAIXIAOBAO" parent="Theme.Sherlock.Light">
+        <!-- <item name="actionBarStyle">@style/Widget.DXB.ActionBar</item>
+        <item name="android:actionBarStyle">@style/Widget.DXB.ActionBar</item> -->
+        <item name="dropDownHintAppearance">@style/MyTextAppearance.Sherlock.Widget.DropDownHint</item>
+    </style> 
+    <style name="MyTextAppearance.Sherlock.Widget.DropDownHint" parent="Widget">
+        <item name="android:textColor">@color/WHITE</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- 标题栏的样式 -->
+    <style name="Widget.DXB.ActionBar" parent="Widget.Sherlock.ActionBar.Solid">   
+        <!-- <item name="background">@color/green_sea</item>
+        <item name="backgroundStacked">@color/green_sea</item> -->
+        <item name="backgroundSplit">@color/text_concrete</item>
+        <item name="titleTextStyle">@style/Widget.DXB.ActionBar.Title</item>
+        <item name="actionBarTabStyle">@style/Widget.Sherlock.Light.ActionBar.TabView.Inverse</item>
+        
+        <!-- <item name="android:background">@color/green_sea</item>
+        <item name="android:backgroundStacked">@color/text_asbestos</item> -->
+        <item name="android:backgroundSplit">#1791d2</item>
+        <item name="android:titleTextStyle">@style/Widget.DXB.ActionBar.Title</item>
+    </style>
+    
+    <!-- 标题栏的标题样式 -->
+    <style name="Widget.DXB.ActionBar.Title" parent="@android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/WHITE</item>
+    </style>
+  
+
+</resources>

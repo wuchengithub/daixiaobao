@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:paddingLeft="1.0dp">
+    <TextView
+        android:id="@+id/globalbar_content_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.0sp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:paddingLeft="15.0dp"
+        android:paddingRight="15.0dp"
+        android:paddingTop="5.0dp"
+        android:paddingBottom="5.0dp"/>
+
+</RelativeLayout>

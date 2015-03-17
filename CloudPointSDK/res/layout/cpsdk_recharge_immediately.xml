@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recharge_immediately"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="5dip"
+    android:layout_marginLeft="5dip"
+    android:layout_marginRight="5dip"
+    android:layout_marginTop="5dip"
+    android:background="@drawable/recharge_bg"
+    android:orientation="vertical" 
+    android:paddingBottom="15dip">
+
+        <FrameLayout
+            android:id="@+id/recharge_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dip" >
+
+            <ImageButton
+                android:id="@+id/ib_recharge_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|top"
+                android:layout_marginRight="1dip"
+                android:layout_marginTop="1dip"
+                android:background="@drawable/imgbtn_recharge_close_selector" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                style="@style/recharge_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dip"
+                android:gravity="top"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dip"
+                    android:text="充值中心"
+                    android:textColor="@color/WHITE"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip"
+                    android:src="@drawable/youyou" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:orientation="vertical">
+        
+        <LinearLayout
+            android:id="@+id/recharge_layout2"
+            style="@style/recharge_ll"
+            android:layout_marginTop="0dip"
+            android:background="@drawable/zhanghaobg"
+            android:orientation="vertical"
+            android:paddingLeft="8dip" >
+
+            <TextView
+                android:id="@+id/recharge_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="友游账号："
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/black" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_recharge_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可用余额："
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/recharg_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#c5480d" />
+
+                <TextView
+                    android:id="@+id/recharg_balance_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="游币"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/recharge_layout3"
+            style="@style/recharge_ll"
+            android:background="@color/WHITE"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/textview_recharge_tite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="1dip"
+                android:paddingTop="1dip"
+                android:text="请选择充值金额" />
+
+            <Spinner
+                android:id="@+id/spinner_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:entries="@array/money" >
+            </Spinner>
+
+            <EditText
+                android:id="@+id/recharge_input_number"
+                style="@style/TitleText_register_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dip"
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="3dip"
+                android:ems="10"
+                android:hint="请输入充值金额"
+                android:inputType="numberDecimal"
+                android:visibility="gone" >
+
+                <requestFocus />
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/recharge_layout4"
+            style="@style/recharge_ll"
+            android:layout_marginBottom="18dip"
+            android:background="@drawable/zhifufangshibg"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/textview_recharge_tite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请选择充值方式" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="10dip"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/ib_recharge_zhifubao"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="#00000000"
+                    android:src="@drawable/imgbtn_recharge_zhifubao_selector" />
+
+                <ImageButton
+                    android:id="@+id/ib_recharge_yibao"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="#00000000"
+                    android:src="@drawable/imgbtn_recharge_yibao_selector" 
+                    android:visibility="visible"/>
+
+                <!-- 暂未启用财付通 -->
+
+                <ImageButton
+                    android:id="@+id/ib_recharge_caifutong"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="#00000000"
+                    android:src="@drawable/imgbtn_recharge_caifutong_selector"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/ib_recharge_chinaunionpay"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="#00000000"
+                    android:src="@drawable/imgbtn_recharge_chinaunionpay_selector"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <WebView
+            android:id="@+id/wv_recharge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dip"
+            android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">代销宝</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="loading_text">努力加载数据中</string>
+    <string name="concern">已收藏</string>
+    <string name="no_concern">收藏</string>
+    <string name="detail_name">产品详情</string>
+    <string name="list_name">产品列表</string>
+    <string name="about_string">1.代销宝由代销宝官方提供。 \r\n2.代销宝仅提供微信一键传图、产品查询功能，其他一切行为与代销宝无关。</string>
+    <string name="expand">展开</string>
+    <string name="no_expand">隐藏</string>
+
+</resources>

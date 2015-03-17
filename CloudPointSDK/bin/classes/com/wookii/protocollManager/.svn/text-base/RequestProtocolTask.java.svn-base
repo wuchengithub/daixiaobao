@@ -1,0 +1,41 @@
+package com.cloudpoint.cpgamespaysdk.protocollManager;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.NameValuePair;
+
+public class RequestProtocolTask implements Runnable {
+
+	String http_request_method;
+	// Map<String,String> params;
+	List<NameValuePair> params = new ArrayList<NameValuePair>();
+	DataProtocolInterface dataProcotolInterface;
+
+	BaseProtocol baseProtocol;
+
+	public RequestProtocolTask(String http_request_method,
+			List<NameValuePair> params,
+			DataProtocolInterface dataProcotolInterface) {
+		super();
+		this.http_request_method = http_request_method;
+		this.params = params;
+		this.dataProcotolInterface = dataProcotolInterface;
+
+		baseProtocol = new BaseProtocol();
+		baseProtocol.setProcotolInterface(dataProcotolInterface);
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		Object object = BaseProtocol.startInvoke(http_request_method, params);
+		if (object != null) {
+			baseProtocol.getProcotolInterface().onResposeProcotolData(object);
+		} else {
+			baseProtocol.getProcotolInterface().onResposeProcotolData(null);
+		}
+	}
+
+}

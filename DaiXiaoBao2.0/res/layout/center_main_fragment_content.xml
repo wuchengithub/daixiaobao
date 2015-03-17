@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/new_shenhui" >
+
+    <RelativeLayout
+        android:id="@+id/center_main_fristgroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2.0dp" >
+
+        <com.daixiaobao.widget.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/center_main_image"
+            android:layout_width="120.0dp"
+            android:layout_height="120.0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24.0dp"
+            android:src="@drawable/touxiang"
+            app:border_color="@color/new_yese"
+            app:border_width="2dp" />
+
+        <TextView
+            android:id="@+id/center_main_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/center_main_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:text="admin"
+            android:textColor="@color/new_yanhui"
+            android:textSize="21.0sp" />
+
+        <TextView
+            android:id="@+id/center_main_proxylevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/center_main_name"
+            android:layout_centerHorizontal="true"
+            android:text="普通用户"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/new_yese" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/center_main_secondgroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/center_main_fristgroup"
+        android:layout_marginTop="12.0dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8.0dp"
+            android:layout_marginTop="8.0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/center_main_my_product_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/new_yanhui"
+                android:textSize="24.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9.0dp"
+                android:text="商品上限"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/new_qianbai3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8.0dp"
+            android:layout_marginTop="8.0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/center_main_spread_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/new_yanhui"
+                android:textSize="24.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9.0dp"
+                android:text="好友上限"
+                android:textColor="@color/new_qianbai3" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/viewer"
+        android:name="com.daixiaobao.more.MoreFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/center_main_secondgroup" />
+
+</RelativeLayout>

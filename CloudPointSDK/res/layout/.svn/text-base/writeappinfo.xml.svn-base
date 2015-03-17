@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <EditText
+        android:hint="手机号码"
+        android:id="@+id/EditId_for_userName"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:hint="输入密码"
+        android:id="@+id/EditId_for_pwd"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+     <EditText
+        android:hint="密码确认"
+        android:id="@+id/EditId_for_pwd1"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+	<Button 
+	    android:text="写入用户信息"
+	    android:id="@+id/btnId_for_submit_login"
+	    android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

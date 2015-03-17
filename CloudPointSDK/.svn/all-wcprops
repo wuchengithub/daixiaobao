@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/test_android/!svn/ver/486/androidApp/CloudPointSDK
+END
+AndroidManifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/test_android/!svn/ver/636/androidApp/CloudPointSDK/AndroidManifest.xml
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/test_android/!svn/ver/301/androidApp/CloudPointSDK/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/test_android/!svn/ver/301/androidApp/CloudPointSDK/.project
+END
+project.properties
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/test_android/!svn/ver/300/androidApp/CloudPointSDK/project.properties
+END
