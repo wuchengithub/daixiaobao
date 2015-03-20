@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.daixiaobao"
+    android:versionCode="5"
+    android:versionName="2.2.1" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:name=".BaseApplication"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Example" >
+        <activity
+            android:name="com.umeng.fb.ConversationActivity"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" />
+        <activity
+            android:name="com.umeng.fb.ContactActivity"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="52dd1a6656240b078503abac" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="1000000" />
+
+        <activity
+            android:name=".WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.daixiaobao.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.main" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.daixiaobao.concern.MineConcernProductActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+        </activity>
+
+        <!-- 详情 -->
+        <activity
+            android:name="com.daixiaobao.detailProdcut.DetailProdcutActivity"
+            android:label="@string/detail_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.detail" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 关于 -->
+        <activity
+            android:name=".more.AboutActivity"
+            android:label="@string/detail_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.about" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".detailCompany.CompanyDetailActivity"
+            android:label="@string/detail_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.company.detail" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- friend -->
+        <activity
+            android:name=".proxy.list.ProxyListFragment"
+            android:label="@string/list_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.proxyList" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- navigation -->
+        <activity
+            android:name=".navigation.NavigationListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+        </activity>
+        <!-- navigation -->
+        <activity
+            android:name=".navigation.NavigationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.testpic.ChooiceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+        </activity>
+        <!-- 添加供货商 -->
+        <activity
+            android:name=".friend.SupplierActivity"
+            android:screenOrientation="portrait" 
+            android:theme="@style/frriendTheme">
+        </activity>
+        <!-- 申请列表 -->
+        <activity
+            android:name=".friend.ApplyList"
+            android:screenOrientation="portrait" 
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar">
+        </activity>
+        <!-- 设置中心 -->
+        <activity
+            android:name=".friend.MoreActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 资源导航 -->
+        <activity
+            android:name="com.daixiaobao.navigation.Navigation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 商品列表 -->
+        <activity
+            android:name="com.daixiaobao.friend.FriendActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.friend" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 日期选择 -->
+        <activity
+            android:name="com.daixiaobao.filter.DateTimePickerActivity"
+            android:label="@string/list_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.picker" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 类别筛选 -->
+        <activity
+            android:name=".proxy.ProxyProductActivity"
+            android:screenOrientation="portrait" 
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar">
+        </activity>
+        <!-- 登录 -->
+        <activity
+            android:name="com.wookii.LoginAndRegActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" />
+        <activity
+            android:name="com.wookii.ModifyPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" />
+
+        <receiver android:name="com.daixiaobao.version.CompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 拍照 -->
+        <activity
+            android:name="com.example.testpic.TestPicActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.example.testpic.ImageGridActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.example.testpic.PublishedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.testpic.PhotoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <!-- 友盟升级 -->
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+</manifest>
