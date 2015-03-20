@@ -27,7 +27,7 @@ int main(int argc ,char[] avgs) {
 		//讲块赋值块变量point
 		point ^(WCpoint[] arr) {
 			for (WCpoint* p = arr; p < arr + arrLen + ; p++) {
-				NSLog(@"is &@:" + *p.i);
+				NSLog(@"is isisisi &@:" + *p.i);
 			}
 		}
 		
