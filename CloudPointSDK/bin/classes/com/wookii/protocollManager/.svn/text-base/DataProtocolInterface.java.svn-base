@@ -1,6 +1,0 @@
-package com.cloudpoint.cpgamespaysdk.protocollManager;
-
-public interface DataProtocolInterface {
-
-	void onResposeProcotolData(Object object);
-}
