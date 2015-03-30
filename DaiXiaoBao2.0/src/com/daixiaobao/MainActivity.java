@@ -101,45 +101,6 @@ public class MainActivity extends SlidingFragmentActivity {
 				getSupportFragmentManager());
 		pager.setAdapter(adapter);
 		pager.setOffscreenPageLimit(3);
-		/*indicator.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				switch (checkedId) {
-				case R.id.home_indicator_one:
-					pager.setCurrentItem(0);
-					break;
-				case R.id.home_indicator_two:
-					pager.setCurrentItem(1);
-					break;
-				case R.id.home_indicator_three:
-					pager.setCurrentItem(2);
-					break;
-				case R.id.home_indicator_four:
-					pager.setCurrentItem(3);
-					break;
-				default:
-					break;
-				}
-			}
-		});*/
-		/*pager.setOnPageChangeListener(new OnPageChangeListener() {
-
-			@Override
-			public void onPageSelected(int arg0) {
-				indicator.check(indicator.getChildAt(arg0).getId());
-			}
-
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-
-			}
-		});*/
 		findViewById(R.id.home_new_product).setOnClickListener(
 				new OnClickListener() {
 

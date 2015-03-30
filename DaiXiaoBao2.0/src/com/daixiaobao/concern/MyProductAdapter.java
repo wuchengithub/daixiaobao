@@ -34,7 +34,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.current.utils.Blur;
 import com.daixiaobao.BaseApplication;
 import com.daixiaobao.R;
 import com.daixiaobao.changePrice.ChangePriceBean;

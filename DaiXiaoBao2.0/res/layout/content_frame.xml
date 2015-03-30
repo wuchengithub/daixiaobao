@@ -38,14 +38,15 @@
             android:src="@drawable/add_icon"
             android:visibility="gone" />
 
-        <ImageView
+        <TextView
             android:id="@+id/home_new_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:padding="8.0dp"
-            android:src="@drawable/actionbar_mail_icon" />
+            android:text="添加产品" 
+            android:textColor="#ffffff"/>
 
         <ImageView
             android:id="@+id/home_navigation"
