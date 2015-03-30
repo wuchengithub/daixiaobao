@@ -1,34 +1,11 @@
 package com.daixiaobao.categroy;
 
+import com.daixiaobao.greenrobot.Group;
+
 public class ResponseCatagroy {
 	private int errorCode;
 	private String message;
 	private Group[] group;
-	public class Group{
-		private String code;
-		private String name;
-		private String image;
-		
-		public String getImage() {
-			return image;
-		}
-		public void setImage(String image) {
-			this.image = image;
-		}
-		public String getCode() {
-			return code;
-		}
-		public void setCode(String code) {
-			this.code = code;
-		}
-		public String getName() {
-			return name;
-		}
-		public void setName(String name) {
-			this.name = name;
-		}
-		
-	}
 
 	public int getErrorCode() {
 		return errorCode;

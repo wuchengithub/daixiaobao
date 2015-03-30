@@ -1,6 +1,6 @@
 package com.daixiaobao.search;
 
-public class SearchDataBean {
+public class AttributeRequestBean {
 
 	private String token;
 	private String uid;
@@ -30,7 +30,7 @@ public class SearchDataBean {
 	public void setItemId(String itemId) {
 		this.itemId = itemId;
 	}
-	public SearchDataBean(String token, String uid, String deviceId,
+	public AttributeRequestBean(String token, String uid, String deviceId,
 			String itemId) {
 		super();
 		this.token = token;

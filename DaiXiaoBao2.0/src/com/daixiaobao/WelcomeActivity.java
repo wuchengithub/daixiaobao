@@ -4,14 +4,21 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.widget.ImageView;
 
-import com.wookii.WookiiSDKManager;
+import com.daixiaobao.categroy.ResponseCatagroy;
+import com.daixiaobao.db.DBHelper;
+import com.daixiaobao.greenrobot.Group;
+import com.daixiaobao.other.CatagroyHelper;
+import com.daixiaobao.other.CatagroyHelper.OnCategroyHandleListener;
+import com.daixiaobao.search.AttributeProtocol;
+import com.daixiaobao.search.AttributeRequestBean;
+import com.wookii.utils.DeviceTool;
+import com.wookii.utils.LoginMessageDataUtils;
 
 public class WelcomeActivity extends Activity {
 
@@ -38,12 +45,13 @@ public class WelcomeActivity extends Activity {
 		};
 	};
 	private AnimationDrawable animationDrawable;
+	private AttributeProtocol protocol;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome);
-		
+		requestData();
 		//检测登陆,三秒后检测
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask(){
@@ -88,5 +96,33 @@ public class WelcomeActivity extends Activity {
 		// TODO Auto-generated method stub
 		
 		super.onDestroy();
+	}
+	
+	private void requestData() {
+		
+		CatagroyHelper.getInstance(this, new OnCategroyHandleListener() {
+			
+			@Override
+			public void onHandle(ResponseCatagroy obj) {
+				// TODO Auto-generated method stub
+				Group[] group = obj.getGroup();
+				if(group != null && group.length != 0) {
+					DBHelper instance = DBHelper.getInstance(WelcomeActivity.this);
+					//save in local data
+					for (Group item : group) {
+						boolean addGroup = instance.addGroup(item);
+						if(addGroup) {
+							getAttrbFromService(WelcomeActivity.this, item.getCode());
+						}
+					}
+					
+				}
+			}
+		});
+	}
+	protected void getAttrbFromService(Context context, String code) {
+		protocol = new AttributeProtocol();
+		protocol.invoke(new AttributeRequestBean(LoginMessageDataUtils.getToken(context), LoginMessageDataUtils.getUID(context), 
+				DeviceTool.getDeviceId(context), code), handler);
 	}
 }

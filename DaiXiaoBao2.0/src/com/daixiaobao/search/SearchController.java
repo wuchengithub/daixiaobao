@@ -9,7 +9,7 @@ import android.os.Handler;
 public class SearchController {
 	
 	private Context context;
-	private SearchDataProtocol protocol;
+	private AttributeProtocol protocol;
 
 	public SearchController(Context context, String code) {
 		this.context = context;

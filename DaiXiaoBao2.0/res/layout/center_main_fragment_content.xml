@@ -40,7 +40,8 @@
             android:layout_centerHorizontal="true"
             android:text="普通用户"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/new_yese" />
+            android:textColor="@color/new_yese" 
+            android:visibility="invisible"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -50,7 +51,8 @@
         android:layout_below="@+id/center_main_fristgroup"
         android:layout_marginTop="12.0dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:visibility="gone" >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -109,6 +111,6 @@
         android:name="com.daixiaobao.more.MoreFragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/center_main_secondgroup" />
+        android:layout_below="@+id/center_main_fristgroup" />
 
 </RelativeLayout>

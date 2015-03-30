@@ -4,6 +4,7 @@ import com.daixiaobao.categroy.CategroyProtocol;
 import com.daixiaobao.categroy.ResponseCatagroy;
 import com.daixiaobao.concern.change.ConcernChangeProtocol;
 import com.daixiaobao.concern.change.ResponseConcernChange;
+import com.daixiaobao.greenrobot.Group;
 import com.daixiaobao.widget.CustomLoadingDialog;
 import com.wookii.protocollManager.ProtocolManager;
 
@@ -22,7 +23,7 @@ public class CatagroyHelper {
 				if (msg.obj == null) {// 演示数据
 					Toast.makeText(context, "没有找到您想要的内容", Toast.LENGTH_LONG).show();
 					obj = new ResponseCatagroy();
-					obj.setGroup(new ResponseCatagroy.Group[]{});
+					obj.setGroup(new Group[]{});
 				} else {
 					obj = (ResponseCatagroy) msg.obj;
 					if(obj.getErrorCode() != ProtocolManager.ERROR_CODE_ZORE){

@@ -49,14 +49,14 @@ public class MainCenterFragment extends Fragment {
 					/*CircleImageView image = (CircleImageView)view.findViewById(R.id.center_main_image);
 					BaseApplication.imageLoader.displayImage(detail.getImageUrl(), image);*/
 					//proxyLevel
-					TextView proxyLevel = (TextView)view.findViewById(R.id.center_main_proxylevel);
-					proxyLevel.setText(detail.getValid());
+					//TextView proxyLevel = (TextView)view.findViewById(R.id.center_main_proxylevel);
+					//proxyLevel.setText(detail.getValid());
 					//myProxy
-					TextView myProxy = (TextView)view.findViewById(R.id.center_main_my_product_count);
-					myProxy.setText(detail.getProductLimit());
+					//TextView myProxy = (TextView)view.findViewById(R.id.center_main_my_product_count);
+					//myProxy.setText(detail.getProductLimit());
 					//spreadCount
-					TextView spread = (TextView)view.findViewById(R.id.center_main_spread_count);
-					spread.setText(detail.getFriendsLimit());
+					//TextView spread = (TextView)view.findViewById(R.id.center_main_spread_count);
+					//spread.setText(detail.getFriendsLimit());
 				} else {
 					
 				}

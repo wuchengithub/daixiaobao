@@ -2,12 +2,12 @@ package com.daixiaobao.search;
 
 import com.daixiaobao.protocol.MyBaseProtocol;
 
-public class SearchDataProtocol extends MyBaseProtocol {
+public class AttributeProtocol extends MyBaseProtocol {
 
 	@Override
 	protected Class getClazz() {
 		// TODO Auto-generated method stub
-		return SearchDataBean.class;
+		return AttributeRequestBean.class;
 	}
 
 	@Override

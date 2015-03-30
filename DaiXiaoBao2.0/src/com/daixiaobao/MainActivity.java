@@ -97,7 +97,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		
 		//indicator = (RadioGroup) findViewById(R.id.home_indicator);
 		pager = (ViewPager) findViewById(R.id.base_view_pager);
-		FragmentPagerAdapter adapter = new GoogleMusicAdapter(
+		FragmentPagerAdapter adapter = new FristHomeAdapter(
 				getSupportFragmentManager());
 		pager.setAdapter(adapter);
 		pager.setOffscreenPageLimit(3);
@@ -123,8 +123,8 @@ public class MainActivity extends SlidingFragmentActivity {
 				});
 	}
 
-	class GoogleMusicAdapter extends FragmentPagerAdapter {
-		public GoogleMusicAdapter(FragmentManager fm) {
+	class FristHomeAdapter extends FragmentPagerAdapter {
+		public FristHomeAdapter(FragmentManager fm) {
 			super(fm);
 		}
 

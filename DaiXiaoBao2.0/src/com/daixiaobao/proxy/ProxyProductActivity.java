@@ -27,7 +27,6 @@ import com.actionbarsherlock.view.MenuItem;
 import com.daixiaobao.R;
 import com.daixiaobao.categroy.RequestCategroy;
 import com.daixiaobao.categroy.ResponseCatagroy;
-import com.daixiaobao.categroy.ResponseCatagroy.Group;
 import com.daixiaobao.filter.FilterController;
 import com.daixiaobao.filter.FilterController.OnFinishFilterListener;
 import com.daixiaobao.filter.SearchConfig;

@@ -29,13 +29,13 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.MenuItem;
 import com.daixiaobao.R;
 import com.daixiaobao.filter.SearchConfig.SearchAttribute;
-import com.daixiaobao.search.SearchDataBean;
-import com.daixiaobao.search.SearchDataBean.Group;
-import com.daixiaobao.search.SearchDataBean.Group.AfterSales;
-import com.daixiaobao.search.SearchDataBean.Group.Attrb;
-import com.daixiaobao.search.SearchDataBean.Group.Attrb.Feature;
-import com.daixiaobao.search.SearchDataBean.Group.Brand;
-import com.daixiaobao.search.SearchDataProtocol;
+import com.daixiaobao.search.AttributeRequestBean;
+import com.daixiaobao.search.AttributeRequestBean.Group;
+import com.daixiaobao.search.AttributeRequestBean.Group.AfterSales;
+import com.daixiaobao.search.AttributeRequestBean.Group.Attrb;
+import com.daixiaobao.search.AttributeRequestBean.Group.Attrb.Feature;
+import com.daixiaobao.search.AttributeRequestBean.Group.Brand;
+import com.daixiaobao.search.AttributeProtocol;
 import com.daixiaobao.widget.CustomLoadingDialog;
 import com.daixiaobao.widget.IconButton;
 import com.wookii.protocollManager.ProtocolManager;
@@ -56,10 +56,10 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 	private Activity context;
 	private ActionBar actionBar;
 	private OnFinishFilterListener listener;
-	private SearchDataProtocol protocol;
+	private AttributeProtocol protocol;
 	private String codeStr;
 	private PopupWindow mPopupWindow;
-	protected SearchDataBean data;
+	protected AttributeRequestBean data;
 	private View popupView;
 	protected Spinner brandView;
 	private LinearLayout rootLayout;
@@ -148,7 +148,7 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 			switch (msg.what) {
 			case ProtocolManager.NOTIFICATION:
 				spinnerList.clear();
-				data = (SearchDataBean)msg.obj;
+				data = (AttributeRequestBean)msg.obj;
 				if(data != null && data.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
 					Group group = data.getData();
 					final Brand[] brands = group.getBrands();
@@ -316,8 +316,8 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 	public void getDataFromServer() {
 		// TODO Auto-generated method stub
 		CustomLoadingDialog.showProgress(context, "", "正在执行", false, true);
-		protocol = new SearchDataProtocol();
-		protocol.invoke(new SearchDataBean(LoginMessageDataUtils.getToken(context), LoginMessageDataUtils.getUID(context), 
+		protocol = new AttributeProtocol();
+		protocol.invoke(new AttributeRequestBean(LoginMessageDataUtils.getToken(context), LoginMessageDataUtils.getUID(context), 
 				DeviceTool.getDeviceId(context), codeStr), handler);
 	}
 
