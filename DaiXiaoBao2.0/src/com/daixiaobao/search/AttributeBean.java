@@ -1,5 +1,7 @@
 package com.daixiaobao.search;
 
+import java.util.List;
+
 import com.daixiaobao.greenrobot.AfterSales;
 import com.daixiaobao.greenrobot.Attrb;
 import com.daixiaobao.greenrobot.Brand;
@@ -72,34 +74,27 @@ public class AttributeBean {
 	private Group data;
 	public class Group {
 		
-		public Attrb[] getAttribute() {
+		private List<Attrb> attribute;
+		private List<Brand> brands;
+		private List<AfterSales> afterSales;
+		public List<Attrb> getAttribute() {
 			return attribute;
 		}
-
-		public void setAttribute(Attrb[] attribute) {
+		public void setAttribute(List<Attrb> attribute) {
 			this.attribute = attribute;
 		}
-
-		public Brand[] getBrands() {
+		public List<Brand> getBrands() {
 			return brands;
 		}
-
-		public void setBrands(Brand[] brands) {
+		public void setBrands(List<Brand> brands) {
 			this.brands = brands;
 		}
-
-		private Attrb[] attribute;
-		private Brand[] brands;
-		private AfterSales[] afterSales;
-		
-		public AfterSales[] getAfterSales() {
+		public List<AfterSales> getAfterSales() {
 			return afterSales;
 		}
-
-		public void setAfterSales(AfterSales[] afterSales) {
+		public void setAfterSales(List<AfterSales> afterSales) {
 			this.afterSales = afterSales;
 		}
-
 		
 	}
 

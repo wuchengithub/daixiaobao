@@ -13,6 +13,9 @@ import com.daixiaobao.greenrobot.DaoSession;
 import com.daixiaobao.greenrobot.Feature;
 import com.daixiaobao.greenrobot.Group;
 import com.daixiaobao.search.AttributeBean;
+import com.wookii.protocollManager.ProtocolManager;
+
+import de.greenrobot.dao.query.QueryBuilder;
 
 public class DBHelper {
 
@@ -88,12 +91,26 @@ public class DBHelper {
 	}
 
 
-	public void getAllAttribute(String codeStr) {
+	public AttributeBean getAllAttribute(String codeStr) {
 		// TODO Auto-generated method stub
 		AttributeBean data = new AttributeBean();
+		com.daixiaobao.search.AttributeBean.Group group = data.new Group();
+		
 		List<AfterSales> after = daoSession.getAfterSalesDao().queryBuilder().where(Properties.Categorys_id.eq(codeStr)).list();
+		group.setAfterSales(after);
 		List<Brand> brand = daoSession.getBrandDao().queryBuilder().where(com.daixiaobao.greenrobot.BrandDao.Properties.Categorys_id.eq(codeStr)).list();
+		group.setBrands(brand);
 		List<Attrb> attrb = daoSession.getAttrbDao().queryBuilder().where(com.daixiaobao.greenrobot.AttrbDao.Properties.Categorys_id.eq(codeStr)).list();
+		
+		for (Attrb item : attrb) {
+			List<Feature> feature = daoSession.getFeatureDao().queryBuilder().where(com.daixiaobao.greenrobot.FeatureDao.Properties.Attrb_id.eq(item.getFeatureTypeId())).list();
+			item.setFeatures(feature);
+		}
+		group.setAttribute(attrb);
+		
+		data.setData(group);
+		data.setErrorCode(ProtocolManager.ERROR_CODE_ZORE);
+		return data;
 	}
 	
 	/*public HashMap<String, Object> reload(){

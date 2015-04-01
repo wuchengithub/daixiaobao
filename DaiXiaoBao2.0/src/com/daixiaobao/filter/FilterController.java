@@ -11,6 +11,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -59,7 +60,6 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 	private Activity context;
 	private ActionBar actionBar;
 	private OnFinishFilterListener listener;
-	private AttributeProtocol protocol;
 	private String codeStr;
 	private PopupWindow mPopupWindow;
 	protected AttributeBean data;
@@ -154,8 +154,8 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 				data = (AttributeBean)msg.obj;
 				if(data != null && data.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
 					Group group = data.getData();
-					final Brand[] brands = group.getBrands();
-					final AfterSales[] afterSales = group.getAfterSales();
+					final List<Brand> brands = group.getBrands();
+					final List<AfterSales> afterSales = group.getAfterSales();
 					//创建属性group的标题
 					TextView brandName = new TextView(context);
 					brandName.setText("品牌");
@@ -229,7 +229,7 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 					});
 					rootLayout.addView(afterSalesView, 3);
 					//添加属性
-					final Attrb[] attributes = group.getAttribute();
+					final List<Attrb> attributes = group.getAttribute();
 					for (Attrb attrb : attributes) {
 						final String featureTypeName = attrb.getFeatureTypeName();
 						//创建属性group
@@ -257,7 +257,7 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 						rootLayout.addView(arrtSpinner, 4);
 						//创建group的child
 						List<Map<String, String>>  arrtData = new ArrayList<Map<String, String>>();
-						final Feature[] features = attrb.getFeatures();
+						final List<Feature> features = attrb.getFeatures();
 						for (Feature feature : features) {
 							Map<String,String> idValueMap = new HashMap<String, String>();
 							idValueMap.put("id", feature.getFeatureId());
@@ -318,11 +318,21 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 
 	public void getDataFromDB() {
 		// TODO Auto-generated method stub
-		CustomLoadingDialog.showProgress(context, "", "正在执行", false, true);
-		DBHelper.getInstance(context).getAllAttribute(codeStr);
-		protocol = new AttributeProtocol();
+		//CustomLoadingDialog.showProgress(context, "", "正在执行", false, true);
+		new Thread() {
+			public void run() {
+				AttributeBean allAttribute = DBHelper.getInstance(context).getAllAttribute(codeStr);
+				Message msg = Message.obtain();
+				msg.what = ProtocolManager.NOTIFICATION;
+				msg.obj = allAttribute;
+				handler.sendMessage(msg);
+			};
+		}.start();
+		
+		
+		/*protocol = new AttributeProtocol();
 		protocol.invoke(new AttributeBean(LoginMessageDataUtils.getToken(context), LoginMessageDataUtils.getUID(context), 
-				DeviceTool.getDeviceId(context), codeStr), handler);
+				DeviceTool.getDeviceId(context), codeStr), handler);*/
 	}
 
 

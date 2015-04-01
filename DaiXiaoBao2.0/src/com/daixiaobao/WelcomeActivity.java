@@ -1,5 +1,6 @@
 package com.daixiaobao;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -133,21 +134,21 @@ public class WelcomeActivity extends Activity {
 					AttributeBean mObj = (AttributeBean)msg.obj;
 					if(mObj != null && mObj.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
 						com.daixiaobao.search.AttributeBean.Group data = mObj.getData();
-						AfterSales[] afterSales = data.getAfterSales();
-						if(afterSales != null && afterSales.length != 0) {
+						List<AfterSales> afterSales = data.getAfterSales();
+						if(afterSales != null && afterSales.size() != 0) {
 							for (AfterSales item : afterSales) {
 								item.setCategorys_id(code);
 								dbHelper.addAfterSales(item);
 							}
 						}
 						
-						Attrb[] attribute = data.getAttribute();
-						if(attribute != null && attribute.length != 0) {
+						List<Attrb> attribute = data.getAttribute();
+						if(attribute != null && attribute.size() != 0) {
 							for (Attrb item : attribute) {
 								item.setCategorys_id(code);
 								dbHelper.addAttrb(item);
-								Feature[] features = item.getFeatures();
-								if(features != null && features.length != 0) {
+								List<Feature> features = item.getFeatures();
+								if(features != null && features.size() != 0) {
 									for (Feature feature : features) {
 										feature.setAttrb_id(item.getFeatureTypeId());
 										dbHelper.addFeature(feature);
@@ -156,8 +157,8 @@ public class WelcomeActivity extends Activity {
 							}
 						}
 						
-						Brand[] brands = data.getBrands();
-						if(brands != null && brands.length != 0) {
+						List<Brand> brands = data.getBrands();
+						if(brands != null && brands.size() != 0) {
 							for (Brand item : brands) {
 								item.setCategorys_id(code);
 								dbHelper.addBrand(item);
