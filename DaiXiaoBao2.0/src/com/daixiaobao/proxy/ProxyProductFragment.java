@@ -98,7 +98,7 @@ public class ProxyProductFragment extends Fragment {
 	
 	private void createFilterController(String categoryCode) {
 		filterController = new FilterController(context, categoryCode);
-		filterController.getDataFromServer();
+		filterController.getDataFromDB();
 		filterController.setOnFinishFilterListener(new OnFinishFilterListener() {
 			
 			@Override

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
@@ -28,20 +29,22 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.MenuItem;
 import com.daixiaobao.R;
+import com.daixiaobao.db.DBHelper;
 import com.daixiaobao.filter.SearchConfig.SearchAttribute;
-import com.daixiaobao.search.AttributeRequestBean;
-import com.daixiaobao.search.AttributeRequestBean.Group;
-import com.daixiaobao.search.AttributeRequestBean.Group.AfterSales;
-import com.daixiaobao.search.AttributeRequestBean.Group.Attrb;
-import com.daixiaobao.search.AttributeRequestBean.Group.Attrb.Feature;
-import com.daixiaobao.search.AttributeRequestBean.Group.Brand;
+import com.daixiaobao.greenrobot.AfterSales;
+import com.daixiaobao.greenrobot.Attrb;
+import com.daixiaobao.greenrobot.Brand;
+import com.daixiaobao.greenrobot.Feature;
 import com.daixiaobao.search.AttributeProtocol;
+import com.daixiaobao.search.AttributeBean;
+import com.daixiaobao.search.AttributeBean.Group;
 import com.daixiaobao.widget.CustomLoadingDialog;
 import com.daixiaobao.widget.IconButton;
 import com.wookii.protocollManager.ProtocolManager;
 import com.wookii.utils.DeviceTool;
 import com.wookii.utils.LoginMessageDataUtils;
 
+@SuppressLint("NewApi")
 public class FilterController implements OnItemSelectedListener, OnQueryTextListener{
 
 	public interface OnFinishFilterListener {
@@ -59,7 +62,7 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 	private AttributeProtocol protocol;
 	private String codeStr;
 	private PopupWindow mPopupWindow;
-	protected AttributeRequestBean data;
+	protected AttributeBean data;
 	private View popupView;
 	protected Spinner brandView;
 	private LinearLayout rootLayout;
@@ -148,7 +151,7 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 			switch (msg.what) {
 			case ProtocolManager.NOTIFICATION:
 				spinnerList.clear();
-				data = (AttributeRequestBean)msg.obj;
+				data = (AttributeBean)msg.obj;
 				if(data != null && data.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
 					Group group = data.getData();
 					final Brand[] brands = group.getBrands();
@@ -307,17 +310,18 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 		// TODO Auto-generated method stub
 		if(data == null){
 			CustomLoadingDialog.showProgress(context, "", "正在执行", false, true);
-			getDataFromServer();
+			getDataFromDB();
 		}  else {
 			//mPopupWindow.showAsDropDown(context.findViewById(R.id.mine_concern_order_toggle));
 		}
 	}
 
-	public void getDataFromServer() {
+	public void getDataFromDB() {
 		// TODO Auto-generated method stub
 		CustomLoadingDialog.showProgress(context, "", "正在执行", false, true);
+		DBHelper.getInstance(context).getAllAttribute(codeStr);
 		protocol = new AttributeProtocol();
-		protocol.invoke(new AttributeRequestBean(LoginMessageDataUtils.getToken(context), LoginMessageDataUtils.getUID(context), 
+		protocol.invoke(new AttributeBean(LoginMessageDataUtils.getToken(context), LoginMessageDataUtils.getUID(context), 
 				DeviceTool.getDeviceId(context), codeStr), handler);
 	}
 

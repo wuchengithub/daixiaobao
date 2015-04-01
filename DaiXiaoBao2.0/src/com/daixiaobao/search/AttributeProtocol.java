@@ -7,7 +7,7 @@ public class AttributeProtocol extends MyBaseProtocol {
 	@Override
 	protected Class getClazz() {
 		// TODO Auto-generated method stub
-		return AttributeRequestBean.class;
+		return AttributeBean.class;
 	}
 
 	@Override

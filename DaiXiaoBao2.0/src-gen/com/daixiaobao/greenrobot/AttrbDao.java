@@ -26,6 +26,7 @@ public class AttrbDao extends AbstractDao<Attrb, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property FeatureTypeId = new Property(1, String.class, "featureTypeId", false, "FEATURE_TYPE_ID");
         public final static Property FeatureTypeName = new Property(2, String.class, "featureTypeName", false, "FEATURE_TYPE_NAME");
+        public final static Property Categorys_id = new Property(3, String.class, "categorys_id", false, "CATEGORYS_ID");
     };
 
 
@@ -43,7 +44,8 @@ public class AttrbDao extends AbstractDao<Attrb, Long> {
         db.execSQL("CREATE TABLE " + constraint + "'daixiaobao_attrb' (" + //
                 "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "'FEATURE_TYPE_ID' TEXT NOT NULL ," + // 1: featureTypeId
-                "'FEATURE_TYPE_NAME' TEXT);"); // 2: featureTypeName
+                "'FEATURE_TYPE_NAME' TEXT," + // 2: featureTypeName
+                "'CATEGORYS_ID' TEXT);"); // 3: categorys_id
     }
 
     /** Drops the underlying database table. */
@@ -67,6 +69,11 @@ public class AttrbDao extends AbstractDao<Attrb, Long> {
         if (featureTypeName != null) {
             stmt.bindString(3, featureTypeName);
         }
+ 
+        String categorys_id = entity.getCategorys_id();
+        if (categorys_id != null) {
+            stmt.bindString(4, categorys_id);
+        }
     }
 
     /** @inheritdoc */
@@ -81,7 +88,8 @@ public class AttrbDao extends AbstractDao<Attrb, Long> {
         Attrb entity = new Attrb( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // featureTypeId
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // featureTypeName
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // featureTypeName
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3) // categorys_id
         );
         return entity;
     }
@@ -92,6 +100,7 @@ public class AttrbDao extends AbstractDao<Attrb, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setFeatureTypeId(cursor.getString(offset + 1));
         entity.setFeatureTypeName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setCategorys_id(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
      }
     
     /** @inheritdoc */

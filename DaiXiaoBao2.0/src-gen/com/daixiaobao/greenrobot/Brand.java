@@ -10,6 +10,7 @@ public class Brand {
     /** Not-null value. */
     private String brandId;
     private String name;
+    private String categorys_id;
 
     public Brand() {
     }
@@ -18,10 +19,11 @@ public class Brand {
         this.id = id;
     }
 
-    public Brand(Long id, String brandId, String name) {
+    public Brand(Long id, String brandId, String name, String categorys_id) {
         this.id = id;
         this.brandId = brandId;
         this.name = name;
+        this.categorys_id = categorys_id;
     }
 
     public Long getId() {
@@ -48,6 +50,14 @@ public class Brand {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCategorys_id() {
+        return categorys_id;
+    }
+
+    public void setCategorys_id(String categorys_id) {
+        this.categorys_id = categorys_id;
     }
 
 }

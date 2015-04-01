@@ -10,6 +10,7 @@ public class AfterSales {
     /** Not-null value. */
     private String afterSalesId;
     private String name;
+    private String categorys_id;
 
     public AfterSales() {
     }
@@ -18,10 +19,11 @@ public class AfterSales {
         this.id = id;
     }
 
-    public AfterSales(Long id, String afterSalesId, String name) {
+    public AfterSales(Long id, String afterSalesId, String name, String categorys_id) {
         this.id = id;
         this.afterSalesId = afterSalesId;
         this.name = name;
+        this.categorys_id = categorys_id;
     }
 
     public Long getId() {
@@ -48,6 +50,14 @@ public class AfterSales {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCategorys_id() {
+        return categorys_id;
+    }
+
+    public void setCategorys_id(String categorys_id) {
+        this.categorys_id = categorys_id;
     }
 
 }

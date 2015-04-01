@@ -26,6 +26,7 @@ public class FeatureDao extends AbstractDao<Feature, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property FeatureId = new Property(1, String.class, "featureId", false, "FEATURE_ID");
         public final static Property FeatureName = new Property(2, String.class, "featureName", false, "FEATURE_NAME");
+        public final static Property Attrb_id = new Property(3, String.class, "attrb_id", false, "ATTRB_ID");
     };
 
 
@@ -43,7 +44,8 @@ public class FeatureDao extends AbstractDao<Feature, Long> {
         db.execSQL("CREATE TABLE " + constraint + "'daixiaobao_feature' (" + //
                 "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "'FEATURE_ID' TEXT NOT NULL ," + // 1: featureId
-                "'FEATURE_NAME' TEXT);"); // 2: featureName
+                "'FEATURE_NAME' TEXT," + // 2: featureName
+                "'ATTRB_ID' TEXT);"); // 3: attrb_id
     }
 
     /** Drops the underlying database table. */
@@ -67,6 +69,11 @@ public class FeatureDao extends AbstractDao<Feature, Long> {
         if (featureName != null) {
             stmt.bindString(3, featureName);
         }
+ 
+        String attrb_id = entity.getAttrb_id();
+        if (attrb_id != null) {
+            stmt.bindString(4, attrb_id);
+        }
     }
 
     /** @inheritdoc */
@@ -81,7 +88,8 @@ public class FeatureDao extends AbstractDao<Feature, Long> {
         Feature entity = new Feature( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // featureId
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // featureName
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // featureName
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3) // attrb_id
         );
         return entity;
     }
@@ -92,6 +100,7 @@ public class FeatureDao extends AbstractDao<Feature, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setFeatureId(cursor.getString(offset + 1));
         entity.setFeatureName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setAttrb_id(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
      }
     
     /** @inheritdoc */

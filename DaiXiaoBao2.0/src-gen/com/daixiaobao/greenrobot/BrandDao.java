@@ -26,6 +26,7 @@ public class BrandDao extends AbstractDao<Brand, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property BrandId = new Property(1, String.class, "brandId", false, "BRAND_ID");
         public final static Property Name = new Property(2, String.class, "name", false, "NAME");
+        public final static Property Categorys_id = new Property(3, String.class, "categorys_id", false, "CATEGORYS_ID");
     };
 
 
@@ -43,7 +44,8 @@ public class BrandDao extends AbstractDao<Brand, Long> {
         db.execSQL("CREATE TABLE " + constraint + "'daixiaobao_brand' (" + //
                 "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "'BRAND_ID' TEXT NOT NULL ," + // 1: brandId
-                "'NAME' TEXT);"); // 2: name
+                "'NAME' TEXT," + // 2: name
+                "'CATEGORYS_ID' TEXT);"); // 3: categorys_id
     }
 
     /** Drops the underlying database table. */
@@ -67,6 +69,11 @@ public class BrandDao extends AbstractDao<Brand, Long> {
         if (name != null) {
             stmt.bindString(3, name);
         }
+ 
+        String categorys_id = entity.getCategorys_id();
+        if (categorys_id != null) {
+            stmt.bindString(4, categorys_id);
+        }
     }
 
     /** @inheritdoc */
@@ -81,7 +88,8 @@ public class BrandDao extends AbstractDao<Brand, Long> {
         Brand entity = new Brand( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // brandId
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // name
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // name
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3) // categorys_id
         );
         return entity;
     }
@@ -92,6 +100,7 @@ public class BrandDao extends AbstractDao<Brand, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setBrandId(cursor.getString(offset + 1));
         entity.setName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setCategorys_id(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
      }
     
     /** @inheritdoc */

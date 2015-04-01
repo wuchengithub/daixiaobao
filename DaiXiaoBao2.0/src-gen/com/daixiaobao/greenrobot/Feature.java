@@ -10,6 +10,7 @@ public class Feature {
     /** Not-null value. */
     private String featureId;
     private String featureName;
+    private String attrb_id;
 
     public Feature() {
     }
@@ -18,10 +19,11 @@ public class Feature {
         this.id = id;
     }
 
-    public Feature(Long id, String featureId, String featureName) {
+    public Feature(Long id, String featureId, String featureName, String attrb_id) {
         this.id = id;
         this.featureId = featureId;
         this.featureName = featureName;
+        this.attrb_id = attrb_id;
     }
 
     public Long getId() {
@@ -48,6 +50,14 @@ public class Feature {
 
     public void setFeatureName(String featureName) {
         this.featureName = featureName;
+    }
+
+    public String getAttrb_id() {
+        return attrb_id;
+    }
+
+    public void setAttrb_id(String attrb_id) {
+        this.attrb_id = attrb_id;
     }
 
 }

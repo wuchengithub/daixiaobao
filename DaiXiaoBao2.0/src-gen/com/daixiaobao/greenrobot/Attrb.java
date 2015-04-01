@@ -10,18 +10,29 @@ public class Attrb {
     /** Not-null value. */
     private String featureTypeId;
     private String featureTypeName;
+    private String categorys_id;
+    private Feature[] features;
 
-    public Attrb() {
+    public Feature[] getFeatures() {
+		return features;
+	}
+
+	public void setFeatures(Feature[] features) {
+		this.features = features;
+	}
+
+	public Attrb() {
     }
 
     public Attrb(Long id) {
         this.id = id;
     }
 
-    public Attrb(Long id, String featureTypeId, String featureTypeName) {
+    public Attrb(Long id, String featureTypeId, String featureTypeName, String categorys_id) {
         this.id = id;
         this.featureTypeId = featureTypeId;
         this.featureTypeName = featureTypeName;
+        this.categorys_id = categorys_id;
     }
 
     public Long getId() {
@@ -48,6 +59,14 @@ public class Attrb {
 
     public void setFeatureTypeName(String featureTypeName) {
         this.featureTypeName = featureTypeName;
+    }
+
+    public String getCategorys_id() {
+        return categorys_id;
+    }
+
+    public void setCategorys_id(String categorys_id) {
+        this.categorys_id = categorys_id;
     }
 
 }

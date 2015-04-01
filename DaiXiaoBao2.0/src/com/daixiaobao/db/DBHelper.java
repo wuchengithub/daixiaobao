@@ -1,31 +1,30 @@
 package com.daixiaobao.db;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import android.content.Context;
 
+import com.daixiaobao.greenrobot.AfterSales;
+import com.daixiaobao.greenrobot.AfterSalesDao.Properties;
+import com.daixiaobao.greenrobot.Attrb;
+import com.daixiaobao.greenrobot.Brand;
 import com.daixiaobao.greenrobot.DaoMaster;
 import com.daixiaobao.greenrobot.DaoSession;
+import com.daixiaobao.greenrobot.Feature;
 import com.daixiaobao.greenrobot.Group;
-import com.daixiaobao.greenrobot.GroupDao;
-import com.daixiaobao.greenrobot.GroupDao.Properties;
-
-import de.greenrobot.dao.query.Query;
+import com.daixiaobao.search.AttributeBean;
 
 public class DBHelper {
 
 	
 	private Context context;
-	private GroupDao groupDao;
+	private DaoSession daoSession;
 	
 	
 	public DBHelper(Context context) {
 		this.context = context;
 		DaoMaster daoMaster = DBManager.getDaoMaster(context);
-		DaoSession daoSession = DBManager.getDaoSession(daoMaster, context);
-		groupDao = daoSession.getGroupDao();
+		daoSession = DBManager.getDaoSession(daoMaster, context);
 	}
 	private static DBHelper instance = null;
 	
@@ -38,7 +37,7 @@ public class DBHelper {
 	
 	
 	public boolean addGroup(Group entity){
-		long l = groupDao.insert(entity);
+		long l = daoSession.getGroupDao().insert(entity);
 		if(l != -1) {
 			return true;
 		}
@@ -46,10 +45,55 @@ public class DBHelper {
 		return false;
 	}
 
+	public boolean addAfterSales(AfterSales entity){
+		long l = daoSession.getAfterSalesDao().insert(entity);
+		if(l != -1) {
+			return true;
+		}
+		
+		return false;
+	}
+	public boolean addAttrb(Attrb entity){
+		long l = daoSession.getAttrbDao().insert(entity);
+		if(l != -1) {
+			return true;
+		}
+		
+		return false;
+	}
+	public boolean addBrand(Brand entity){
+		long l = daoSession.getBrandDao().insert(entity);
+		if(l != -1) {
+			return true;
+		}
+		
+		return false;
+	}
+	public boolean addFeature(Feature entity){
+		long l = daoSession.getFeatureDao().insert(entity);
+		if(l != -1) {
+			return true;
+		}
+		
+		return false;
+	}
 
 	public void clearAll() {
 		// TODO Auto-generated method stub
-		groupDao.deleteAll();
+		daoSession.getGroupDao().deleteAll();
+		daoSession.getAfterSalesDao().deleteAll();
+		daoSession.getAttrbDao().deleteAll();
+		daoSession.getBrandDao().deleteAll();
+		daoSession.getFeatureDao().deleteAll();
+	}
+
+
+	public void getAllAttribute(String codeStr) {
+		// TODO Auto-generated method stub
+		AttributeBean data = new AttributeBean();
+		List<AfterSales> after = daoSession.getAfterSalesDao().queryBuilder().where(Properties.Categorys_id.eq(codeStr)).list();
+		List<Brand> brand = daoSession.getBrandDao().queryBuilder().where(com.daixiaobao.greenrobot.BrandDao.Properties.Categorys_id.eq(codeStr)).list();
+		List<Attrb> attrb = daoSession.getAttrbDao().queryBuilder().where(com.daixiaobao.greenrobot.AttrbDao.Properties.Categorys_id.eq(codeStr)).list();
 	}
 	
 	/*public HashMap<String, Object> reload(){
