@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -21,14 +24,12 @@ import com.daixiaobao.friend.ResponseBusinessList.Data;
 import com.daixiaobao.protocol.MyBaseProtocol;
 import com.daixiaobao.proxy.ProxyProductActivity;
 import com.daixiaobao.widget.CustomLoadingDialog;
-import com.fortysevendeg.swipelistview.BaseSwipeListViewListener;
-import com.fortysevendeg.swipelistview.SwipeListView;
 import com.wookii.utils.DeviceTool;
 import com.wookii.utils.LoginMessageDataUtils;
 
 public class FriendFragment extends SherlockFragment {
 
-	private SwipeListView listView;
+	private ListView listView;
 	protected int storeId;
 	protected BusinessAdapter businessAdapter;
 	private Activity context;
@@ -44,18 +45,7 @@ public class FriendFragment extends SherlockFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.activity_friend, null);
-		listView = (SwipeListView) view.findViewById(R.id.friend_supply_list);
-		listView.setSwipeListViewListener(new BaseSwipeListViewListener() {
-			@Override
-			public void onClickFrontView(int position) {
-				storeId = (int) listView.getAdapter().getItemId(position);
-				String businessName = businessAdapter.getBusinessName(position);
-				Intent intent = new Intent(context, ProxyProductActivity.class);
-				intent.putExtra("storeId", storeId);
-				intent.putExtra("businessName", businessName);
-				((Activity) context).startActivity(intent);
-			}
-		});
+		listView = (ListView) view.findViewById(R.id.friend_supply_list);
 		SearchView searchView = (SearchView) view
 				.findViewById(R.id.friend_search_supply);
 		int palteId = searchView.getContext().getResources()
@@ -83,7 +73,20 @@ public class FriendFragment extends SherlockFragment {
 				context.startActivity(intent);
 			}
 		});
-		
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
+				// TODO Auto-generated method stub
+				storeId = (int) listView.getAdapter().getItemId(position);
+				String businessName = businessAdapter.getBusinessName(position);
+				Intent intent = new Intent(context, ProxyProductActivity.class);
+				intent.putExtra("storeId", storeId);
+				intent.putExtra("businessName", businessName);
+				((Activity) context).startActivity(intent);
+			}
+		});
 		return view;
 	}
 
@@ -109,7 +112,6 @@ public class FriendFragment extends SherlockFragment {
 						
 					} else  if (obj.getErrorCode() == 2) {
 					}
-					Toast.makeText(context, obj.getMessage(), Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
@@ -139,7 +141,6 @@ public class FriendFragment extends SherlockFragment {
 	}
 
 	public void getDataFromServer() {
-		CustomLoadingDialog.showProgress(context, "", "读取列表中", false, true);
 		RequestBusinessList requesBusinessList = new RequestBusinessList(
 				LoginMessageDataUtils.getToken(context),
 				DeviceTool.getUniqueId(context),
@@ -168,7 +169,6 @@ public class FriendFragment extends SherlockFragment {
 								CommonUtil.LOGIN_REQUEST_CODE);
 					}
 				}
-				CustomLoadingDialog.dismissDialog();
 
 			}
 		});

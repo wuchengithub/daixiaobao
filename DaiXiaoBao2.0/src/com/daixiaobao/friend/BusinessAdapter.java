@@ -68,8 +68,8 @@ public class BusinessAdapter extends BaseAdapter {
 					.findViewById(R.id.apply_list_content_id);
 			holder.signature = (TextView) convertView
 					.findViewById(R.id.apply_list_content_message);
-			holder.delete = (Button) convertView
-					.findViewById(R.id.apply_list_content_delete);
+			/*holder.delete = (Button) convertView
+					.findViewById(R.id.apply_list_content_delete);*/
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -78,12 +78,12 @@ public class BusinessAdapter extends BaseAdapter {
 		holder.id.setText(item.getUserLoginId());
 		String signature = item.getSignature();
 		if(TextUtils.isEmpty(signature)){
-			holder.signature.setText("签名：还没有签名");
+			holder.signature.setText("添加签名");
 		} else {
 			holder.signature.setText("签名：" + signature);
 		}
 		
-		if (item.getStoreId().equals(LoginMessageDataUtils.getStoreId(context))) {
+		/*if (item.getStoreId().equals(LoginMessageDataUtils.getStoreId(context))) {
 			holder.delete.setVisibility(View.INVISIBLE);
 		} else {
 			holder.delete.setVisibility(View.VISIBLE);
@@ -116,14 +116,14 @@ public class BusinessAdapter extends BaseAdapter {
 				dialog = customBuilder.create();
 				dialog.show();
 			}
-		});
+		});*/
 		return convertView;
 	}
 
 	final class ViewHolder {
 
 		TextView id, signature;
-		Button delete;
+		//Button delete;
 
 	}
 

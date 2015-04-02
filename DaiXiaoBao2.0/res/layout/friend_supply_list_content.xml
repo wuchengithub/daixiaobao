@@ -1,87 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res/com.daixiaobao"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:id="@+id/front"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/new_yanhui"
+    android:orientation="vertical"
+    android:paddingBottom="12.0dp"
+    android:paddingTop="12.0dp" >
 
-    <RelativeLayout
-        android:id="@+id/back"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/gray"
-        android:orientation="horizontal" >
+    <com.daixiaobao.widget.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/apply_list_image"
+        android:layout_width="56.0dp"
+        android:layout_height="56.0dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/img_morentouxiang"
+        app:border_color="@color/new_yanhui"
+        app:border_width="0dp" />
 
-        <Button
-            android:id="@+id/apply_list_content_remark"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="70.0dp"
-            android:layout_height="fill_parent"
-            android:layout_alignParentRight="true"
-            android:background="@color/green_sea"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:text="备注"
-            android:textColor="#ffffff" />
-
-        <Button
-            android:id="@+id/apply_list_content_delete"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="70.0dp"
-            android:layout_height="fill_parent"
-            android:layout_toLeftOf="@+id/apply_list_content_remark"
-            android:background="@color/red"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:text="删除"
-            android:textColor="#ffffff" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/front"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/new_yanhui"
-        android:orientation="vertical"
-        android:paddingBottom="12.0dp"
-        android:paddingTop="12.0dp" 
-        >
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16.0dp"
+        android:layout_toRightOf="@+id/apply_list_image"
+        android:orientation="vertical" >
 
-        <com.daixiaobao.widget.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/apply_list_image"
-            android:layout_width="56.0dp"
-            android:layout_height="56.0dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/img_morentouxiang"
-            app:border_color="@color/new_yanhui"
-            app:border_width="0dp" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
+        <TextView
+            android:id="@+id/apply_list_content_id"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16.0dp"
-            android:layout_toRightOf="@+id/apply_list_image"
-            android:orientation="vertical" >
+            android:text="ID:12345667"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/new_yese" />
 
-            <TextView
-                android:id="@+id/apply_list_content_id"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="ID:12345667"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/new_yese" />
+        <TextView
+            android:id="@+id/apply_list_content_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6.0dp"
+            android:layout_weight="1"
+            android:textColor="@color/grey"
+            android:textSize="12.0dp" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/apply_list_content_message"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6.0dp"
-                android:layout_weight="1"
-                android:text="签名：没有填写"
-                android:textColor="@color/grey"
-                android:textSize="12.0dp" />
-        </LinearLayout>
-    </RelativeLayout>
+   <!--  <ImageView
+        android:id="@+id/apply_list_content_remark"
+        android:layout_width="20.0dp"
+        android:layout_height="20.0dp"
+        android:layout_alignBottom="@+id/layout"
+        android:layout_toRightOf="@+id/layout"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:src="@drawable/edit" /> -->
 
-</FrameLayout>
+</RelativeLayout>
