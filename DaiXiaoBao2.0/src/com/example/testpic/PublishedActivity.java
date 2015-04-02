@@ -48,6 +48,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -98,10 +99,10 @@ public class PublishedActivity extends SherlockFragmentActivity {
 	};
 	private List<Item> data;
 	private View fragmentContainer;
-	private Button chooiceNext;
+	private TextView chooiceNext;
 	private OnClickListener next;
 	private OnClickListener send;
-	private FilterFragment proxyProductFragment;
+	private FilterFragment filterFragment;
 	private CheckBox isaljj;
 	private Spinner spinnerDangkou;
 	protected Navigation navigation;
@@ -111,7 +112,7 @@ public class PublishedActivity extends SherlockFragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_selectimg);
-		fragmentContainer = findViewById(R.id.publish_content);
+		fragmentContainer = findViewById(R.id.filter_content);
 		isaljj = (CheckBox) findViewById(R.id.isaljj);
 		if(LoginMessageDataUtils.getIsVip(this)){
 			isaljj.setVisibility(View.VISIBLE);
@@ -128,9 +129,9 @@ public class PublishedActivity extends SherlockFragmentActivity {
 				}
 			}
 		});
-		proxyProductFragment = FilterFragment.newInstance(-2, "");
+		filterFragment = FilterFragment.newInstance(-2, "");
 		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.publish_content, proxyProductFragment).commit();
+				.replace(R.id.filter_content, filterFragment).commit();
 		Init();
 		actionbar = findViewById(R.id.custom_actionbar);
 		findViewById(R.id.custon_back).setOnClickListener(
@@ -174,8 +175,10 @@ public class PublishedActivity extends SherlockFragmentActivity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				if (arg2 == Bimp.bmp.size()) {
-					new PopupWindows(PublishedActivity.this, actionbar);
-					
+					new PopupWindows(PublishedActivity.this, noScrollgridview);
+					//强行隐藏软键盘
+					InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+					inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 				} else {
 					Intent intent = new Intent(PublishedActivity.this,
 							PhotoActivity.class);
@@ -188,7 +191,7 @@ public class PublishedActivity extends SherlockFragmentActivity {
 		address = (EditText) findViewById(R.id.address);
 		price = (EditText) findViewById(R.id.price);
 		price2 = (EditText) findViewById(R.id.price2);
-		chooiceNext = (Button) findViewById(R.id.next);
+		chooiceNext = (TextView) findViewById(R.id.next);
 		productDesc = (EditText) findViewById(R.id.product_desc);
 		next = new View.OnClickListener() {
 
@@ -220,11 +223,6 @@ public class PublishedActivity extends SherlockFragmentActivity {
 					return;
 				}
 				toggle();
-				/*
-				 * Intent intent = new Intent(PublishedActivity.this,
-				 * ChooiceActivity.class); startActivityForResult(intent,
-				 * 0x123);
-				 */
 			}
 
 		};
@@ -232,7 +230,7 @@ public class PublishedActivity extends SherlockFragmentActivity {
 
 			@Override
 			public void onClick(View v) {
-				config = proxyProductFragment.getConfig();
+				config = filterFragment.getConfig();
 				if (TextUtils.isEmpty(config.getBrandId())) {
 					Toast.makeText(PublishedActivity.this, "请选择品牌",
 							Toast.LENGTH_LONG).show();
@@ -447,23 +445,23 @@ public class PublishedActivity extends SherlockFragmentActivity {
 		public PopupWindows(Context mContext, View parent) {
 
 			View view = View
-					.inflate(mContext, R.layout.item_popupwindows, null);
+					.inflate(mContext, R.layout.chooice_way, null);
 			view.startAnimation(AnimationUtils.loadAnimation(mContext,
 					R.anim.fade_ins));
 			LinearLayout ll_popup = (LinearLayout) view
 					.findViewById(R.id.ll_popup);
 			ll_popup.startAnimation(AnimationUtils.loadAnimation(mContext,
 					R.anim.push_bottom_in_2));
-
-			setWidth(LayoutParams.FILL_PARENT);
-			setHeight(LayoutParams.FILL_PARENT);
-			setBackgroundDrawable(new BitmapDrawable());
+			setWidth(LayoutParams.MATCH_PARENT);
+			setHeight(LayoutParams.WRAP_CONTENT);
+			setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
 			setFocusable(true);
 			setOutsideTouchable(true);
 			setContentView(view);
-			showAsDropDown(parent);
+			showAtLocation(parent, Gravity.BOTTOM, 0, 0);
 			update();
 
+			
 			Button bt1 = (Button) view
 					.findViewById(R.id.item_popupwindows_camera);
 			Button bt2 = (Button) view
