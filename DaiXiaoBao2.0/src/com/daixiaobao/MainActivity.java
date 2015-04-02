@@ -1,7 +1,6 @@
 package com.daixiaobao;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -10,31 +9,19 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Interpolator;
-import android.widget.ArrayAdapter;
 import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.app.ActionBar.TabListener;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.daixiaobao.center.MainCenterFragment;
-import com.daixiaobao.friend.ApplyListFragment;
 import com.daixiaobao.friend.FriendFragment;
-import com.daixiaobao.friend.SupplierActivity;
-import com.daixiaobao.more.MoreFragment;
-import com.daixiaobao.navigation.Navigation;
-import com.daixiaobao.navigation.NavigationActivity;
-import com.daixiaobao.proxy.ProxyProductFragment;
 import com.daixiaobao.widget.ConformDialog;
 import com.example.testpic.PublishedActivity;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -44,6 +31,7 @@ import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 
 public class MainActivity extends SlidingFragmentActivity {
+	private static final String TAG = "MainActivity";
 	private String[] TAB_NAME = new String[] { "好友", "申请列表", "资源导航", "设置" };
 	private Fragment mContent;
 	private Handler handler = new Handler();
@@ -60,10 +48,14 @@ public class MainActivity extends SlidingFragmentActivity {
 		}
 	};
 
+	protected void onDestroy() {
+		super.onDestroy();
+		Log.i(TAG, "...........ddddd");
+	};
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		Log.i(TAG, "...........onCreate");
 		if (savedInstanceState != null)
 			mContent = getSupportFragmentManager().getFragment(
 					savedInstanceState, "main");

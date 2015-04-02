@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
     <RelativeLayout
         android:id="@+id/custom_actionbar"
         android:layout_width="fill_parent"
@@ -27,8 +28,23 @@
             android:textColor="#ffffff"
             android:textSize="20sp" />
     </RelativeLayout>
-    <FrameLayout android:id="@+id/content"
+
+    <SearchView
+        android:id="@+id/product_search"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="wrap_content"
+        android:background="@color/new_qianbai"
+        android:focusable="false"
+        android:iconifiedByDefault="false"
+        android:padding="12.0dp"
+        android:queryHint="输入产品编号"
+        android:visibility="visible" >
+    </SearchView>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/filter_view_pager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/new_yanhui" />
 
 </LinearLayout>

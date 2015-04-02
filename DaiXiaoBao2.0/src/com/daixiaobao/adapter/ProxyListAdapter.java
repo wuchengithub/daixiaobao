@@ -48,7 +48,7 @@ import com.daixiaobao.concern.change.ResponseConcernChange;
 import com.daixiaobao.other.ChangePriceHelper;
 import com.daixiaobao.other.ShareCallBackHelper;
 import com.daixiaobao.other.ShareCallBackHelper.OnShareCallBackListener;
-import com.daixiaobao.proxy.list.ProxyListFragment.OnProductConcernChangeListener;
+import com.daixiaobao.proxy.list.ProxyListActivity.OnProductConcernChangeListener;
 import com.daixiaobao.proxy.list.ResponseProxyList.Group;
 import com.daixiaobao.widget.CustomLoadingDialog;
 import com.nostra13.universalimageloader.cache.disc.DiscCacheAware;

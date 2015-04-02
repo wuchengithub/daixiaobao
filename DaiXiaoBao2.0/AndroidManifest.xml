@@ -92,7 +92,7 @@
 
         <!-- friend -->
         <activity
-            android:name=".proxy.list.ProxyListFragment"
+            android:name=".proxy.list.ProxyListActivity"
             android:label="@string/list_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
@@ -166,7 +166,7 @@
         </activity>
         <!-- 类别筛选 -->
         <activity
-            android:name=".proxy.ProxyProductActivity"
+            android:name=".proxy.FilterAndSearchActivity"
             android:screenOrientation="portrait" 
             android:theme="@style/Theme.Sherlock.Light.NoActionBar">
         </activity>

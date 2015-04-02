@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.content.Context;
 
+import com.daixiaobao.categroy.ResponseCatagroy;
 import com.daixiaobao.greenrobot.AfterSales;
 import com.daixiaobao.greenrobot.AfterSalesDao.Properties;
 import com.daixiaobao.greenrobot.Attrb;
@@ -90,7 +91,13 @@ public class DBHelper {
 		daoSession.getFeatureDao().deleteAll();
 	}
 
-
+	public ResponseCatagroy getCategroy() {
+		ResponseCatagroy obj = new ResponseCatagroy();
+		obj.setErrorCode(ProtocolManager.ERROR_CODE_ZORE);
+		List<com.daixiaobao.greenrobot.Group> loadAll = daoSession.getGroupDao().loadAll();
+		obj.setGroup(loadAll);
+		return obj;
+	}
 	public AttributeBean getAllAttribute(String codeStr) {
 		// TODO Auto-generated method stub
 		AttributeBean data = new AttributeBean();

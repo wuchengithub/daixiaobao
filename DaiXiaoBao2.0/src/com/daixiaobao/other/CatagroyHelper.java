@@ -1,19 +1,18 @@
 package com.daixiaobao.other;
 
-import com.daixiaobao.categroy.CategroyProtocol;
-import com.daixiaobao.categroy.ResponseCatagroy;
-import com.daixiaobao.concern.change.ConcernChangeProtocol;
-import com.daixiaobao.concern.change.ResponseConcernChange;
-import com.daixiaobao.greenrobot.Group;
-import com.daixiaobao.widget.CustomLoadingDialog;
-import com.wookii.protocollManager.ProtocolManager;
-
 import android.content.Context;
 import android.os.Handler;
+import android.os.Message;
 import android.widget.Toast;
+
+import com.daixiaobao.categroy.CategroyProtocol;
+import com.daixiaobao.categroy.ResponseCatagroy;
+import com.daixiaobao.db.DBHelper;
+import com.wookii.protocollManager.ProtocolManager;
 
 public class CatagroyHelper {
 
+	protected static final int LOCAL = 0;
 	private Context context;
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
@@ -22,18 +21,21 @@ public class CatagroyHelper {
 			case ProtocolManager.NOTIFICATION:
 				if (msg.obj == null) {// 演示数据
 					Toast.makeText(context, "没有找到您想要的内容", Toast.LENGTH_LONG).show();
-					obj = new ResponseCatagroy();
-					obj.setGroup(new Group[]{});
+					return;
 				} else {
 					obj = (ResponseCatagroy) msg.obj;
 					if(obj.getErrorCode() != ProtocolManager.ERROR_CODE_ZORE){
-						Toast.makeText(context, obj.getMessage() + "", Toast.LENGTH_LONG).show();
-						CustomLoadingDialog.dismissDialog();
 						return;
 					}
 				}
 				break;
-
+			case LOCAL:
+				obj = (ResponseCatagroy) msg.obj;
+				if(obj.getGroup().size() == 0 ) {
+					protocol.invoke(model, handler);
+					return;
+				}
+				break;
 			default:
 				break;
 			}
@@ -41,6 +43,7 @@ public class CatagroyHelper {
 		};
 	};
 	private OnCategroyHandleListener listener;
+	private Object model;
 
 	private CatagroyHelper(Context context, OnCategroyHandleListener listener) {
 		this.context = context;
@@ -59,7 +62,18 @@ public class CatagroyHelper {
 	}
 
 	public void invoke(Object model) {
-		protocol.invoke(model, handler);
+		this.model = model;
+		//从本地加载
+		new Thread(){
+			public void run() {
+				ResponseCatagroy categroy = DBHelper.getInstance(context).getCategroy();
+				Message msg = handler.obtainMessage();
+				msg.obj = categroy;
+				msg.what = LOCAL;
+				handler.sendMessage(msg);
+				
+			};
+		}.start();
 	}
 
 	public interface OnCategroyHandleListener {

@@ -36,7 +36,7 @@ import com.wookii.utils.LoginMessageDataUtils;
  * @author Administrator
  *
  */
-public class ProxyProductFragment extends Fragment {
+public class FilterFragment extends Fragment {
 	
 	private static final String TOP_LEVEL = "-1";
 	protected static final String TAG = "ProxyProductFragment";
@@ -73,9 +73,9 @@ public class ProxyProductFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_proxy, container, false);
 		if(storeId == -2) {//from upload pics
 			fromPics = true;
-			view.findViewById(R.id.product_search).setVisibility(View.GONE);
 			view.findViewById(R.id.search_popup_window_content_submit).setVisibility(View.GONE);
 		}
+		
 		fristCgPull = (ListView)view.findViewById(R.id.proxy_categroy_one);
 		//设置左侧list的item监听
 		fristCgPull.setOnItemClickListener(new OnItemClickListener() {
@@ -104,7 +104,7 @@ public class ProxyProductFragment extends Fragment {
 			@Override
 			public void onFinish(SearchConfig config) {
 				// TODO Auto-generated method stub
-				ProxyProductFragment.this.config = config;
+				FilterFragment.this.config = config;
 				openDetailView(config, storeId);
 				
 			}
@@ -158,7 +158,6 @@ public class ProxyProductFragment extends Fragment {
 	 * @param order
 	 */
 	private void reqCategroy(String itemId, final int order) {
-		CustomLoadingDialog.showProgress(getActivity(), "", "加载类目", false, true);
 		CatagroyHelper catagroyHelper = CatagroyHelper.getInstance(getActivity(), new CatagroyHelper.OnCategroyHandleListener() {
 			
 			@Override
@@ -201,8 +200,8 @@ public class ProxyProductFragment extends Fragment {
 	private List<HashMap<String, Object>> prepareData(final int order,
 			ResponseCatagroy obj) {
 		List<HashMap<String, Object>> groupData = new ArrayList<HashMap<String, Object>>();
-		Group[] group = obj.getGroup();
-		if(group != null && group.length != 0) {
+		List<Group> group = obj.getGroup();
+		if(group != null && group.size() != 0) {
 			HashMap<String, Object> item = null;
 			for (Group g : group) {
 				item = new HashMap<String, Object>();
@@ -243,8 +242,8 @@ public class ProxyProductFragment extends Fragment {
 		
 	}
 
-	public static ProxyProductFragment newInstance(int storeId, String businessName) {
-		ProxyProductFragment f = new ProxyProductFragment();
+	public static FilterFragment newInstance(int storeId, String businessName) {
+		FilterFragment f = new FilterFragment();
 		Bundle bundle = new Bundle();
 		bundle.putInt("storeId", storeId);
 		bundle.putString("businessName", businessName);

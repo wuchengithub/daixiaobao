@@ -1,11 +1,13 @@
 package com.daixiaobao.categroy;
 
+import java.util.List;
+
 import com.daixiaobao.greenrobot.Group;
 
 public class ResponseCatagroy {
 	private int errorCode;
 	private String message;
-	private Group[] group;
+	private List<Group> group;
 
 	public int getErrorCode() {
 		return errorCode;
@@ -23,11 +25,11 @@ public class ResponseCatagroy {
 		this.message = message;
 	}
 
-	public Group[] getGroup() {
+	public List<Group> getGroup() {
 		return group;
 	}
 
-	public void setGroup(Group[] group) {
+	public void setGroup(List<Group> group) {
 		this.group = group;
 	}
 

@@ -17,7 +17,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.widget.Toast;
 
-import com.daixiaobao.proxy.list.ProxyListFragment;
+import com.daixiaobao.proxy.list.ProxyListActivity;
 import com.daixiaobao.version.RequestVreiosn;
 import com.daixiaobao.version.ResponseVersion;
 import com.daixiaobao.version.VersionProtocol;

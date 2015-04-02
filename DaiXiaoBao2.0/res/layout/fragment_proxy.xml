@@ -5,23 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/new_yanhui" >
 
-    <SearchView
-        android:id="@+id/product_search"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/new_qianbai"
-        android:focusable="false"
-        android:iconifiedByDefault="false"
-        android:padding="12.0dp"
-        android:queryHint="输入产品编号"
-        android:visibility="visible" >
-    </SearchView>
 
     <ListView
         android:id="@+id/proxy_categroy_one"
         android:layout_width="100.0dp"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/product_search"
         android:cacheColorHint="#00000000" />
 
 
@@ -29,7 +17,6 @@
         android:id="@+id/search_popup_window_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/product_search"
         android:layout_toRightOf="@+id/proxy_categroy_one"
         android:background="@color/new_yanhui" >
 

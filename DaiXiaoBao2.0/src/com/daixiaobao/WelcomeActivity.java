@@ -55,6 +55,8 @@ public class WelcomeActivity extends Activity {
 	private AnimationDrawable animationDrawable;
 	private AttributeProtocol protocol;
 	private DBHelper dbHelper;
+	protected int requestCount;
+	protected int groupCount;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -102,11 +104,12 @@ public class WelcomeActivity extends Activity {
 			@Override
 			public void onHandle(ResponseCatagroy obj) {
 				// TODO Auto-generated method stub
-				Group[] group = obj.getGroup();
-				if(group != null && group.length != 0) {
-					
+				List<Group> group = obj.getGroup();
+				if(group != null && group.size() != 0) {
+					groupCount = group.size();
 					//save in local data
 					for (Group item : group) {
+						
 						boolean addGroup = dbHelper.addGroup(item);
 						if(addGroup) {
 							getAttrbFromService(WelcomeActivity.this, item.getCode());
@@ -128,7 +131,7 @@ public class WelcomeActivity extends Activity {
 				DeviceTool.getDeviceId(context), code), new Handler(){
 			@Override
 			public void handleMessage(Message msg) {
-				
+				requestCount ++;
 				switch (msg.what) {
 				case ProtocolManager.NOTIFICATION:
 					AttributeBean mObj = (AttributeBean)msg.obj;
@@ -171,7 +174,9 @@ public class WelcomeActivity extends Activity {
 					break;
 				}
 				
-				openActivity();
+				if(groupCount == requestCount) {
+					openActivity();
+				}
 			}
 		});
 	}

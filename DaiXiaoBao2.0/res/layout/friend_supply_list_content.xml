@@ -4,7 +4,7 @@
     android:id="@+id/front"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@color/new_yanhui"
+    android:background="@drawable/list_item_selector"
     android:orientation="vertical"
     android:paddingBottom="12.0dp"
     android:paddingTop="12.0dp" >

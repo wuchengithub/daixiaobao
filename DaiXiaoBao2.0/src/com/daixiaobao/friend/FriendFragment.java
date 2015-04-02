@@ -15,21 +15,20 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.daixiaobao.CommonUtil;
 import com.daixiaobao.R;
 import com.daixiaobao.friend.ResponseBusinessList.Data;
 import com.daixiaobao.protocol.MyBaseProtocol;
-import com.daixiaobao.proxy.ProxyProductActivity;
-import com.daixiaobao.widget.CustomLoadingDialog;
+import com.daixiaobao.proxy.FilterAndSearchActivity;
+import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 import com.wookii.utils.DeviceTool;
 import com.wookii.utils.LoginMessageDataUtils;
 
 public class FriendFragment extends SherlockFragment {
 
-	private ListView listView;
+	private PullToRefreshGridView listView;
 	protected int storeId;
 	protected BusinessAdapter businessAdapter;
 	private Activity context;
@@ -45,7 +44,7 @@ public class FriendFragment extends SherlockFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.activity_friend, null);
-		listView = (ListView) view.findViewById(R.id.friend_supply_list);
+		listView = (PullToRefreshGridView) view.findViewById(R.id.friend_supply_list);
 		SearchView searchView = (SearchView) view
 				.findViewById(R.id.friend_search_supply);
 		int palteId = searchView.getContext().getResources()
@@ -79,9 +78,9 @@ public class FriendFragment extends SherlockFragment {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
 				// TODO Auto-generated method stub
-				storeId = (int) listView.getAdapter().getItemId(position);
+				storeId = (int) listView.mRefreshableView.getAdapter().getItemId(position);
 				String businessName = businessAdapter.getBusinessName(position);
-				Intent intent = new Intent(context, ProxyProductActivity.class);
+				Intent intent = new Intent(context, FilterAndSearchActivity.class);
 				intent.putExtra("storeId", storeId);
 				intent.putExtra("businessName", businessName);
 				((Activity) context).startActivity(intent);

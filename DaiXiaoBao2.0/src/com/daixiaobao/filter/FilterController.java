@@ -46,7 +46,7 @@ import com.wookii.utils.DeviceTool;
 import com.wookii.utils.LoginMessageDataUtils;
 
 @SuppressLint("NewApi")
-public class FilterController implements OnItemSelectedListener, OnQueryTextListener{
+public class FilterController implements OnItemSelectedListener{
 
 	public interface OnFinishFilterListener {
 		public void onFinish(SearchConfig config);
@@ -73,7 +73,6 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 	public IconButton submit;
 	public IconButton clear;
 	public ArrayList<Spinner> spinnerList = new ArrayList<Spinner>();
-	private SearchView searchView;
 	protected Spinner afterSalesView;
 	public FilterController(View view, SherlockFragment context) {
 		// TODO Auto-generated constructor stub
@@ -87,19 +86,7 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 		searchConfig.setCategoryId(codeStr);
 		this.attrMap = new HashMap<String, String>();
 		popupView = context.findViewById(R.id.search_popup_window_content);
-		searchView = (SearchView)context.findViewById(R.id.product_search);
-		int palteId = searchView.getContext().getResources()
-				.getIdentifier("android:id/search_plate", null, null);
-		View palteView = searchView.findViewById(palteId);
-		if (palteView != null) {
-			palteView.setBackgroundResource(R.color.WHITE);
-		}
-		searchView.setQueryHint("输入编号或关键字...");
-		searchView.setOnQueryTextListener(this);
-		// searchView.setOnSuggestionListener(this);
-		searchView.setIconifiedByDefault(false);
-		searchView.setSubmitButtonEnabled(true);
-		searchView.setFocusable(false);
+		
 	        
 		rootLayout = (LinearLayout)popupView.findViewById(R.id.search_popup_window_content_root);
 		submit = (IconButton)popupView.findViewById(R.id.search_popup_window_content_submit);
@@ -430,18 +417,6 @@ public class FilterController implements OnItemSelectedListener, OnQueryTextList
 		
 	}
 
-	@Override
-	public boolean onQueryTextSubmit(String query) {
-		SearchConfig searchConfig = new SearchConfig();
-		searchConfig.setProductCode(query);
-		listener.onFinish(searchConfig);
-		return true;
-	}
-
-	@Override
-	public boolean onQueryTextChange(String newText) {
-		return false;
-	}
 	
 	protected void openDetailView(String productCode) {
 		// TODO Auto-generated method stub

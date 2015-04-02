@@ -73,7 +73,7 @@ import com.daixiaobao.navigation.Navigation;
 import com.daixiaobao.navigation.NavigationRequest;
 import com.daixiaobao.navigation.NavigationRequest.NavigationBean;
 import com.daixiaobao.navigation.NavigationRequest.NavigationBean.Item;
-import com.daixiaobao.proxy.ProxyProductFragment;
+import com.daixiaobao.proxy.FilterFragment;
 import com.daixiaobao.widget.ConformDialog;
 import com.daixiaobao.widget.CustomLoadingDialog;
 import com.google.gson.Gson;
@@ -101,7 +101,7 @@ public class PublishedActivity extends SherlockFragmentActivity {
 	private Button chooiceNext;
 	private OnClickListener next;
 	private OnClickListener send;
-	private ProxyProductFragment proxyProductFragment;
+	private FilterFragment proxyProductFragment;
 	private CheckBox isaljj;
 	private Spinner spinnerDangkou;
 	protected Navigation navigation;
@@ -128,7 +128,7 @@ public class PublishedActivity extends SherlockFragmentActivity {
 				}
 			}
 		});
-		proxyProductFragment = ProxyProductFragment.newInstance(-2, "");
+		proxyProductFragment = FilterFragment.newInstance(-2, "");
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.publish_content, proxyProductFragment).commit();
 		Init();

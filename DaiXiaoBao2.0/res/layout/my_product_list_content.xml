@@ -2,20 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/new_qianbai"
+    android:background="@drawable/list_item_selector"
     android:padding="8.0dp" >
 
     <TextView
         android:id="@+id/my_company_share_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/my_product_list_content_image"
+        android:layout_toRightOf="@+id/my_product_list_content_image"
+        android:layout_alignBottom="@+id/my_product_list_content_image"
+        android:layout_marginTop="6.0dp"
         android:text="销售价：1990元"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/new_shenhong"
         android:textSize="16.0sp" 
-        android:layout_marginTop="6.0dp"/>
+        />
 
     <TextView
         android:id="@+id/my_product_list_content_product_code"
@@ -30,8 +31,8 @@
 
     <ImageView
         android:id="@+id/my_product_list_content_image"
-        android:layout_width="fill_parent"
-        android:layout_height="200.0dp"
+        android:layout_width="90.0dp"
+        android:layout_height="90.0dp"
         android:layout_below="@+id/my_product_list_content_product_code"
         android:layout_marginTop="4.0dp"
         android:scaleType="centerCrop" />
@@ -79,13 +80,12 @@
         android:id="@+id/my_product_list_content_detail_out_description"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/my_product_list_content_image"
-        android:layout_alignLeft="@+id/my_product_list_content_image"
-        android:background="@color/new_qianbai3"
+        android:layout_alignTop="@+id/my_product_list_content_image"
+        android:layout_toRightOf="@+id/my_product_list_content_image"
         android:ellipsize="end"
         android:maxLines="2"
         android:lineSpacingMultiplier="1.2"
-        android:padding="6.0dp"
+        android:padding="5.0dp"
         android:text="描述："
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/new_shenhui"
@@ -130,6 +130,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/my_product_list_content_image"
+        android:layout_toLeftOf="@+id/my_product_list_content_change"
         android:layout_centerHorizontal="true"
         android:background="@color/new_qianbai2"
         android:orientation="vertical"
@@ -186,7 +187,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:visibility="gone" >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -207,7 +209,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal" >
+            android:orientation="horizontal" 
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -228,7 +231,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal" >
+            android:orientation="horizontal" 
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="wrap_content"

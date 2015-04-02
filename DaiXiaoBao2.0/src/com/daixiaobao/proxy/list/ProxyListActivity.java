@@ -56,7 +56,7 @@ import com.wookii.utils.LoginMessageDataUtils;
  * @author Administrator
  *
  */
-public class ProxyListFragment extends SherlockFragmentActivity {
+public class ProxyListActivity extends SherlockFragmentActivity {
 
 	protected static final int DESC = 1;
 	protected static final int ASC = 0;
@@ -72,7 +72,7 @@ public class ProxyListFragment extends SherlockFragmentActivity {
 				ResponseProxyList obj = null;
 				obj = (ResponseProxyList)msg.obj;
 				if(obj != null && obj.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
-					ProxyListAdapter objectToAdapter = objectToAdapter(obj, ProxyListFragment.this);
+					ProxyListAdapter objectToAdapter = objectToAdapter(obj, ProxyListActivity.this);
 					objectToAdapter.setOnProductCencernChangeListener(new OnProductConcernChangeListener(){
 
 						@Override
@@ -83,7 +83,7 @@ public class ProxyListFragment extends SherlockFragmentActivity {
 						}});
 					
 				} 
-				Toast.makeText(ProxyListFragment.this, obj.getMessage(),
+				Toast.makeText(ProxyListActivity.this, obj.getMessage(),
 						Toast.LENGTH_SHORT).show();
 				break;
 			default:
@@ -130,7 +130,7 @@ public class ProxyListFragment extends SherlockFragmentActivity {
 						obj = (RequestProxyAllBean)msg.obj;
 						if(obj != null && obj.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
 							refreshData();
-							Toast.makeText(ProxyListFragment.this, obj.getMessge(), Toast.LENGTH_SHORT).show();
+							Toast.makeText(ProxyListActivity.this, obj.getMessge(), Toast.LENGTH_SHORT).show();
 						}
 						break;
 					default:
@@ -170,7 +170,7 @@ public class ProxyListFragment extends SherlockFragmentActivity {
 
 
 	protected ProxyListAdapter objectToAdapter(ResponseProxyList obj,
-			ProxyListFragment proxyListFragment) {
+			ProxyListActivity proxyListFragment) {
 		// TODO Auto-generated method stub
 		if(adapter == null){
 			data = new ArrayList<Group>();
