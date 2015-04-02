@@ -48,14 +48,9 @@ public class MainActivity extends SlidingFragmentActivity {
 		}
 	};
 
-	protected void onDestroy() {
-		super.onDestroy();
-		Log.i(TAG, "...........ddddd");
-	};
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.i(TAG, "...........onCreate");
 		if (savedInstanceState != null)
 			mContent = getSupportFragmentManager().getFragment(
 					savedInstanceState, "main");

@@ -479,7 +479,7 @@ public class PublishedActivity extends SherlockFragmentActivity {
 			bt2.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
 					Intent intent = new Intent(PublishedActivity.this,
-							TestPicActivity.class);
+							LocalPicActivity.class);
 					startActivityForResult(intent, 0x124);
 					dismiss();
 				}

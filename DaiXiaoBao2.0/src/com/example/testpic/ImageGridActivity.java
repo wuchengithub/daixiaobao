@@ -5,10 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import com.example.testpic.ImageGridAdapter.TextCallback;
-
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -17,10 +14,13 @@ import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.example.testpic.ImageGridAdapter.TextCallback;
 
 public class ImageGridActivity extends Activity {
 	public static final String EXTRA_IMAGE_LIST = "imagelist";
@@ -69,14 +69,10 @@ public class ImageGridActivity extends Activity {
 					list.add(it.next());
 				}
 
-				//if (Bimp.act_bool) {
-				/*Intent intent = new Intent(ImageGridActivity.this,
-						PublishedActivity.class);
-				startActivity(intent);*/
 				Bimp.act_bool = false;
 				//}
 				for (int i = 0; i < list.size(); i++) {
-					if (Bimp.drr.size() < 9) {
+					if (Bimp.drr.size() < Bimp.MAX_SIZE) {
 						Bimp.drr.add(list.get(i));
 					}
 				}
@@ -84,8 +80,10 @@ public class ImageGridActivity extends Activity {
 			}
 
 		});
-		findViewById(R.id.custon_back)
-		.setOnClickListener(new View.OnClickListener() {
+		ImageView back = (ImageView)findViewById(R.id.custon_back);
+		back.setImageResource(getResources()
+				.getIdentifier("action_bar_back", "drawable" , getPackageName()));
+		back.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -104,7 +102,6 @@ public class ImageGridActivity extends Activity {
 		gridView.setAdapter(adapter);
 		adapter.setTextCallback(new TextCallback() {
 			public void onListen(int count) {
-				bt.setText("完成" + "(" + count + ")");
 			}
 		});
 

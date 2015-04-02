@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.testpic.BitmapCache.ImageCallback;
 
+
 public class ImageGridAdapter extends BaseAdapter {
 
 	private TextCallback textcallback = null;
@@ -121,7 +122,7 @@ public class ImageGridAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				String path = dataList.get(position).imagePath;
 
-				if ((Bimp.drr.size() + selectTotal) < 9) {
+				if ((Bimp.drr.size() + selectTotal) < Bimp.MAX_SIZE) {
 					item.isSelected = !item.isSelected;
 					if (item.isSelected) {
 						holder.selected
@@ -140,7 +141,7 @@ public class ImageGridAdapter extends BaseAdapter {
 							textcallback.onListen(selectTotal);
 						map.remove(path);
 					}
-				} else if ((Bimp.drr.size() + selectTotal) >= 9) {
+				} else if ((Bimp.drr.size() + selectTotal) >= Bimp.MAX_SIZE) {
 					if (item.isSelected == true) {
 						item.isSelected = !item.isSelected;
 						holder.selected.setImageResource(-1);

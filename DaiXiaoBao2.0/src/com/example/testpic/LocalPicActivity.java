@@ -11,11 +11,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.TextView;
+import android.widget.ImageView;
 
-public class TestPicActivity extends Activity {
+
+public class LocalPicActivity extends Activity {
 	// ArrayList<Entity> dataList;//用来装载数据源的列表
 	List<ImageBucket> dataList;
 	GridView gridView;
@@ -29,9 +29,10 @@ public class TestPicActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_image_bucket);
-
-		findViewById(R.id.custon_back)
-		.setOnClickListener(new View.OnClickListener() {
+		ImageView back = (ImageView)findViewById(R.id.custon_back);
+		back.setImageResource(getResources()
+					.getIdentifier("action_bar_back", "drawable" , getPackageName()));
+		back.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -43,20 +44,14 @@ public class TestPicActivity extends Activity {
 
 		initData();
 		initView();
+		
 	}
 
 	/**
 	 * 初始化数据
 	 */
 	private void initData() {
-		// /**
-		// * 这里，我们假设已经从网络或者本地解析好了数据，所以直接在这里模拟了10个实体类，直接装进列表中
-		// */
-		// dataList = new ArrayList<Entity>();
-		// for(int i=-0;i<10;i++){
-		// Entity entity = new Entity(R.drawable.picture, false);
-		// dataList.add(entity);
-		// }
+		
 		dataList = helper.getImagesBucketList(false);	
 		bimap = BitmapFactory.decodeResource(
 				getResources(),
@@ -68,7 +63,7 @@ public class TestPicActivity extends Activity {
 	 */
 	private void initView() {
 		gridView = (GridView) findViewById(R.id.gridview);
-		adapter = new ImageBucketAdapter(TestPicActivity.this, dataList);
+		adapter = new ImageBucketAdapter(LocalPicActivity.this, dataList);
 		gridView.setAdapter(adapter);
 
 		gridView.setOnItemClickListener(new OnItemClickListener() {
@@ -89,9 +84,9 @@ public class TestPicActivity extends Activity {
 				 * 通知适配器，绑定的数据发生了改变，应当刷新视图
 				 */
 				// adapter.notifyDataSetChanged();
-				Intent intent = new Intent(TestPicActivity.this,
+				Intent intent = new Intent(LocalPicActivity.this,
 						ImageGridActivity.class);
-				intent.putExtra(TestPicActivity.EXTRA_IMAGE_LIST,
+				intent.putExtra(LocalPicActivity.EXTRA_IMAGE_LIST,
 						(Serializable) dataList.get(position).imageList);
 				startActivity(intent);
 				finish();

@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -31,10 +30,8 @@ public class ImageBucketAdapter extends BaseAdapter {
 				if (url != null && url.equals((String) imageView.getTag())) {
 					((ImageView) imageView).setImageBitmap(bitmap);
 				} else {
-					Log.e(TAG, "callback, bmp not match");
 				}
 			} else {
-				Log.e(TAG, "callback, bmp null");
 			}
 		}
 	};
@@ -100,7 +97,6 @@ public class ImageBucketAdapter extends BaseAdapter {
 			cache.displayBmp(holder.iv, thumbPath, sourcePath, callback);
 		} else {
 			holder.iv.setImageBitmap(null);
-			Log.e(TAG, "no images in bucket " + item.bucketName);
 		}
 		return arg1;
 	}

@@ -189,7 +189,7 @@
 
         <!-- 拍照 -->
         <activity
-            android:name="com.example.testpic.TestPicActivity"
+            android:name="com.example.testpic.LocalPicActivity"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
