@@ -13,7 +13,6 @@
         android:layout_alignBottom="@+id/my_product_list_content_image"
         android:layout_marginTop="6.0dp"
         android:text="销售价：1990元"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/new_shenhong"
         android:textSize="16.0sp" 
         />
@@ -63,10 +62,13 @@
         android:id="@+id/my_product_list_attr"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/my_product_list_content_change"
-        android:layout_below="@+id/my_company_share_total"
-        android:textColor="#305066"
-        android:textSize="12.0sp" />
+        android:layout_alignTop="@+id/my_product_list_content_image"
+        android:layout_toRightOf="@+id/my_product_list_content_image"
+        android:textColor="@color/new_shenhui"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="16.0sp"
+        android:layout_marginLeft="6.0dp" />
 
     <TextView
         android:id="@+id/my_product_list_content_date"
@@ -80,16 +82,15 @@
         android:id="@+id/my_product_list_content_detail_out_description"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/my_product_list_content_image"
+        android:layout_below="@+id/my_product_list_attr"
         android:layout_toRightOf="@+id/my_product_list_content_image"
         android:ellipsize="end"
         android:maxLines="2"
         android:lineSpacingMultiplier="1.2"
-        android:padding="5.0dp"
         android:text="描述："
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/new_shenhui"
-        android:textSize="12.0sp" />
+        android:textSize="12.0sp" 
+        android:layout_marginLeft="6.0dp"/>
 
     <CheckBox
         android:id="@+id/my_product_list_content_expand"

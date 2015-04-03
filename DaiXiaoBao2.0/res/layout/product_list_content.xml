@@ -63,9 +63,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/company_share_total"
-        
+        android:layout_alignTop="@+id/product_list_content_image"
+        android:layout_toRightOf="@+id/product_list_content_image"
         android:textColor="@color/new_shenhui"
-        android:textSize="12.0sp" />
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="16.0sp"
+        android:layout_marginLeft="6.0dp"/>
 
     <TextView
         android:id="@+id/product_list_content_date"
@@ -86,16 +90,15 @@
         android:id="@+id/product_list_content_detail_out_description"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/product_list_content_image"
+        android:layout_below="@+id/product_list_attr"
         android:layout_toRightOf="@+id/product_list_content_image"
         android:ellipsize="end"
         android:maxLines="2"
         android:lineSpacingMultiplier="1.2"
-        android:padding="5.0dp"
         android:text="描述："
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/new_shenhui"
-        android:textSize="12.0sp"
+        android:textSize="12.0sp" 
+        android:layout_marginLeft="6.0dp"
          />
 
     <CheckBox

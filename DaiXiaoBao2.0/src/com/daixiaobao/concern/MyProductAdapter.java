@@ -151,14 +151,14 @@ public class MyProductAdapter extends BaseAdapter {
 		holder.code.setText("编号：" + item.getProductCode());
 		holder.address.setText(item.getAddress());
 		holder.outDescription.setText(item.getDescription());
-		StringBuilder attrstr = new StringBuilder(item.getBrandName() + ":");
+		StringBuilder attrstr = new StringBuilder(item.getBrandName() /*+ ":"*/);
 		Map<String, String> attrs = item.getAttrs();
 		Iterator<String> iterator = attrs.keySet().iterator();
-		while(iterator.hasNext()){
+		/*while(iterator.hasNext()){
 			String key = iterator.next();
 			attrstr.append(key + "/");
 			attrstr.append(attrs.get(key) + "  ");
-		}
+		}*/
 		holder.attr.setText(attrstr.toString());
 		holder.image_count.setText(item.getImageCount() + "张");
 		holder.price.setText("￥" + item.getSellPrice());
