@@ -1,7 +1,10 @@
-package com.wookii;
+package com.daixiaobao.Login;
 
 import java.util.HashMap;
 
+import com.daixiaobao.WelcomeActivity;
+import com.wookii.ResourcesIdFactoryUtils;
+import com.wookii.WookiiSDKManager;
 import com.wookii.alipay.BaseHelper;
 import com.wookii.model.LoginRequest;
 import com.wookii.model.UserInfo;
@@ -71,9 +74,9 @@ public class LoginFragment extends Fragment {
 				LoginMessageDataUtils.insertStoreId(mParentActivity, userInfo.getStoreId());
 				LoginMessageDataUtils.setIsVip(mParentActivity, userInfo.getIsVip());
 				intent.putExtra("JSON", toastInfo);
-				/*if(listener != null) {
-					listener.onLogin(Activity.RESULT_OK);
-				}*/
+				
+				Intent main = new Intent(mParentActivity, WelcomeActivity.class);
+				mParentActivity.startActivity(main);
 				mParentActivity.finish();
 				break;
 			case ProtocolManager.TIMEOUT_ERROR:

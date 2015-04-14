@@ -1,5 +1,6 @@
 package com.wookii.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.telephony.TelephonyManager;
@@ -101,7 +102,7 @@ public class LoginMessageDataUtils {
 		return interimToken;
 	}
 
-	public static void insertStoreId(LoginAndRegActivity context,
+	public static void insertStoreId(Activity context,
 			String storeId) {
 		SharedPreferences sp = context.getSharedPreferences(
 				ProtocolManager.storeId, 0);

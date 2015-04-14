@@ -5,7 +5,6 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_item_selector"
-    android:orientation="vertical"
     android:paddingBottom="12.0dp"
     android:paddingTop="12.0dp" >
 
@@ -17,43 +16,53 @@
         android:layout_centerVertical="true"
         android:src="@drawable/img_morentouxiang"
         app:border_color="@color/new_yanhui"
-        app:border_width="0dp" />
+        app:border_width="0dp" 
+        android:layout_marginLeft="6.0dp"/>
 
-    <LinearLayout
-        android:id="@+id/layout"
+    <TextView
+        android:id="@+id/apply_list_content_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="16.0dp"
+        android:text="ID:12345667"
         android:layout_toRightOf="@+id/apply_list_image"
-        android:orientation="vertical" >
+        android:layout_marginLeft="12.0dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/new_shenhui" />
 
-        <TextView
-            android:id="@+id/apply_list_content_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ID:12345667"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/new_yese" />
+    <TextView
+        android:id="@+id/apply_list_content_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6.0dp"
+        android:textColor="@color/gray"
+        android:textSize="12.0dp"
+        android:layout_marginLeft="12.0dp"
+        android:text="wifisssds" 
+        android:layout_toRightOf="@+id/apply_list_image"
+        android:layout_below="@+id/apply_list_content_id"/>
+    <EditText
+        android:id="@+id/apply_list_content_edit_remark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6.0dp"
+        android:textColor="@color/gray"
+        android:textSize="12.0dp"
+        android:layout_marginLeft="12.0dp"
+        android:layout_toRightOf="@+id/apply_list_image"
+        android:layout_below="@+id/apply_list_content_id"
+        android:visibility="gone"
+        android:background="@null"
+        />
 
-        <TextView
-            android:id="@+id/apply_list_content_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6.0dp"
-            android:layout_weight="1"
-            android:textColor="@color/grey"
-            android:textSize="12.0dp" />
-    </LinearLayout>
-
-   <!--  <ImageView
+    <ImageView
         android:id="@+id/apply_list_content_remark"
-        android:layout_width="20.0dp"
-        android:layout_height="20.0dp"
-        android:layout_alignBottom="@+id/layout"
-        android:layout_toRightOf="@+id/layout"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:src="@drawable/edit" /> -->
+        android:layout_width="40.0dp"
+        android:layout_height="40.0dp"
+        android:layout_alignTop="@+id/apply_list_content_message"
+        android:layout_toRightOf="@+id/apply_list_content_message"
+        android:layout_marginLeft="12.0dp"
+        android:paddingRight="20.0dp"
+        android:paddingBottom="20.0dp"
+        android:src="@drawable/edit" />
 
 </RelativeLayout>

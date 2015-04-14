@@ -9,7 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.wookii.LoginAndRegActivity;
+import com.daixiaobao.Login.LoginAndRegActivity;
+
 
 /**
  * 通用工具类

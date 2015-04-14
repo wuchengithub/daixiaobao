@@ -172,7 +172,7 @@
         </activity>
         <!-- 登录 -->
         <activity
-            android:name="com.wookii.LoginAndRegActivity"
+            android:name="com.daixiaobao.Login.LoginAndRegActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Sherlock.Light.NoActionBar" />
         <activity

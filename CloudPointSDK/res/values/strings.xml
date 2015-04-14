@@ -7,10 +7,10 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">MainActivity</string>
-<string name="login_notic">代销宝温馨提示：\r\n
-1.上传新产品速度太快会导致发送失败\r\n
-2.10分钟内上传最好控制在50款以内\r\n
-3.图片左上角的编号可输入关键字查询\r\n
+<string name="login_notic">代销宝温馨提示:\n
+1.上传新产品速度太快会导致发送失败\n
+2.10分钟内上传最好控制在50款以内\n
+3.图片左上角的编号可输入关键字查询\n
 4.网速慢也会导致上传产品失败，请选择好网络环境
 </string>
 </resources>

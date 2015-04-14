@@ -1,9 +1,10 @@
-package com.wookii;
+package com.daixiaobao.Login;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.wookii.LoginFragment.OnLoginListener;
+import com.daixiaobao.Login.LoginFragment.OnLoginListener;
+import com.wookii.ResourcesIdFactoryUtils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -241,7 +242,7 @@ public class LoginAndRegActivity extends FragmentActivity {
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
-		//setResult(Activity.RESULT_CANCELED, intent);
+		setResult(Activity.RESULT_CANCELED, intent);
 		super.onDestroy();
 	}
 }

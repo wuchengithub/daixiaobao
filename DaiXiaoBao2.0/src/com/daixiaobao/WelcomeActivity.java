@@ -5,13 +5,17 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
+import com.daixiaobao.Login.LoginAndRegActivity;
 import com.daixiaobao.categroy.RequestCategroy;
 import com.daixiaobao.categroy.ResponseCatagroy;
 import com.daixiaobao.db.DBHelper;
@@ -41,15 +45,18 @@ public class WelcomeActivity extends Activity {
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
 			case OPEN_LOGIN:
-				CommonUtil.openLoginView(WelcomeActivity.this, CommonUtil.LOGIN_REQUEST_CODE);
+				Intent intent = new Intent();
+				intent.setClass(WelcomeActivity.this, LoginAndRegActivity.class);
+				startActivityForResult(intent, CommonUtil.LOGIN_REQUEST_CODE);
 				break;
 			case OPEN_MAIN:
 				CommonUtil.openMainView(WelcomeActivity.this);
-				finish();
+				
 				break;
 			default:
 				break;
 			}
+			finish();
 		};
 	};
 	private AnimationDrawable animationDrawable;
@@ -63,19 +70,20 @@ public class WelcomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome);
 		
-		
-	}
-
-
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
 		if (WookiiSDKManager.isLogin(WelcomeActivity.this)) {
 			initData();
 		} else {
 			handler.sendEmptyMessage(OPEN_LOGIN);
 		}
+		
+	}
+
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		
 	}
 
 	private void initData() {
@@ -89,14 +97,6 @@ public class WelcomeActivity extends Activity {
 		handler.sendEmptyMessage(OPEN_MAIN);
 	}
 	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
-		if(requestCode == CommonUtil.LOGIN_REQUEST_CODE) {
-			
-		}
-		super.onActivityResult(requestCode, resultCode, data);
-	}
 	private void requestData(String itemId) {
 		dbHelper.clearAll();
 		CatagroyHelper instance = CatagroyHelper.getInstance(this, new OnCategroyHandleListener() {

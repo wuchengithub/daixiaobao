@@ -7,11 +7,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.http.entity.mime.MinimalField;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore.Audio.Albums;
 import android.provider.MediaStore.Images.Media;
@@ -162,10 +166,18 @@ public class AlbumHelper {
 	 */
 	//boolean hasBuildImagesBucketList = false;
 
-	public void allScan() {  
-		context.sendBroadcast(new Intent(  
-                Intent.ACTION_MEDIA_MOUNTED,  
-                Uri.parse("file://" + Environment.getExternalStorageDirectory())));  
+	public void allScan() {
+		
+		if (19 <= Build.VERSION.SDK_INT){
+			MediaScannerConnection.scanFile(context, 
+			new String[]{Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath()}, 
+			null, null);
+		} else {
+			context.sendBroadcast(new Intent(  
+	                Intent.ACTION_MEDIA_MOUNTED,  
+	                Uri.parse("file://" + Environment.getExternalStorageDirectory())));  
+			
+		}
     }
 	
 	/**

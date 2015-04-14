@@ -8,9 +8,9 @@
     <RelativeLayout
         android:id="@+id/umeng_fb_contact_header"
         android:layout_width="fill_parent"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_alignParentTop="true"
-        android:background="@color/green_sea" >
+        android:background="@color/new_yese" >
 
         <ImageView
             android:id="@+id/umeng_fb_back"

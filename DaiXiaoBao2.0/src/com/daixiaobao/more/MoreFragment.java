@@ -167,6 +167,7 @@ public class MoreFragment extends Fragment {
 		// TODO Auto-generated method stub
 		LoginMessageDataUtils.insertToken(getActivity(), null);
 		CommonUtil.openLoginView(getActivity(), CommonUtil.LOGIN_REQUEST_CODE);
+		getActivity().finish();
 	}
 	
 	
