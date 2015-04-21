@@ -73,23 +73,11 @@ public class ProxyListActivity extends SherlockFragmentActivity {
 				obj = (ResponseProxyList)msg.obj;
 				if(obj != null && obj.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
 					ProxyListAdapter objectToAdapter = objectToAdapter(obj, ProxyListActivity.this);
-					objectToAdapter.setOnProductCencernChangeListener(new OnProductConcernChangeListener(){
-
-						@Override
-						public void onConcernChange(String prodcutCode, int position, String status) {
-							// TODO Auto-generated method stub
-							//修改价格
-							changeProductConcern(prodcutCode, position, status);
-						}});
-					
 				} 
-				Toast.makeText(ProxyListActivity.this, obj.getMessage(),
-						Toast.LENGTH_SHORT).show();
 				break;
 			default:
 				break;
 			}
-			CustomLoadingDialog.dismissDialog();
 			pullList.onRefreshComplete();
 		};
 	};
@@ -315,42 +303,8 @@ public class ProxyListActivity extends SherlockFragmentActivity {
 	}
 
 
-	/**
-	 * 
-	 * @param prodcutCode
-	 * @param status 
-	 */
-	private void changeProductConcern(String prodcutCode, final int position, final String status) {
-		CustomLoadingDialog.showProgress(this, "", "正在执行", false, true);
-		// TODO Auto-generated method stub
-		ConcernHelper instance = ConcernHelper.newInstance(this, new OnConCernChangeHandleListener() {
-			
-			@Override
-			public void onHandle(ResponseConcernChange obj) {
-				// TODO Auto-generated method stub
-				CustomLoadingDialog.dismissDialog();
-				//处理关注/取消
-				if(obj.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
-					//成功
-					boolean checked = false;
-					if (status.equals(ProxyListAdapter.STATUS_PROXY)) {
-						checked = true;
-					}
-//					Log.i(TAG, "position：" + position + " status:" + checked);
-					//状态变换
-					ProxyListAdapter.checkedMap.put(position, checked);
-				}
-			}
-		});
-		
-		instance.invoke(new RequestConcernChange(LoginMessageDataUtils.getToken(this),
-				LoginMessageDataUtils.getUID(this),
-				DeviceTool.getUniqueId(this), prodcutCode, status));
-		
-	}
 	private void getDataFromServer() {
 		// TODO Auto-generated method stub
-		CustomLoadingDialog.showProgress(this, "", "读取列表中", false, true);
 		RequestProxyList requestMineConcern = 
 				new RequestProxyList(LoginMessageDataUtils.getToken(this),
 				LoginMessageDataUtils.getUID(this),

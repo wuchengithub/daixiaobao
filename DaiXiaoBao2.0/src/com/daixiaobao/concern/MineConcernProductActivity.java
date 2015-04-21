@@ -6,30 +6,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.daixiaobao.R;
 import com.daixiaobao.adapter.ProxyListAdapter;
 import com.daixiaobao.concern.ResponseMineConcern.Group;
-import com.daixiaobao.concern.change.RequestConcernChange;
-import com.daixiaobao.concern.change.ResponseConcernChange;
 import com.daixiaobao.filter.SearchConfig;
-import com.daixiaobao.other.ConcernHelper;
-import com.daixiaobao.other.ConcernHelper.OnConCernChangeHandleListener;
 import com.daixiaobao.other.Test;
-import com.daixiaobao.widget.CustomLoadingDialog;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
@@ -67,19 +58,6 @@ public class MineConcernProductActivity extends SherlockFragmentActivity {
 				}
 				if (obj.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE) {
 					MyProductAdapter objectToAdapter = objectToAdapter(obj);
-					objectToAdapter
-							.setOnProductCencernChangeListener(new OnProductConcernChangeListener() {
-
-								@Override
-								public void onConcernChange(String prodcutCode,
-										int position, String status) {
-									// TODO Auto-generated method stub
-									Log.i(TAG, "onConcernChange:" + prodcutCode);
-									// 改变产品关注
-									changeProductConcern(prodcutCode, position,
-											status);
-								}
-							});
 				}
 				Toast.makeText(activity, obj.getMessage(),
 						Toast.LENGTH_SHORT).show();
@@ -87,7 +65,6 @@ public class MineConcernProductActivity extends SherlockFragmentActivity {
 			default:
 				break;
 			}
-			CustomLoadingDialog.dismissDialog();
 			pullList.onRefreshComplete();
 		};
 	};
@@ -182,50 +159,7 @@ public class MineConcernProductActivity extends SherlockFragmentActivity {
 		// TODO Auto-generated method stub
 		index = i;
 	}
-	/**
-	 * 
-	 * @param prodcutCode
-	 * @param status
-	 */
-	private void changeProductConcern(String prodcutCode, final int position,
-			final String status) {
-		CustomLoadingDialog
-				.showProgress(activity, "", "正在执行", false, true);
-		// TODO Auto-generated method stub
-		ConcernHelper instance = ConcernHelper.newInstance(activity,
-				new OnConCernChangeHandleListener() {
-
-					@Override
-					public void onHandle(ResponseConcernChange obj) {
-						// TODO Auto-generated method stub
-						CustomLoadingDialog.dismissDialog();
-						// 处理关注/取消
-						if (obj.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE) {
-							// 成功
-							boolean checked = false;
-							if (status.equals(MyProductAdapter.STATUS_PROXY)) {
-								checked = true;
-							}
-							Log.i(TAG, "position：" + position + " status:"
-									+ checked);
-							// 状态变换
-							MyProductAdapter.checkedMap.put(position, checked);
-							MyProductAdapter.expandMap.put(position, View.GONE);
-						}
-					}
-				});
-
-		instance.invoke(new RequestConcernChange(LoginMessageDataUtils
-				.getToken(activity), LoginMessageDataUtils
-				.getUID(activity), DeviceTool.getUniqueId(activity),
-				prodcutCode, status));
-
-	}
-
 	private void getDataFromServer() {
-		// TODO Auto-generated method stub
-		CustomLoadingDialog.showProgress(activity, "", "读取列表中", false,
-				true);
 		RequestMineConcern requestMineConcern = new RequestMineConcern(
 				LoginMessageDataUtils.getToken(activity),
 				String.valueOf(storeId),

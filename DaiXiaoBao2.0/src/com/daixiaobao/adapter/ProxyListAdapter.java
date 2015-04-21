@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ClipboardManager;
@@ -19,43 +18,29 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.text.Html;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.Toast;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
+import android.widget.Toast;
 
 import com.daixiaobao.BaseApplication;
 import com.daixiaobao.R;
-import com.daixiaobao.concern.change.RequestConcernChange;
-import com.daixiaobao.concern.change.ResponseConcernChange;
 import com.daixiaobao.other.ChangePriceHelper;
-import com.daixiaobao.other.ShareCallBackHelper;
-import com.daixiaobao.other.ShareCallBackHelper.OnShareCallBackListener;
 import com.daixiaobao.proxy.list.ProxyListActivity.OnProductConcernChangeListener;
 import com.daixiaobao.proxy.list.ResponseProxyList.Group;
 import com.daixiaobao.widget.CustomLoadingDialog;
 import com.nostra13.universalimageloader.cache.disc.DiscCacheAware;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
-import com.wookii.utils.DeviceTool;
-import com.wookii.utils.LoginMessageDataUtils;
 
 public class ProxyListAdapter extends BaseAdapter {
 
@@ -66,7 +51,6 @@ public class ProxyListAdapter extends BaseAdapter {
 	private List<Group> data;
 	public static HashMap<Integer, Boolean> checkedMap;
 	public static HashMap<Integer, Integer> expandMap;
-	private OnProductConcernChangeListener listener;
 	private Resources resources;
 	private Context context;
 	int currentImageIndex = 0;
@@ -202,7 +186,7 @@ public class ProxyListAdapter extends BaseAdapter {
 						public void handleMessage(Message msg) {
 							super.handleMessage(msg);
 						}
-					}, item.getSellPrice());
+					}, item.getSellPrice(), item.getDescription());
 					holder.concernToggle.setChecked(!((CheckBox)v).isChecked());
 				}
 			});
@@ -276,12 +260,6 @@ public class ProxyListAdapter extends BaseAdapter {
 		TextView code;
 		ImageView share;
 
-	}
-
-	public void setOnProductCencernChangeListener(
-			OnProductConcernChangeListener listener) {
-		// TODO Auto-generated method stub
-		this.listener = listener;
 	}
 
 	private synchronized void openWeixin(String[]images, int index){

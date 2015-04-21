@@ -5,6 +5,7 @@
     <color name="transparent">#00000000</color>
     <color name="button_get_token">#8EE5EE</color>
     <color name="gray">#cccccc</color>
+    <color name="gray_500">#9E9E9E</color>
     <color name="WHITE">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="background_recharge">#ff8601</color>

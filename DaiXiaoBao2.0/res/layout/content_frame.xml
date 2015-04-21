@@ -16,15 +16,15 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:padding="8.0dp"
-            android:src="@drawable/icon_list2" />
+            android:src="@drawable/ic_more_vert_white_36dp" />
 
         <TextView
             android:id="@+id/custon_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/custon_back"
-            android:text="代销宝"
+            android:layout_centerHorizontal="true"
+            android:text="商家"
             android:textColor="#ffffff"
             android:textSize="20sp" />
 

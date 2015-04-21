@@ -225,7 +225,7 @@ public class MyProductAdapter extends BaseAdapter {
 						ChangePriceBean obj = (ChangePriceBean)msg.obj;
 						holder.price.setText("￥" + obj.getPrice());
 					}
-				}, item.getPrice());
+				}, item.getSellPrice(), item.getDescription());
 			}
 		});
 		return convertView;

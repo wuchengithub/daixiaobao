@@ -66,7 +66,6 @@ public class NavigationListAdapter extends BaseAdapter {
 	private List<Group> data;
 	public static HashMap<Integer, Boolean> checkedMap;
 	public static HashMap<Integer, Integer> expandMap;
-	private OnProductConcernChangeListener listener;
 	private Resources resources;
 	private Context context;
 	int currentImageIndex = 0;
@@ -202,7 +201,7 @@ public class NavigationListAdapter extends BaseAdapter {
 						public void handleMessage(Message msg) {
 							super.handleMessage(msg);
 						}
-					}, item.getSellPrice());
+					}, item.getSellPrice(), item.getDescription());
 					holder.concernToggle.setChecked(!((CheckBox)v).isChecked());
 				}
 			});
@@ -276,12 +275,6 @@ public class NavigationListAdapter extends BaseAdapter {
 		TextView code;
 		ImageView share;
 
-	}
-
-	public void setOnProductCencernChangeListener(
-			OnProductConcernChangeListener listener) {
-		// TODO Auto-generated method stub
-		this.listener = listener;
 	}
 
 	private synchronized void openWeixin(String[]images, int index){

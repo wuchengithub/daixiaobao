@@ -72,20 +72,6 @@ public class FriendFragment extends SherlockFragment {
 				context.startActivity(intent);
 			}
 		});
-		listView.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
-					long arg3) {
-				// TODO Auto-generated method stub
-				storeId = (int) listView.mRefreshableView.getAdapter().getItemId(position);
-				String businessName = businessAdapter.getBusinessName(position);
-				Intent intent = new Intent(context, FilterAndSearchActivity.class);
-				intent.putExtra("storeId", storeId);
-				intent.putExtra("businessName", businessName);
-				((Activity) context).startActivity(intent);
-			}
-		});
 		return view;
 	}
 

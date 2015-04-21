@@ -9,6 +9,7 @@ import com.daixiaobao.categroy.CategroyProtocol;
 import com.daixiaobao.categroy.ResponseCatagroy;
 import com.daixiaobao.db.DBHelper;
 import com.wookii.protocollManager.ProtocolManager;
+import com.wookii.utils.LoginMessageDataUtils;
 
 public class CatagroyHelper {
 
@@ -20,8 +21,7 @@ public class CatagroyHelper {
 			switch (msg.what) {
 			case ProtocolManager.NOTIFICATION:
 				if (msg.obj == null) {// 演示数据
-					Toast.makeText(context, "没有找到您想要的内容", Toast.LENGTH_LONG).show();
-					return;
+					LoginMessageDataUtils.insertToken(context, null);
 				} else {
 					obj = (ResponseCatagroy) msg.obj;
 					if(obj.getErrorCode() != ProtocolManager.ERROR_CODE_ZORE){

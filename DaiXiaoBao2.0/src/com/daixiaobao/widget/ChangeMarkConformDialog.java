@@ -3,27 +3,29 @@ package com.daixiaobao.widget;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.daixiaobao.R;
+import com.daixiaobao.widget.ChangeMarkConformDialog.Builder;
 
-public class ChangePriceConformDialog extends Dialog {
-	
-
-	public ChangePriceConformDialog(Context context, int theme) {
+public class ChangeMarkConformDialog extends Dialog {
+	public ChangeMarkConformDialog(Context context, int theme) {
 		super(context, theme);
 	}
 
-	public ChangePriceConformDialog(Context context) {
+	public ChangeMarkConformDialog(Context context) {
 		super(context);
 	}
 
@@ -31,7 +33,7 @@ public class ChangePriceConformDialog extends Dialog {
 	 * Helper class for creating a custom dialog
 	 */
 	public static class Builder {
-		public EditText editTextDesc;
+
 		private Context context;
 		private String title;
 		private String message;
@@ -44,10 +46,8 @@ public class ChangePriceConformDialog extends Dialog {
 		private String icon;
 		private String checkBoxText;
 		private String transformType;
-		private EditText editTextPrice;
-		private String oriPrice;
+		private EditText editTextMark;
 		private TextView editTextOriPrice;
-		private String des;
 		
 		public String getTransformType(){
 			return transformType;
@@ -55,14 +55,9 @@ public class ChangePriceConformDialog extends Dialog {
 		public Builder(Context context) {
 			this.context = context;
 		}
-		public String getPrice() {
+		public String getRemark() {
 			// TODO Auto-generated method stub
-			return editTextPrice.getText().toString();
-		}
-		
-		public String getDesc() {
-			// TODO Auto-generated method stub
-			return editTextDesc.getText().toString();
+			return editTextMark.getText().toString();
 		}
 		/**
 		 * Set the Dialog message from String
@@ -70,19 +65,8 @@ public class ChangePriceConformDialog extends Dialog {
 		 * @param title
 		 * @return
 		 */
-		public Builder setMessage(String message) {
-			this.message = message;
-			return this;
-		}
-
-		/**
-		 * Set the Dialog message from resource
-		 * 
-		 * @param title
-		 * @return
-		 */
-		public Builder setMessage(int message) {
-			this.message = (String) context.getText(message);
+		public Builder setMessage(String mark) {
+			this.message = mark;
 			return this;
 		}
 
@@ -154,13 +138,13 @@ public class ChangePriceConformDialog extends Dialog {
 		/**
 		 * Create the custom dialog
 		 */
-		public ChangePriceConformDialog create() {
+		public ChangeMarkConformDialog create() {
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			// instantiate the dialog with the custom Theme
-			final ChangePriceConformDialog dialog = new ChangePriceConformDialog(
+			final ChangeMarkConformDialog dialog = new ChangeMarkConformDialog(
 					context, R.style.conformDialog);
-			View layout = inflater.inflate(R.layout.change_price_dialog,
+			View layout = inflater.inflate(R.layout.change_mark_dialog,
 					null);
 			dialog.addContentView(layout, new LayoutParams(
 					LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
@@ -188,10 +172,7 @@ public class ChangePriceConformDialog extends Dialog {
 					((Button) layout.findViewById(R.id.positiveButton))
 							.setOnClickListener(new View.OnClickListener() {
 								public void onClick(View v) {
-									if(TextUtils.isEmpty(editTextPrice.getText())) {
-										editTextPrice.setError("请输入新的价格");
-										return;
-									}
+									
 									positiveButtonClickListener.onClick(dialog,
 											DialogInterface.BUTTON_POSITIVE);
 								}
@@ -202,15 +183,10 @@ public class ChangePriceConformDialog extends Dialog {
 				layout.findViewById(R.id.positiveButton).setVisibility(
 						View.GONE);
 			}
-			editTextDesc = (EditText)layout.findViewById(R.id.desc);
-			if(des != null) {
-				editTextDesc.setText(des);
-			}
+			editTextMark = (EditText) layout.findViewById(R.id.remark_edittext);
 			// set the content message
 			if (message != null) {
-				editTextPrice = (EditText) layout.findViewById(R.id.price);
-				editTextPrice.setHint(message);
-				editTextPrice.setText(oriPrice);
+				editTextMark.setText(message);
 			} else if (contentView != null) {
 				// if no message set
 				// add the contentView to the dialog body
@@ -225,23 +201,8 @@ public class ChangePriceConformDialog extends Dialog {
 			if (icon != null) {
 				((Button) layout.findViewById(R.id.Icon)).showContextMenu();
 			}
-			
-			if(oriPrice != null){
-				editTextOriPrice = (TextView) layout.findViewById(R.id.oriPrice);
-				editTextOriPrice.setText("商品原价：" + oriPrice + "￥");
-			}
 			dialog.setContentView(layout);
 			return dialog;
-		}
-		
-		public Builder setOriPrice(String oriPrice) {
-			this.oriPrice = oriPrice;
-			return this;
-		}
-		public Builder setDes(String des) {
-			// TODO Auto-generated method stub
-			this.des = des;
-			return this;
 		}
 	}
 }

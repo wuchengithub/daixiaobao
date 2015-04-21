@@ -5,17 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
-import android.view.inputmethod.InputMethodManager;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,24 +25,37 @@ import android.widget.Toast;
 import com.daixiaobao.R;
 import com.daixiaobao.friend.ResponseBusinessList.Data;
 import com.daixiaobao.protocol.MyBaseProtocol;
+import com.daixiaobao.proxy.FilterAndSearchActivity;
+import com.daixiaobao.widget.ChangeMarkConformDialog;
+import com.daixiaobao.widget.ConformDialog;
 import com.daixiaobao.widget.CustomLoadingDialog;
+import com.daixiaobao.widget.SmoothMenu;
+import com.daixiaobao.widget.SmoothMenu.OnSmoothMenuItemSelectListener;
+import com.daixiaobao.widget.SmoothMenuItem;
 import com.wookii.utils.DeviceTool;
 import com.wookii.utils.LoginMessageDataUtils;
 
 public class BusinessAdapter extends BaseAdapter {
 
+	private static final String TAG = "BusinessAdapter";
 	private LayoutInflater layoutInflater;
 	private Activity context;
 	private ArrayList<Data> data;
 	private FriendFragment friendFragment;
 	protected int lastPosition = -1;
-	private static Map<Integer, Boolean> remarkStatus;
+	private static Map<Integer, String> remarkString;
 	public BusinessAdapter(FriendFragment friendFragment, ArrayList<Data> data) {
 		this.data = data;
 		this.friendFragment = friendFragment;
 		this.context = friendFragment.getActivity();
 		this.layoutInflater = friendFragment.getActivity().getLayoutInflater();
-		remarkStatus = new HashMap<Integer, Boolean>();
+		remarkString = new HashMap<Integer, String>();
+		for (int i = 0; i < data.size() ; i++) {
+			String remark = data.get(i).getRemark();
+			if(!TextUtils.isEmpty(remark)) {
+				remarkString.put(i, remark);
+			}
+		}
 	}
 
 	@Override
@@ -66,91 +81,54 @@ public class BusinessAdapter extends BaseAdapter {
 		final ViewHolder holder;
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = layoutInflater.inflate(
+			SmoothMenu smoothMenu = new SmoothMenu(context);
+			View contentView = layoutInflater.inflate(
 					R.layout.friend_supply_list_content, null);
+			smoothMenu.setContentView(contentView);
+			convertView = smoothMenu;
 			holder.id = (TextView) convertView
 					.findViewById(R.id.apply_list_content_id);
-			holder.signature = (TextView) convertView
-					.findViewById(R.id.apply_list_content_message);
 			holder.remark = (ImageView) convertView
 					.findViewById(R.id.apply_list_content_remark);
-			holder.edite = (EditText)convertView.findViewById(R.id.apply_list_content_edit_remark);
+			holder.edite = (TextView)convertView.findViewById(R.id.apply_list_content_edit_remark);
+			holder.smoothMenu = smoothMenu;
+			holder.goin = convertView.findViewById(R.id.apply_list_content_goin);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		final Data item = data.get(position);
 		holder.id.setText(item.getUserLoginId());
-		String remark = item.getRemark();
-		String hintText;
+		String remark = remarkString.get(position);
 		if(TextUtils.isEmpty(remark)){
-			hintText = "添加签名";
-			holder.signature.setText(hintText);
+			holder.edite.setText("添加签名");
 		} else {
-			hintText = remark;
-			holder.signature.setText("签名：" + hintText);
+			holder.edite.setText(remark);
 		}
-		holder.edite.setHint(hintText);
-		holder.edite.setOnFocusChangeListener(new OnFocusChangeListener() {
-			
-			@Override
-			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub
-				InputMethodManager inputMethodManager = (InputMethodManager) context
-						.getSystemService(Context.INPUT_METHOD_SERVICE);
-				if(hasFocus) { 
-					inputMethodManager.showSoftInput(v,
-							InputMethodManager.SHOW_FORCED);
-				} else {
-					/*inputMethodManager.hideSoftInputFromWindow(
-							v.getWindowToken(), 0);*/
-				}
-			}
-		});
-		
 		holder.remark.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				// 将上一个item的状态复原
-				if(lastPosition  != -1 && position != lastPosition) {
-					remarkStatus.put(lastPosition, false);
-				}
-				//更改状态:备注修改中
-				if(!remarkStatus.get(position)){
-					remarkStatus.put(position, true);
-					lastPosition = position;
-					notifyDataSetChanged();
-				}
-				
+				changeMark(context, position, item.getUserId(), item.getRemark());
 			}
 		});
-		if(remarkStatus.get(position) == null ){
-			remarkStatus.put(position, false);
-		}
-		//是true，状态:备注修改中
-		if(remarkStatus.get(position)) {
-			holder.edite.setVisibility(View.VISIBLE);
-			holder.signature.setVisibility(View.INVISIBLE);
-			holder.remark.setImageResource(R.drawable.ic_confirm_pressed);
-			holder.edite.requestFocus();
-		} else {
-			holder.edite.setVisibility(View.GONE);
-			holder.signature.setVisibility(View.VISIBLE);
-			holder.remark.setImageResource(R.drawable.edit);
-		}
-		
-		
-		
-		/*if (item.getStoreId().equals(LoginMessageDataUtils.getStoreId(context))) {
-			holder.delete.setVisibility(View.INVISIBLE);
-		} else {
-			holder.delete.setVisibility(View.VISIBLE);
-		}
-		holder.delete.setOnClickListener(new OnClickListener() {
-
+		holder.goin.setOnClickListener(new View.OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				int storeId = (int) getItemId(position);
+				String businessName = getBusinessName(position);
+				Intent intent = new Intent(context, FilterAndSearchActivity.class);
+				intent.putExtra("storeId", storeId);
+				intent.putExtra("businessName", businessName);
+				((Activity) context).startActivity(intent);
+			}
+		});
+		holder.smoothMenu.setOnSmoothMenuItemSelected(new OnSmoothMenuItemSelectListener() {
+			
+			@Override
+			public void onSmoothMenuItemSelected(int type) {
 				Dialog dialog = null;
 				ConformDialog.Builder customBuilder = new ConformDialog.Builder(
 						context);
@@ -168,31 +146,58 @@ public class BusinessAdapter extends BaseAdapter {
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,
 											int which) {
-										request(item);
+										requestDelete(item);
 										dialog.dismiss();
 									}
 								});
 				dialog = customBuilder.create();
 				dialog.show();
 			}
-		});*/
+		});
 		return convertView;
 	}
 
 	final class ViewHolder {
 
-		public EditText edite;
+		public View goin;
+		public SmoothMenu smoothMenu;
+		public TextView edite;
 		public ImageView remark;
-		TextView id, signature;
-		//Button delete;
+		TextView id;
 
 	}
+	public void changeMark(final Context context, final int position, final String id, final String mark) {
+		Dialog dialog = null;
+		final ChangeMarkConformDialog.Builder customBuilder = new ChangeMarkConformDialog.Builder(
+				context);
+		customBuilder.setMessage(mark)
+		.setPositiveButton("备注", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						switch (which) {
+						case Dialog.BUTTON_NEGATIVE:
+							break;
+						case Dialog.BUTTON_POSITIVE:
+							String remark = customBuilder.getRemark();
+							remarkString.put(position, remark); 
+							notifyDataSetChanged();
+							requestRemark(id, remark);
+							break;
+						default:
+							break;
+						}
+						dialog.dismiss();
+					}
 
-	private void requestRemark(final Data item, String remark) {
+				});
+		dialog = customBuilder.create();
+		dialog.show();
+	}
+	
+	private void requestRemark(final String id, String remark) {
 		RemarkProtocol protocol = new RemarkProtocol();
 		protocol.invoke(new RemarkBean(LoginMessageDataUtils.getToken(context), 
 				LoginMessageDataUtils.getUID(context), DeviceTool
-				.getUniqueId(context), item.getUserId(), remark),
+				.getUniqueId(context), id, remark),
 				new Handler(){
 					@Override
 					public void handleMessage(Message msg) {
@@ -201,6 +206,7 @@ public class BusinessAdapter extends BaseAdapter {
 					}
 		});
 	}
+	
 	private void requestDelete(final Data item) {
 		CustomLoadingDialog
 				.showProgress(context, null, "正在发送请求中", false, false);
@@ -232,7 +238,7 @@ public class BusinessAdapter extends BaseAdapter {
 		@Override
 		protected Class getClazz() {
 			// TODO Auto-generated method stub
-			return null;
+			return RemarkBean.class;
 		}
 
 		@Override

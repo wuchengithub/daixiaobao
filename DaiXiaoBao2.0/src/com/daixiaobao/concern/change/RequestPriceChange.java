@@ -1,21 +1,12 @@
 package com.daixiaobao.concern.change;
 
-public class RequestConcernChange {
+public class RequestPriceChange {
 	// private Context mContext;
 	private String token;
 	private String uid;
 	private String deviceId;
 	private String productIds;
 	private String price;
-	private String desc;
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
 
 	public String getProductIds() {
 		return productIds;
@@ -57,10 +48,9 @@ public class RequestConcernChange {
 		this.deviceId = deviceId;
 	}
 
-	public RequestConcernChange(String token, String uid, String deviceId,
-			String productIds, String price, String desc) {
+	public RequestPriceChange(String token, String uid, String deviceId,
+			String productIds, String price) {
 		super();
-		this.desc = desc;
 		this.token = token;
 		this.uid = uid;
 		this.deviceId = deviceId;

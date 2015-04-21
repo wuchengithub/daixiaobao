@@ -52,14 +52,6 @@ public class NavigationListActivity extends SherlockFragmentActivity {
 				obj = (ResponseNavigationList)msg.obj;
 				if(obj != null && obj.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
 					NavigationListAdapter objectToAdapter = objectToAdapter(obj, NavigationListActivity.this);
-					objectToAdapter.setOnProductCencernChangeListener(new OnProductConcernChangeListener(){
-
-						@Override
-						public void onConcernChange(String prodcutCode, int position, String status) {
-							//改变产品关注
-							changeProductConcern(prodcutCode, position, status);
-						}});
-					
 				} 
 				Toast.makeText(NavigationListActivity.this, obj.getMessage(),
 						Toast.LENGTH_SHORT).show();
@@ -268,39 +260,6 @@ public class NavigationListActivity extends SherlockFragmentActivity {
 	}
 
 
-	/**
-	 * 
-	 * @param prodcutCode
-	 * @param status 
-	 */
-	private void changeProductConcern(String prodcutCode, final int position, final String status) {
-		CustomLoadingDialog.showProgress(this, "", "正在执行", false, true);
-		// TODO Auto-generated method stub
-		ConcernHelper instance = ConcernHelper.newInstance(this, new OnConCernChangeHandleListener() {
-			
-			@Override
-			public void onHandle(ResponseConcernChange obj) {
-				// TODO Auto-generated method stub
-				CustomLoadingDialog.dismissDialog();
-				//处理关注/取消
-				if(obj.getErrorCode() == ProtocolManager.ERROR_CODE_ZORE){
-					//成功
-					boolean checked = false;
-					if (status.equals(NavigationListAdapter.STATUS_PROXY)) {
-						checked = true;
-					}
-//					Log.i(TAG, "position：" + position + " status:" + checked);
-					//状态变换
-					NavigationListAdapter.checkedMap.put(position, checked);
-				}
-			}
-		});
-		
-		instance.invoke(new RequestConcernChange(LoginMessageDataUtils.getToken(this),
-				LoginMessageDataUtils.getUID(this),
-				DeviceTool.getUniqueId(this), prodcutCode, status));
-		
-	}
 	private void getDataFromServer() {
 		// TODO Auto-generated method stub
 		CustomLoadingDialog.showProgress(this, "", "读取列表中", false, true);

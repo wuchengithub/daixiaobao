@@ -5,64 +5,70 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_item_selector"
-    android:paddingBottom="12.0dp"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingBottom="6.0dp"
     android:paddingTop="12.0dp" >
 
+    <ImageView
+        android:id="@+id/apply_list_content_goin"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        />
     <com.daixiaobao.widget.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/apply_list_image"
         android:layout_width="56.0dp"
         android:layout_height="56.0dp"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="6.0dp"
         android:src="@drawable/img_morentouxiang"
+        android:visibility="gone"
         app:border_color="@color/new_yanhui"
-        app:border_width="0dp" 
-        android:layout_marginLeft="6.0dp"/>
+        app:border_width="0dp" />
 
     <TextView
         android:id="@+id/apply_list_content_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID:12345667"
-        android:layout_toRightOf="@+id/apply_list_image"
         android:layout_marginLeft="12.0dp"
+        android:layout_toRightOf="@+id/apply_list_image"
+        android:text="ID:12345667"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/new_shenhui" />
 
     <TextView
-        android:id="@+id/apply_list_content_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6.0dp"
-        android:textColor="@color/gray"
-        android:textSize="12.0dp"
-        android:layout_marginLeft="12.0dp"
-        android:text="wifisssds" 
-        android:layout_toRightOf="@+id/apply_list_image"
-        android:layout_below="@+id/apply_list_content_id"/>
-    <EditText
         android:id="@+id/apply_list_content_edit_remark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6.0dp"
-        android:textColor="@color/gray"
-        android:textSize="12.0dp"
-        android:layout_marginLeft="12.0dp"
-        android:layout_toRightOf="@+id/apply_list_image"
         android:layout_below="@+id/apply_list_content_id"
-        android:visibility="gone"
-        android:background="@null"
-        />
+        android:layout_marginLeft="12.0dp"
+        android:layout_marginTop="6.0dp"
+        android:layout_toRightOf="@+id/apply_list_image"
+        android:lines="2"
+        android:maxEms="16"
+        android:textColor="@color/gray_500"
+        android:textSize="12.0dp" />
 
     <ImageView
         android:id="@+id/apply_list_content_remark"
-        android:layout_width="40.0dp"
-        android:layout_height="40.0dp"
-        android:layout_alignTop="@+id/apply_list_content_message"
-        android:layout_toRightOf="@+id/apply_list_content_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/apply_list_content_edit_remark"
         android:layout_marginLeft="12.0dp"
-        android:paddingRight="20.0dp"
+        android:layout_marginRight="16.0dp"
+        android:layout_toRightOf="@+id/apply_list_content_edit_remark"
+        android:focusable="false"
         android:paddingBottom="20.0dp"
-        android:src="@drawable/edit" />
+        android:paddingRight="20.0dp"
+        android:src="@drawable/ic_mode_edit_grey" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16.0dp"
+        android:focusable="false"
+        android:src="@drawable/ic_keyboard_arrow_right_grey" />
 
 </RelativeLayout>

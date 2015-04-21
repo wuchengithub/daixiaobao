@@ -98,7 +98,7 @@ public class MainActivity extends SlidingFragmentActivity {
 						startActivity(intent);
 					}
 				});
-		;
+		
 
 		findViewById(R.id.custon_back).setOnClickListener(
 				new OnClickListener() {

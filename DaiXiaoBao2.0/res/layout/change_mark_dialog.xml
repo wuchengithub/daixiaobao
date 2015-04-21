@@ -3,32 +3,31 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/global_bg_card"
-    android:minWidth="280dip"
-    android:paddingBottom="24.0dp"
-    android:paddingRight="16.0dp" >
+    android:paddingBottom="24.0dp" 
+    android:paddingRight="16.0dp">
 
     <TextView
-        android:id="@+id/oriPrice"
+        android:id="@+id/remark_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="16.0dp"
         android:layout_marginTop="24.0dp"
-        android:text="原价：￥276元"
+        android:text="添加备注"
         android:textColor="@color/new_shenhui"
-        android:textSize="16.0sp" />
+        android:textSize="16.0dp" />
 
     <EditText
-        android:id="@+id/price"
-        android:layout_width="match_parent"
+        android:id="@+id/remark_edittext"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/oriPrice"
+        android:layout_below="@+id/remark_title"
         android:layout_marginLeft="16.0dp"
         android:layout_marginRight="16.0dp"
         android:layout_marginTop="18.0dp"
         android:background="@drawable/edit_text_bg"
-        android:hint="请输入新的价格（元）"
-        android:inputType="numberSigned"
+        android:hint="备注"
+        android:inputType="text"
         android:paddingBottom="10.0dp"
         android:paddingLeft="8.0dp"
         android:paddingRight="8.0dp"
@@ -36,36 +35,16 @@
         android:textColor="@color/new_shenhui"
         android:textColorHint="@color/gray"
         android:textSize="16.0sp" />
-
-    <EditText
-        android:id="@+id/desc"
-        android:layout_width="match_parent"
-        android:layout_height="120.0dp"
-        android:layout_marginLeft="16.0dp"
-        android:layout_marginRight="16.0dp"
-        android:layout_marginTop="8.0dp"
-        android:background="@drawable/edit_text_bg"
-        android:gravity="top"
-        android:hint="请输入产品描述"
-        android:paddingBottom="10.0dp"
-        android:paddingLeft="8.0dp"
-        android:paddingRight="8.0dp"
-        android:paddingTop="10.0dp"
-        android:textColor="@color/new_shenhui"
-        android:textColorHint="@color/gray"
-        android:textSize="16.0sp"
-        android:layout_below="@+id/price" >
-    </EditText>
 
     <Button
         android:id="@+id/positiveButton"
         android:layout_width="178.0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/desc"
+        android:layout_below="@+id/remark_edittext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32.0dp"
         android:background="@drawable/btn_bg_red"
-        android:text="收藏到我的店铺"
+        android:text="确定"
         android:textColor="@color/new_yanhui" />
 
 </RelativeLayout>

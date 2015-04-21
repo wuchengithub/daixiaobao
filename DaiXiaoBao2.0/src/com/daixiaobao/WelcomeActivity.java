@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.daixiaobao.Login.LoginAndRegActivity;
 import com.daixiaobao.categroy.RequestCategroy;
@@ -69,7 +70,10 @@ public class WelcomeActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome);
-		
+		if(!DeviceTool.isNetworkAvailable(this)) {
+			finish();
+			Toast.makeText(this, "网络不可用！", Toast.LENGTH_SHORT).show();
+		}
 		if (WookiiSDKManager.isLogin(WelcomeActivity.this)) {
 			initData();
 		} else {
@@ -116,10 +120,11 @@ public class WelcomeActivity extends Activity {
 						}
 					}
 					
+				} else {//没有获取到数据，重新登录一下试试
+					handler.sendEmptyMessage(OPEN_LOGIN);
 				}
 			}
 		});
-		
 		instance.invoke(new RequestCategroy(LoginMessageDataUtils.getToken(WelcomeActivity.this), LoginMessageDataUtils.getUID(WelcomeActivity.this), 
 				DeviceTool.getUniqueId(WelcomeActivity.this), itemId));
 	}
