@@ -7,31 +7,22 @@
         android:id="@+id/friend_search_supply"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/friend_add_friend"
         android:background="@color/new_qianbai"
         android:focusable="false"
         android:iconifiedByDefault="false"
         android:padding="12.0dp"
-        android:layout_toLeftOf="@+id/friend_add_friend"
         android:queryHint="输入好友姓名"
-        android:visibility="visible" >
+        android:visibility="gone" >
     </SearchView>
 
-    <ImageView
-        android:id="@+id/friend_add_friend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icon_addfriend" 
-        android:paddingTop="16.5dp"
-        android:paddingBottom="16.5dp"
-        android:paddingRight="30dp"
-        android:layout_alignParentRight="true"
-        android:background="@color/new_qianbai"/>
-
-     <com.handmark.pulltorefresh.library.PullToRefreshGridView
+    <com.handmark.pulltorefresh.library.PullToRefreshGridView
         xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/friend_supply_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_below="@+id/friend_search_supply"
+        android:layout_margin="8.0dp"
         android:cacheColorHint="#00000000"
         android:fadingEdge="none"
         android:gravity="fill"
@@ -39,19 +30,31 @@
         android:numColumns="1"
         android:stretchMode="columnWidth"
         android:verticalSpacing="8.0dp"
-        ptr:ptrMode="disabled" 
-        android:layout_margin="8.0dp"
-        android:layout_below="@+id/friend_search_supply"/>
-     
- <TextView
+        ptr:ptrMode="disabled" />
+
+    <TextView
         android:id="@+id/friend_find_new_friend"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/new_yanhui"
-        android:text="发现了新的好友申请，点击查看"
         android:gravity="center"
-        android:visibility="gone"
-        android:textColor="@color/new_yese" 
-        android:padding="4.0dp"/>
+        android:padding="4.0dp"
+        android:text="发现了新的好友申请，点击查看"
+        android:textColor="@color/new_yese"
+        android:visibility="gone" />
+
+    <com.daixiaobao.widget.CircleImageView
+        xmlns:ci="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/friend_add_friend"
+        android:layout_width="48.0dp"
+        android:layout_height="48.0dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="16.0dp"
+        android:layout_marginBottom="16.0dp"
+        android:src="@drawable/icon_addfriend" 
+        ci:border_width="0dp"
+        ci:border_color="#ffffff"/>
+
 </RelativeLayout>

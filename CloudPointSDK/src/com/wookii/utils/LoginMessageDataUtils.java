@@ -140,4 +140,17 @@ public class LoginMessageDataUtils {
 		boolean b = sp.getBoolean("isVip", false);
 		return b;
 	}
+
+	public static void fristInit(Context context) {
+		SharedPreferences sp = context.getSharedPreferences(
+				"initApp", 0);
+		SharedPreferences.Editor editor = sp.edit();
+		editor.putBoolean("frist", true);
+		editor.commit();
+	}
+	public static boolean getFristInit(Context context) {
+		SharedPreferences sp = context.getSharedPreferences(
+				"initApp", 0);
+		return sp.getBoolean("frist", false);
+	}
 }

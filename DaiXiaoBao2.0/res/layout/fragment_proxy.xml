@@ -3,7 +3,7 @@
     xmlns:ptr="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/new_yanhui" >
+    android:background="@color/WHITE" >
 
 
     <ListView
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@+id/proxy_categroy_one"
-        android:background="@color/new_yanhui" >
+        android:background="@color/WHITE" >
 
         <LinearLayout
             android:id="@+id/search_popup_layout"

@@ -19,16 +19,17 @@
             android:layout_marginTop="24.0dp"
             android:src="@drawable/touxiang"
             app:border_color="@color/new_yese"
-            app:border_width="2dp" />
+            app:border_width="2dp" 
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/center_main_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/center_main_image"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
             android:text="admin"
+            android:layout_marginLeft="16.0dp"
             android:textColor="@color/new_yanhui"
             android:textSize="21.0sp" />
 
@@ -110,7 +111,7 @@
         android:id="@+id/viewer"
         android:name="com.daixiaobao.more.MoreFragment"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/center_main_fristgroup" />
 
 </RelativeLayout>

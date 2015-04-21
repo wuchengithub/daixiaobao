@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/new_shenhui"
+    android:background="@color/WHITE"
     android:orientation="vertical" >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -21,67 +21,115 @@
                 android:src="@drawable/qrcode"
                 android:visibility="gone" />
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/g1"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:layout_height="72.0dp"
+                android:orientation="horizontal" 
+                >
 
                 <Button
                     android:id="@+id/more_modify_password"
                     style="@style/my_button"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/new_tab_non"
+                    
                     android:text="修改密码" />
-
-                <Button
-                    android:id="@+id/more_login"
-                    style="@style/my_button"
-                    android:layout_width="fill_parent"
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="重新登录" />
-
+                    android:layout_marginLeft="16.0dp"
+                    android:src="@drawable/ic_https_grey600_24dp"
+                    android:layout_centerVertical="true"/>
+			</RelativeLayout>	
+			
+            
+            
+            <RelativeLayout
+                android:id="@+id/g3"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dp"
+                android:orientation="horizontal" 
+                android:layout_below="@+id/g1"
+                >
                 <Button
                     android:id="@+id/more_check_version"
                     style="@style/my_button"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/new_tab_non"
                     android:text="应用版本" />
-
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16.0dp"
+                    android:src="@drawable/ic_system_update_grey600_24dp"
+                    android:layout_centerVertical="true"/>
+			</RelativeLayout>
+			
+            <RelativeLayout
+                android:id="@+id/g4"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dp"
+                android:orientation="horizontal" 
+                android:layout_below="@+id/g3"
+                >
                 <Button
                     android:id="@+id/more_opinion"
                     style="@style/my_button"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="帮助中心" />
-
+                    android:text="意见反馈" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16.0dp"
+                    android:src="@drawable/ic_quick_contacts_mail_grey600_24dp"
+                    android:layout_centerVertical="true"/>
+			</RelativeLayout>
+			
+            <RelativeLayout
+                android:id="@+id/g5"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dp"
+                android:orientation="horizontal" 
+                android:layout_below="@+id/g4"
+                >
                 <Button
                     android:id="@+id/more_about"
                     style="@style/my_button"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/new_tab_non"
                     android:text="关于代销宝" />
-
-                <Button
-                    android:id="@+id/more_help"
-                    style="@style/my_button"
-                    android:layout_width="fill_parent"
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="帮助中心"
-                    android:visibility="gone" />
-
-                <Button
+                    android:layout_marginLeft="16.0dp"
+                    android:src="@drawable/ic_stars_grey600_24dp"
+                    android:layout_centerVertical="true"/>
+			</RelativeLayout>
+			
+            <RelativeLayout
+                android:id="@+id/g6"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dp"
+                android:orientation="horizontal" 
+                android:layout_below="@+id/g5"
+                >
+                 <Button
                     android:id="@+id/more_cancellation"
                     style="@style/my_button"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/holo_red_dark"
                     android:text="注销用户"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
-        </LinearLayout>
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16.0dp"
+                    android:src="@drawable/ic_accessibility_grey600_24dp"
+                    android:layout_centerVertical="true"/>
+			</RelativeLayout>
+        </RelativeLayout>
     </ScrollView>
 
 </LinearLayout>

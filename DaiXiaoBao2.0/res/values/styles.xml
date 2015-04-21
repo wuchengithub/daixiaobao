@@ -54,9 +54,11 @@
 
     <style name="my_button" parent="@android:style/Widget.Button">
         <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/new_yanhui</item>
-        <item name="android:background">@color/new_shenhui</item>
-        <item name="android:drawablePadding">10dip</item>
+        <item name="android:textColor">@color/new_shenhui</item>
+        <item name="android:background">@color/WHITE</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">72dp</item>
+        <item name="android:layout_centerVertical">true</item>
     </style>
 
     <!-- 父类为Theme.Sherlock.Light，即白底黑字（如果是Theme.Sherlock，则为黑底白字）, 为了兼容考虑，所有样式的相关item需要写2遍-->  

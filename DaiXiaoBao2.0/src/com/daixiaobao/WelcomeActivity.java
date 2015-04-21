@@ -74,8 +74,13 @@ public class WelcomeActivity extends Activity {
 			finish();
 			Toast.makeText(this, "网络不可用！", Toast.LENGTH_SHORT).show();
 		}
-		if (WookiiSDKManager.isLogin(WelcomeActivity.this)) {
-			initData();
+		
+		if (WookiiSDKManager.isLogin(WelcomeActivity.this) ) {
+			if(WookiiSDKManager.isFristInit(WelcomeActivity.this)) {
+				initData();
+			} else {
+				handler.sendEmptyMessage(OPEN_MAIN);
+			}
 		} else {
 			handler.sendEmptyMessage(OPEN_LOGIN);
 		}
@@ -180,6 +185,7 @@ public class WelcomeActivity extends Activity {
 				}
 				
 				if(groupCount == requestCount) {
+					WookiiSDKManager.fristInit(WelcomeActivity.this);
 					openActivity();
 				}
 			}

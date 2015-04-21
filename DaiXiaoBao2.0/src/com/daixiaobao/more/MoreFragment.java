@@ -79,8 +79,6 @@ public class MoreFragment extends Fragment {
 		VersionHelper.getLocalVersions(getActivity()).split(VersionHelper.REGULAR_EXPRESSION)[1] + ")");
 		checkVersion
 				.setOnClickListener(new MyButtonCilckListener(CHECK_VERSION));
-		help = (Button) view.findViewById(R.id.more_help);
-		help.setOnClickListener(new MyButtonCilckListener(HELP));
 		modifyPassword = (Button) view.findViewById(R.id.more_modify_password);
 		modifyPassword.setOnClickListener(new MyButtonCilckListener(
 				MODIFY_PASSWORD));
@@ -88,16 +86,6 @@ public class MoreFragment extends Fragment {
 		opinion.setOnClickListener(new MyButtonCilckListener(OPINION));
 		dimensionalCode = (ImageView) view
 				.findViewById(R.id.more_two_dimensional_code);
-		Button b = (Button) view.findViewById(R.id.more_login);
-		b.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				CommonUtil.openLoginView(getActivity(),
-						CommonUtil.LOGIN_REQUEST_CODE);
-			}
-		});
 		return view;
 	}
 

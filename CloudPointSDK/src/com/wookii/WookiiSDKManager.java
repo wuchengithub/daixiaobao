@@ -190,4 +190,12 @@ public class WookiiSDKManager {
 		spendMoneyNoPassword.spendMoneyNoPassword(context, handler, what,
 				goldNumber, customerOrder, userNameStr, gid);
 	}
+	
+	public final static void fristInit(Context context) {
+		LoginMessageDataUtils.fristInit(context);
+	}
+	
+	public final static boolean isFristInit(Context context) {
+		return LoginMessageDataUtils.getFristInit(context);
+	}
 }
